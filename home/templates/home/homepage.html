@@ -1,0 +1,141 @@
+{% extends 'home/base.html' %} 
+{% load static %} 
+
+{% block title %} 
+  Homepage 
+{% endblock %}
+
+{% block body %}
+<main role="main" class="container">
+  <!-- Quote -->
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="px-3 py-3 pt-md-2 pb-md-0 mx-auto text-center">
+        <blockquote>
+          <p class="lead mb-1" style="font-size: 1.6rem;">
+            We turn not older with years, but newer every day.
+          </p>
+          <footer
+            class="blockquote-footer text-right pr-6"
+            style="font-size: 1rem;"
+          >
+            Emily Dickinson
+          </footer>
+        </blockquote>
+      </div>
+      <hr />
+    </div>
+  </div>
+
+  <!-- WebApp display -->
+  <div class="row mb-2 mt-4">
+    <!-- Checker -->
+    <div class="col-md-6">
+      <div
+        class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+      >
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Webapp</strong>
+          <h3 class="mb-0">Checker</h3>
+          <div class="mb-2 text-muted">Apr 5</div>
+          <!-- description: keep within 2 lines-->
+          <p class="card-text mb-auto">
+            This app will help you check if your regular expression works.
+          </p>
+          <a href="#" class="stretched-link">Go to App</a>
+        </div>
+
+        <div class="col-auto d-none d-lg-block">
+          <img
+            class="rounded border"
+            src="{% static 'home/src/images/design0.jpg' %}"
+            alt=""
+            width="200"
+            height="250"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Design display -->
+    <div class="col-md-6">
+      <div
+        class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+      >
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">Design</strong>
+          <h3 class="mb-0">Login Demo</h3>
+          <div class="mb-2 text-muted">Apr 6</div>
+          <p class="mb-auto">
+            This is a simple login demo designed by django and bootstrap.
+          </p>
+          <a href="#" class="stretched-link">Go to visit</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img
+            class="rounded border"
+            src="{% static 'home/src/images/design6.jpg' %}"
+            alt=""
+            width="200"
+            height="250"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Radar -->
+    <div class="col-md-6">
+      <div
+        class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+      >
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">Webapp</strong>
+          <h3 class="mb-0">Radar</h3>
+          <div class="mb-2 text-muted">Apr 7</div>
+          <p class="mb-auto">
+            This is a Radar App designed with HTML5 canvas and javascript.
+          </p>
+          <a href="#" class="stretched-link">Go to App</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img
+            class="rounded border"
+            src="{% static 'home/src/images/design5.jpg' %}"
+            alt=""
+            width="200"
+            height="250"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Ticktock -->
+    <div class="col-md-6">
+      <div
+        class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
+      >
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">Design</strong>
+          <h3 class="mb-0">Ticktock</h3>
+          <div class="mb-2 text-muted">Apr 8</div>
+          <p class="mb-auto">
+            Based on HTML5 canvas and javascript, we create a ticktock
+            animation.
+          </p>
+          <a href="#" class="stretched-link">Go to visit</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img
+            class="rounded border"
+            src="{% static 'home/src/images/design3.jpg' %}"
+            alt=""
+            width="200"
+            height="250"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
