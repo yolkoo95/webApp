@@ -1,3 +1,7 @@
+/* 
+  placeholder.css is to keep placeholder alive in input box, but
+  it will become smaller
+*/
 .form-label-group {
   position: relative;
   margin-bottom: 1rem;
