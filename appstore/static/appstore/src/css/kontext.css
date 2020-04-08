@@ -167,8 +167,9 @@
 		        transition: background 0.7s ease;
 	}
 
+	/* block background */
 	.kontext.capable.animate .layer.hide .dimmer {
-		visibility: visible;
-		background: rgba( 0, 0, 0, 0.7 );
+		visibility: hidden;
+		background: transparent;
 	}
 

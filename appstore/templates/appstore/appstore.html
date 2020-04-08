@@ -21,7 +21,11 @@
   </head>
   <body>
     <article class="kontext">
-      <div class="layer one show">
+      <div class="layer one show greet">
+        <h2>Welcome to App Store</h2>
+        <p>CREATIVE changes world, IDEAs worth spreading</p>
+      </div>
+      <div class="layer two">
         <div role="AppShop" class="container mt-4">
           <div class="row">
             <div class="col-md-6">
@@ -31,26 +35,24 @@
                 >
                   <div class="col d-flex flex-column position-static">
                     <div class="card-body">
-                      <strong class="d-inline-block mb-1 text-success"
-                        >Design</strong
-                      >
-                      <h5 class="card-title mb-0">Login Demo</h5>
+                      <h5><strong class="d-inline-block mb-1 text-primary"
+                        >WebApp</strong></h5>
+                      <h5 class="card-title mb-0">Checker</h5>
                       <div class="mb-2 text-muted">Apr 4</div>
-                      <p class="card-text mb-1">
-                        This is a wider card with supporting text below as a
-                        natural lead-in.
+                      <p class="card-text mb-3">
+                        The app will help you check if your regular expression works well.
                       </p>
-                      <a href="{% url 'login' %}" class="stretched-link"
-                        >Go to visit</a
+                      <a href="{% url 'checker' %}" class="stretched-link"
+                        >Go to app</a
                       >
                     </div>
                   </div>
                   <div class="col-4 d-none d-lg-block">
                     <img
-                      src="src/images/design4.jpg"
+                      src="{% static 'home/src/images/design0.jpg' %}"
                       class="card-img"
                       alt="img"
-                      height="200"
+                      height="230"
                     />
                   </div>
                 </div>
@@ -64,14 +66,13 @@
                 >
                   <div class="col d-flex flex-column position-static">
                     <div class="card-body">
-                      <strong class="d-inline-block mb-1 text-success"
-                        >Design</strong
-                      >
+                      <h5><strong class="d-inline-block mb-1 text-success"
+                        >Design</strong>
+                      </h5>
                       <h5 class="card-title mb-0">Login Demo</h5>
                       <div class="mb-2 text-muted">Apr 4</div>
                       <p class="card-text mb-1">
-                        This is a wider card with supporting text below as a
-                        natural lead-in.
+                        This is a simple and pretty login demo designed with django and bootstrap.
                       </p>
                       <a href="{% url 'login' %}" class="stretched-link"
                         >Go to visit</a
@@ -80,10 +81,10 @@
                   </div>
                   <div class="col-4 d-none d-lg-block">
                     <img
-                      src="src/images/design2.jpg"
+                      src="{% static 'home/src/images/design3.jpg' %}"
                       class="card-img"
                       alt="img"
-                      height="200"
+                      height="230"
                     />
                   </div>
                 </div>
@@ -97,26 +98,24 @@
                 >
                   <div class="col d-flex flex-column position-static">
                     <div class="card-body">
-                      <strong class="d-inline-block mb-1 text-success"
-                        >Design</strong
-                      >
-                      <h5 class="card-title mb-0">Login Demo</h5>
-                      <div class="mb-2 text-muted">Apr 4</div>
+                      <h5><strong class="d-inline-block mb-1 text-warning"
+                        >AppLab</strong></h5>
+                      <h5 class="card-title mb-0">Radar</h5>
+                      <div class="mb-2 text-muted">Apr 6</div>
                       <p class="card-text mb-1">
-                        This is a wider card with supporting text below as a
-                        natural lead-in.
+                        Radar designed with HTML5 canvas and bootstrap is a lab product so far.
                       </p>
-                      <a href="{% url 'login' %}" class="stretched-link"
+                      <a href="{% url 'radar' %}" class="stretched-link"
                         >Go to visit</a
                       >
                     </div>
                   </div>
                   <div class="col-4 d-none d-lg-block">
                     <img
-                      src="src/images/design4.jpg"
+                      src="{% static 'home/src/images/design5.jpg' %}"
                       class="card-img"
                       alt="img"
-                      height="200"
+                      height="230"
                     />
                   </div>
                 </div>
@@ -130,305 +129,35 @@
                 >
                   <div class="col d-flex flex-column position-static">
                     <div class="card-body">
-                      <strong class="d-inline-block mb-1 text-success"
-                        >Design</strong
-                      >
-                      <h5 class="card-title mb-0">Login Demo</h5>
-                      <div class="mb-2 text-muted">Apr 4</div>
+                      <h5><strong class="d-inline-block mb-1 text-info"
+                        >Graphic</strong></h5>
+                      <h5 class="card-title mb-0">Ticktock</h5>
+                      <div class="mb-2 text-muted">Apr 7</div>
                       <p class="card-text mb-1">
-                        This is a wider card with supporting text below as a
-                        natural lead-in.
+                        Based on HTML5 canvas and javascript, we create a ticktock animation.
                       </p>
-                      <a href="{% url 'login' %}" class="stretched-link"
+                      <a href="{% url 'ticktock' %}" class="stretched-link"
                         >Go to visit</a
                       >
                     </div>
                   </div>
                   <div class="col-4 d-none d-lg-block">
                     <img
-                      src="src/images/design4.jpg"
+                      src="{% static 'home/src/images/design6.jpg' %}"
                       class="card-img"
                       alt="img"
-                      height="200"
+                      height="230"
                     />
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="col-md-6">
-              <div class="card mb-3">
-                <div
-                  class="row h-md-250 no-gutters overflow-hidden flex-md-row shadow-sm position-relative"
-                >
-                  <div class="col d-flex flex-column position-static">
-                    <div class="card-body">
-                      <strong class="d-inline-block mb-1 text-success"
-                        >Design</strong
-                      >
-                      <h5 class="card-title mb-0">Login Demo</h5>
-                      <div class="mb-2 text-muted">Apr 4</div>
-                      <p class="card-text mb-1">
-                        This is a wider card with supporting text below as a
-                        natural lead-in.
-                      </p>
-                      <a href="{% url 'login' %}" class="stretched-link"
-                        >Go to visit</a
-                      >
-                    </div>
-                  </div>
-                  <div class="col-4 d-none d-lg-block">
-                    <img
-                      src="src/images/design4.jpg"
-                      class="card-img"
-                      alt="img"
-                      height="200"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="card mb-3">
-                <div
-                  class="row h-md-250 no-gutters overflow-hidden flex-md-row shadow-sm position-relative"
-                >
-                  <div class="col d-flex flex-column position-static">
-                    <div class="card-body">
-                      <strong class="d-inline-block mb-1 text-success"
-                        >Design</strong
-                      >
-                      <h5 class="card-title mb-0">Login Demo</h5>
-                      <div class="mb-2 text-muted">Apr 4</div>
-                      <p class="card-text mb-1">
-                        This is a wider card with supporting text below as a
-                        natural lead-in.
-                      </p>
-                      <a href="{% url 'login' %}" class="stretched-link"
-                        >Go to visit</a
-                      >
-                    </div>
-                  </div>
-                  <div class="col-4 d-none d-lg-block">
-                    <img
-                      src="src/images/design4.jpg"
-                      class="card-img"
-                      alt="img"
-                      height="200"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
-      <div class="layer two">
-        <div role="AppShop" class="container mt-2">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="card mb-3">
-                <div
-                  class="row h-md-250 no-gutters overflow-hidden flex-md-row shadow-sm position-relative"
-                >
-                  <div class="col d-flex flex-column position-static">
-                    <div class="card-body">
-                      <strong class="d-inline-block mb-1 text-success"
-                        >Design</strong
-                      >
-                      <h5 class="card-title mb-0">Login Demo</h5>
-                      <div class="mb-2 text-muted">Apr 4</div>
-                      <p class="card-text mb-1">
-                        This is a wider card with supporting text below as a
-                        natural lead-in.
-                      </p>
-                      <a href="{% url 'login' %}" class="stretched-link"
-                        >Go to visit</a
-                      >
-                    </div>
-                  </div>
-                  <div class="col-4 d-none d-lg-block">
-                    <img
-                      src="src/images/design4.jpg"
-                      class="card-img"
-                      alt="img"
-                      height="200"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="card mb-3">
-                <div
-                  class="row h-md-250 no-gutters overflow-hidden flex-md-row shadow-sm position-relative"
-                >
-                  <div class="col d-flex flex-column position-static">
-                    <div class="card-body">
-                      <strong class="d-inline-block mb-1 text-success"
-                        >Design</strong
-                      >
-                      <h5 class="card-title mb-0">Login Demo</h5>
-                      <div class="mb-2 text-muted">Apr 4</div>
-                      <p class="card-text mb-1">
-                        This is a wider card with supporting text below as a
-                        natural lead-in.
-                      </p>
-                      <a href="{% url 'login' %}" class="stretched-link"
-                        >Go to visit</a
-                      >
-                    </div>
-                  </div>
-                  <div class="col-4 d-none d-lg-block">
-                    <img
-                      src="src/images/design2.jpg"
-                      class="card-img"
-                      alt="img"
-                      height="200"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="card mb-3">
-                <div
-                  class="row h-md-250 no-gutters overflow-hidden flex-md-row shadow-sm position-relative"
-                >
-                  <div class="col d-flex flex-column position-static">
-                    <div class="card-body">
-                      <strong class="d-inline-block mb-1 text-success"
-                        >Design</strong
-                      >
-                      <h5 class="card-title mb-0">Login Demo</h5>
-                      <div class="mb-2 text-muted">Apr 4</div>
-                      <p class="card-text mb-1">
-                        This is a wider card with supporting text below as a
-                        natural lead-in.
-                      </p>
-                      <a href="{% url 'login' %}" class="stretched-link"
-                        >Go to visit</a
-                      >
-                    </div>
-                  </div>
-                  <div class="col-4 d-none d-lg-block">
-                    <img
-                      src="src/images/design4.jpg"
-                      class="card-img"
-                      alt="img"
-                      height="200"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="card mb-3">
-                <div
-                  class="row h-md-250 no-gutters overflow-hidden flex-md-row shadow-sm position-relative"
-                >
-                  <div class="col d-flex flex-column position-static">
-                    <div class="card-body">
-                      <strong class="d-inline-block mb-1 text-success"
-                        >Design</strong
-                      >
-                      <h5 class="card-title mb-0">Login Demo</h5>
-                      <div class="mb-2 text-muted">Apr 4</div>
-                      <p class="card-text mb-1">
-                        This is a wider card with supporting text below as a
-                        natural lead-in.
-                      </p>
-                      <a href="{% url 'login' %}" class="stretched-link"
-                        >Go to visit</a
-                      >
-                    </div>
-                  </div>
-                  <div class="col-4 d-none d-lg-block">
-                    <img
-                      src="src/images/design4.jpg"
-                      class="card-img"
-                      alt="img"
-                      height="200"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="card mb-3">
-                <div
-                  class="row h-md-250 no-gutters overflow-hidden flex-md-row shadow-sm position-relative"
-                >
-                  <div class="col d-flex flex-column position-static">
-                    <div class="card-body">
-                      <strong class="d-inline-block mb-1 text-success"
-                        >Design</strong
-                      >
-                      <h5 class="card-title mb-0">Login Demo</h5>
-                      <div class="mb-2 text-muted">Apr 4</div>
-                      <p class="card-text mb-1">
-                        This is a wider card with supporting text below as a
-                        natural lead-in.
-                      </p>
-                      <a href="{% url 'login' %}" class="stretched-link"
-                        >Go to visit</a
-                      >
-                    </div>
-                  </div>
-                  <div class="col-4 d-none d-lg-block">
-                    <img
-                      src="src/images/design4.jpg"
-                      class="card-img"
-                      alt="img"
-                      height="200"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-6">
-              <div class="card mb-3">
-                <div
-                  class="row h-md-250 no-gutters overflow-hidden flex-md-row shadow-sm position-relative"
-                >
-                  <div class="col d-flex flex-column position-static">
-                    <div class="card-body">
-                      <strong class="d-inline-block mb-1 text-success"
-                        >Design</strong
-                      >
-                      <h5 class="card-title mb-0">Login Demo</h5>
-                      <div class="mb-2 text-muted">Apr 4</div>
-                      <p class="card-text mb-1">
-                        This is a wider card with supporting text below as a
-                        natural lead-in.
-                      </p>
-                      <a href="{% url 'login' %}" class="stretched-link"
-                        >Go to visit</a
-                      >
-                    </div>
-                  </div>
-                  <div class="col-4 d-none d-lg-block">
-                    <img
-                      src="src/images/design4.jpg"
-                      class="card-img"
-                      alt="img"
-                      height="200"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="layer three">
-        
+      <div class="layer three greet">
+        <h2>Developing ...</h2>
       </div>
     </article>
 

@@ -50,28 +50,42 @@ body::-webkit-scrollbar-track {
 	background: #ededed;
 }
 
+.greet {
+	color: azure;
+	text-align: center;
+	text-shadow: 1px 1px 0px rgba( 0, 0, 0, 0.1 );
+}
+
+.greet h2{
+	position: relative;
+	top: 30%;
+	margin: 0;
+	font-size: 6.25em;
+}
+
+.greet p{
+	position: relative;
+	top: 30%;
+	margin: 0;;
+	font-size: 2.5em;
+}
+
 /* Layer CSS */
 
-/* .layer.one {
-	background: url('../images/appstore.jpg');
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	background-attachment: fixed;
+.layer.one {
+	background: #dc6c5f;
 }
 
-.layer.two {
-	background: url('../images/appstore.jpg');
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	background-attachment: fixed;
-}
-
-.layer.three {
+/* .layer.two {
 	background: url('../images/appstore.jpg');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	background-attachment: fixed;
 } */
+
+.layer.three {
+	background: #64b9d2;
+}
 
 .bullets {
 	position: absolute;
