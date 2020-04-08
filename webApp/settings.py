@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
+    'appstore.apps.AppstoreConfig',
     'checker.apps.CheckerConfig',
     'logindemo.apps.LogindemoConfig',
     'radar.apps.RadarConfig',

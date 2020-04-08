@@ -23,6 +23,6 @@ urlpatterns = [
     path('design/logindemo/', include('logindemo.urls')),
     path('lab/radar', include('radar.urls')),
     path('graphic/ticktock', include('ticktock.urls')),
-    
+    path('appstore/', include('appstore.urls')),
     
 ]
