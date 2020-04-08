@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'checker.apps.CheckerConfig',
     'logindemo.apps.LogindemoConfig',
     'radar.apps.RadarConfig',
+    'ticktock.apps.TicktockConfig',
+    
 ]
 
 MIDDLEWARE = [

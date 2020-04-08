@@ -21,6 +21,8 @@ urlpatterns = [
     path('', include('home.urls')),
     path('app/checker/', include('checker.urls')),
     path('design/logindemo/', include('logindemo.urls')),
-    path('app/radar', include('radar.urls')),
+    path('lab/radar', include('radar.urls')),
+    path('graphic/ticktock', include('ticktock.urls')),
+    
     
 ]
