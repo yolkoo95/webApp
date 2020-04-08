@@ -26,20 +26,12 @@
       type="text/css"
       href="{% static 'home/src/css/bootstrap.min.css' %}"
     />
-    <link 
-      rel="stylesheet" 
-      type="text/css" 
-      href="{% static 'home/src/css/base.css' %}"
-    />
-    
+
     <title>{% block title %} {% endblock %}</title>
   </head>
-  <body style="font-family: nunito">
-    {% include 'home/nav.html' %} 
-    
+  <body>
+
     {% block body %} {% endblock %} 
-    
-    {% include 'home/footer.html' %}
 
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

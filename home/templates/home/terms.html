@@ -1,4 +1,4 @@
-{% extends 'logindemo/base.html' %}
+{% extends 'home/base.html' %}
 {% load static %}
 
 {% block title %}
@@ -6,7 +6,6 @@
 {% endblock %}
 
 {% block body %}
-    <link rel="stylesheet" href="{% static 'logindemo/terms.css' %}">
 
     <div id="app">
       <section class="section">
@@ -15,11 +14,8 @@
             <div
               class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2"
             >
-              <div class="login-brand" style="font-size: 2rem;">
-                Unicorn
-              </div>
-              <div class="card card-primary">
-                <div class="card-header">
+              <div class="card text-dark bg-light">
+                <div class="card-header text-center">
                   <h4>Terms of Service</h4>
                 </div>
                 <div class="card-body">
@@ -131,10 +127,6 @@
                     <br>&emsp;&emsp;15399018708@163.com
                   </address></p>
                 </div>
-              </div>
-              <div class="simple-footer">
-                Copyright &copy; 2020 IPIP
-                <div class="mt-2" id="copyright"></div>
               </div>
             </div>
           </div>

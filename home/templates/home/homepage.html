@@ -6,6 +6,9 @@
 {% endblock %}
 
 {% block body %}
+
+<!-- <link rel="stylesheet" href="{% static 'home/src/css/homepage.css' %}"> -->
+
 <main role="main" class="container">
   <!-- Quote -->
   <div class="row justify-content-center">
@@ -27,111 +30,133 @@
     </div>
   </div>
 
-  <!-- WebApp display -->
+  <!-- WebApp Display -->
   <div class="row mb-2 mt-4">
     <!-- Checker -->
-    <div class="col-md-6">
-      <div
-        class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-      >
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">Webapp</strong>
-          <h3 class="mb-0">Checker</h3>
-          <div class="mb-2 text-muted">Apr 5</div>
-          <!-- description: keep within 2 lines-->
-          <p class="card-text mb-auto">
-            This app will help you check if your regular expression works.
-          </p>
-          <a href="#" class="stretched-link">Go to App</a>
-        </div>
-
-        <div class="col-auto d-none d-lg-block">
-          <img
-            class="rounded border"
-            src="{% static 'home/src/images/design0.jpg' %}"
-            alt=""
-            width="200"
-            height="250"
-          />
+    <div class="col-md-6 mb-2">
+      <div class="card mb-3">
+        <div
+          class="row h-md-250 no-gutters overflow-hidden flex-md-row shadow-sm position-relative"
+        >
+          <div class="col d-flex flex-column position-static">
+            <div class="card-body">
+              <h5><strong class="d-inline-block mb-1 text-primary"
+                >WebApp</strong></h5>
+              <h5 class="card-title mb-0">Checker</h5>
+              <div class="mb-2 text-muted">Apr 4</div>
+              <p class="card-text mb-3">
+                The app will help you check if your regular expression works well.
+              </p>
+              <a href="{% url 'checker' %}" class="stretched-link"
+                >Go to app</a
+              >
+            </div>
+          </div>
+          <div class="col-4 d-none d-lg-block">
+            <img
+              src="{% static 'home/src/images/design0.jpg' %}"
+              class="card-img"
+              alt="img"
+              height="230"
+            />
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Design display -->
-    <div class="col-md-6">
-      <div
-        class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-      >
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success">Design</strong>
-          <h3 class="mb-0">Login Demo</h3>
-          <div class="mb-2 text-muted">Apr 6</div>
-          <p class="mb-auto">
-            This is a simple login demo designed by django and bootstrap.
-          </p>
-          <a href="#" class="stretched-link">Go to visit</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <img
-            class="rounded border"
-            src="{% static 'home/src/images/design6.jpg' %}"
-            alt=""
-            width="200"
-            height="250"
-          />
+    <!-- Login Demo -->
+    <div class="col-md-6 mb-2">
+      <div class="card mb-3">
+        <div
+          class="row h-md-250 no-gutters overflow-hidden flex-md-row shadow-sm position-relative"
+        >
+          <div class="col d-flex flex-column position-static">
+            <div class="card-body">
+              <h5><strong class="d-inline-block mb-1 text-success"
+                >Design</strong>
+              </h5>
+              <h5 class="card-title mb-0">Login Demo</h5>
+              <div class="mb-2 text-muted">Apr 4</div>
+              <p class="card-text mb-1">
+                This is a simple and pretty login demo designed with django and bootstrap.
+              </p>
+              <a href="{% url 'login' %}" class="stretched-link"
+                >Go to visit</a
+              >
+            </div>
+          </div>
+          <div class="col-4 d-none d-lg-block">
+            <img
+              src="{% static 'home/src/images/design3.jpg' %}"
+              class="card-img"
+              alt="img"
+              height="230"
+            />
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Radar -->
-    <div class="col-md-6">
-      <div
-        class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-      >
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">Webapp</strong>
-          <h3 class="mb-0">Radar</h3>
-          <div class="mb-2 text-muted">Apr 7</div>
-          <p class="mb-auto">
-            This is a Radar App designed with HTML5 canvas and javascript.
-          </p>
-          <a href="#" class="stretched-link">Go to App</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <img
-            class="rounded border"
-            src="{% static 'home/src/images/design5.jpg' %}"
-            alt=""
-            width="200"
-            height="250"
-          />
+    <div class="col-md-6 mb-2">
+      <div class="card mb-3">
+        <div
+          class="row h-md-250 no-gutters overflow-hidden flex-md-row shadow-sm position-relative"
+        >
+          <div class="col d-flex flex-column position-static">
+            <div class="card-body">
+              <h5><strong class="d-inline-block mb-1 text-warning"
+                >AppLab</strong></h5>
+              <h5 class="card-title mb-0">Radar</h5>
+              <div class="mb-2 text-muted">Apr 6</div>
+              <p class="card-text mb-1">
+                Radar designed with HTML5 canvas and bootstrap is a lab product so far.
+              </p>
+              <a href="{% url 'radar' %}" class="stretched-link"
+                >Go to visit</a
+              >
+            </div>
+          </div>
+          <div class="col-4 d-none d-lg-block">
+            <img
+              src="{% static 'home/src/images/design5.jpg' %}"
+              class="card-img"
+              alt="img"
+              height="230"
+            />
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Ticktock -->
-    <div class="col-md-6">
-      <div
-        class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative"
-      >
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success">Design</strong>
-          <h3 class="mb-0">Ticktock</h3>
-          <div class="mb-2 text-muted">Apr 8</div>
-          <p class="mb-auto">
-            Based on HTML5 canvas and javascript, we create a ticktock
-            animation.
-          </p>
-          <a href="#" class="stretched-link">Go to visit</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <img
-            class="rounded border"
-            src="{% static 'home/src/images/design3.jpg' %}"
-            alt=""
-            width="200"
-            height="250"
-          />
+    <div class="col-md-6 mb-2">
+      <div class="card mb-3">
+        <div
+          class="row h-md-250 no-gutters overflow-hidden flex-md-row shadow-sm position-relative"
+        >
+          <div class="col d-flex flex-column position-static">
+            <div class="card-body">
+              <h5><strong class="d-inline-block mb-1 text-info"
+                >Graphic</strong></h5>
+              <h5 class="card-title mb-0">Ticktock</h5>
+              <div class="mb-2 text-muted">Apr 7</div>
+              <p class="card-text mb-1">
+                Based on HTML5 canvas and javascript, we create a ticktock animation.
+              </p>
+              <a href="{% url 'ticktock' %}" class="stretched-link"
+                >Go to visit</a
+              >
+            </div>
+          </div>
+          <div class="col-4 d-none d-lg-block">
+            <img
+              src="{% static 'home/src/images/design6.jpg' %}"
+              class="card-img"
+              alt="img"
+              height="230"
+            />
+          </div>
         </div>
       </div>
     </div>

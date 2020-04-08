@@ -37,7 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home.apps.HomeConfig'
+    'home.apps.HomeConfig',
+    'checker.apps.CheckerConfig',
+    'logindemo.apps.LogindemoConfig',
+    'radar.apps.RadarConfig',
+    'ticktock.apps.TicktockConfig',
+    
 ]
 
 MIDDLEWARE = [
@@ -106,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/shanghai'
 
 USE_I18N = True
 
