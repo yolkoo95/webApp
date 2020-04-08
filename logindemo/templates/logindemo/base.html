@@ -7,40 +7,25 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
-    <meta name="author" content="Unicorn" />
-    <meta name="email" content="15399018708@163.com" />
     <link
-      rel="icon"
-      href="{% static 'home/src/icon/icon_512x512@2x.png' %}"
-      sizes="32x32"
-      type="image/png"
+      rel="stylesheet"
+      href="{% static 'home/src/css/bootstrap.min.css' %}"
     />
-    <link
-      rel="icon"
-      href="{% static 'home/src/icon/icon_512x512@2x.png' %}"
-      sizes="16x16"
-      type="image/png"
+
+    <!-- customized css for login webapp -->
+    <link 
+      rel="stylesheet" 
+      href="{% static 'logindemo/src/css/login_style.css' %}" 
     />
     <link
       rel="stylesheet"
-      type="text/css"
-      href="{% static 'home/src/css/bootstrap.min.css' %}"
-    />
-    <link 
-      rel="stylesheet" 
-      type="text/css" 
-      href="{% static 'home/src/css/base.css' %}"
+      href="{% static 'logindemo/src/css/login_components.css' %}"
     />
     
-    <title>{% block title %} {% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
   </head>
-  <body style="font-family: nunito">
-    {% include 'home/nav.html' %} 
-    
-    {% block body %} {% endblock %} 
-    
-    {% include 'home/footer.html' %}
 
+  <body>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -51,6 +36,10 @@
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
       crossorigin="anonymous"
     ></script>
-    <script src="{% static 'home/src/js/bootstrap.min.js' %}"></script>
+    <script
+      src="{% static 'home/src/js/bootstrap.min.js' %}"
+    ></script>
+
+    {% block body %} {% endblock %}
   </body>
 </html>

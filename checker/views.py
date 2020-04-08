@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .checker import regular_expression_checker
+from .lib.checker import regular_expression_checker
 
 # Create your views here.
 
