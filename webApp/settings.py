@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'checker.apps.CheckerConfig',
     'logindemo.apps.LogindemoConfig',
+    'radar.apps.RadarConfig',
 ]
 
 MIDDLEWARE = [
