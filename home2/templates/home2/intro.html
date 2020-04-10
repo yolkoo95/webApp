@@ -1,21 +1,113 @@
 <!-- ======= Hero Section ======= -->
-<section
-  id="hero"
-  class="d-flex flex-column align-items-center justify-content-center background-walk-y overlay-gradient-bottom"
->
-  <h1>Welcome to Unicorn's Home</h1>
-  <h2>CREATIVE changes world, IDEAs worth spreading.</h2>
-  <a href="#about" class="btn-get-started scrollto"
-    ><i class="icofont-simple-down"></i
-  ></a>
+<section id="hero">
+  <div class="hero-container">
+    <div
+      id="heroCarousel"
+      class="carousel slide carousel-fade"
+      data-ride="carousel"
+    >
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
 
-  <!-- Date -->
-  <div class="absolute-bottom-right text-light p-5 pb-2">
-    <div class="mb-3 pb-2">
-      <h4 class="font-weight-normal text-muted-transparent ml-2">
-        <!-- {{ date }} -->
-        Fri, Apr 9
-      </h4>
+      <div class="carousel-inner" role="listbox">
+        <!-- Slide 1 -->
+        <div
+          class="carousel-item active background-walk-y"
+          style="
+            background-image: url('../../static/home2/src/img/bg/home-bg-20.jpg');
+          "
+        >
+          <div class="carousel-container">
+            <div class="carousel-content">
+              <h2 class="animated fadeInDown">Restaurant</h2>
+              <p class="animated fadeInUp">
+                Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et
+                est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
+                mollitia ut. Similique ea voluptatem. Esse doloremque accusamus
+                repellendus deleniti vel. Minus et tempore modi architecto.
+              </p>
+              <a href="#about" class="btn-get-started scrollto"
+                ><i class="icofont-simple-down"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div
+          class="carousel-item background-walk-yt"
+          style="
+            background-image: url('../../static/home2/src/img/bg/home-bg-21.jpg');
+          "
+        >
+          <div class="carousel-container">
+            <div class="carousel-content">
+              <h2 class="animated fadeInDown">Lorem Ipsum Dolor</h2>
+              <p class="animated fadeInUp">
+                Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et
+                est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
+                mollitia ut. Similique ea voluptatem. Esse doloremque accusamus
+                repellendus deleniti vel. Minus et tempore modi architecto.
+              </p>
+              <a href="#about" class="btn-get-started scrollto"
+                ><i class="icofont-simple-down"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div
+          class="carousel-item background-walk-y"
+          style="
+            background-image: url('../../static/home2/src/img/bg/home-bg-22.jpg');
+          "
+        >
+          <div class="carousel-background">
+            <img src="assets/img/slide/slide-3.jpg" alt="" />
+          </div>
+          <div class="carousel-container">
+            <div class="carousel-content">
+              <h2 class="animated fadeInDown">Sequi ea ut et est quaerat</h2>
+              <p class="animated fadeInUp">
+                Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et
+                est quaerat sequi nihil ut aliquam. Occaecati alias dolorem
+                mollitia ut. Similique ea voluptatem. Esse doloremque accusamus
+                repellendus deleniti vel. Minus et tempore modi architecto.
+              </p>
+              <a href="#about" class="btn-get-started scrollto"
+                ><i class="icofont-simple-down"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a
+        class="carousel-control-prev"
+        href="#heroCarousel"
+        role="button"
+        data-slide="prev"
+      >
+        <span
+          class="carousel-control-prev-icon icofont-simple-left"
+          aria-hidden="true"
+        ></span>
+        <span class="sr-only">Previous</span>
+      </a>
+
+      <a
+        class="carousel-control-next"
+        href="#heroCarousel"
+        role="button"
+        data-slide="next"
+      >
+        <span
+          class="carousel-control-next-icon icofont-simple-right"
+          aria-hidden="true"
+        ></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
   </div>
 </section>
+<!-- End Hero -->

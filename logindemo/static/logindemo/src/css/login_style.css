@@ -2902,8 +2902,8 @@ pre {
     background-position: 0 0%;
     -webkit-animation-name: backgroundWalkY;
     animation-name: backgroundWalkY;
-    -webkit-animation-duration: 70s;
-    animation-duration: 70s;
+    -webkit-animation-duration: 40s;
+    animation-duration: 40s;
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
     -webkit-animation-direction: alternate;
@@ -2915,19 +2915,13 @@ pre {
     background-size: 100%
 }
 
-@media(max-width:1199.98px) {
-    .background-walk-y {
-        background-size: cover
-    }
-}
-
-.background-walk-x {
+.background-walk-yt {
     background-repeat: no-repeat;
     background-position: 0 0%;
-    -webkit-animation-name: backgroundWalkX;
-    animation-name: backgroundWalkX;
-    -webkit-animation-duration: 70s;
-    animation-duration: 70s;
+    -webkit-animation-name: backgroundWalkYt;
+    animation-name: backgroundWalkYt;
+    -webkit-animation-duration: 40s;
+    animation-duration: 40s;
     -webkit-animation-iteration-count: infinite;
     animation-iteration-count: infinite;
     -webkit-animation-direction: alternate;
@@ -2956,21 +2950,21 @@ pre {
     }
 }
 
-@-webkit-keyframes backgroundWalkX {
+@-webkit-keyframes backgroundWalkYt {
     0% {
-        background-position: 0 0%
+        background-position: 0 100%
     }
     100% {
-        background-position: 100% 0
+        background-position: 0 0
     }
 }
 
-@keyframes backgroundWalkX {
+@keyframes backgroundWalkYt {
     0% {
-        background-position: 0 0%
+        background-position: 0 100%
     }
     100% {
-        background-position: 100% 0
+        background-position: 0 0
     }
 }
 

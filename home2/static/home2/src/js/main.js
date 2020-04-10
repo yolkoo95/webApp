@@ -109,6 +109,28 @@
     $('#header').addClass('header-scrolled');
   }
 
+  // Real view height for mobile devices
+  if (window.matchMedia("(max-width: 767px)").matches) {
+    $('#hero').css({
+      height: $(window).height()
+    });
+  }
+
+  // Intro carousel
+  var heroCarousel = $("#heroCarousel");
+  var heroCarouselIndicators = $("#hero-carousel-indicators");
+  heroCarousel.find(".carousel-inner").children(".carousel-item").each(function(index) {
+    (index === 0) ?
+    heroCarouselIndicators.append("<li data-target='#heroCarousel' data-slide-to='" + index + "' class='active'></li>"):
+      heroCarouselIndicators.append("<li data-target='#heroCarousel' data-slide-to='" + index + "'></li>");
+  });
+
+  heroCarousel.on('slid.bs.carousel', function(e) {
+    $(this).find('h2').addClass('animated fadeInDown');
+    $(this).find('p').addClass('animated fadeInUp');
+    $(this).find('.btn-get-started').addClass('animated fadeInUp');
+  });
+
   // Stick the header at top on scroll
   $("#header").sticky({
     topSpacing: 0,

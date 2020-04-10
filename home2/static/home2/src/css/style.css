@@ -33,12 +33,127 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 90vh;
-  background: url("../img/bg/home-bg-23.jpg");
-  background-position: relative;
+  height: 100vh;
+  background-color: rgba(39, 37, 34, 0.8);
+  overflow: hidden;
+  padding: 0;
+}
+
+#hero .carousel-item {
+  width: 100%;
+  height: 100vh;
   background-size: cover;
-  padding: 0 15px;
-  z-index: 1;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+#hero .carousel-item::before {
+  content: '';
+  background-color: rgba(12, 11, 10, 0.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+#hero .carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#hero .carousel-content {
+  text-align: center;
+}
+
+#hero h2 {
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+#hero p {
+  width: 80%;
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+  margin: 0 auto 30px auto;
+  color: #fff;
+}
+
+#hero .carousel-inner .carousel-item {
+  transition-property: opacity;
+  background-position: center top;
+}
+
+#hero .carousel-inner .carousel-item,
+#hero .carousel-inner .active.carousel-item-left,
+#hero .carousel-inner .active.carousel-item-right {
+  opacity: 0;
+}
+
+#hero .carousel-inner .active,
+#hero .carousel-inner .carousel-item-next.carousel-item-left,
+#hero .carousel-inner .carousel-item-prev.carousel-item-right {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+#hero .carousel-inner .carousel-item-next,
+#hero .carousel-inner .carousel-item-prev,
+#hero .carousel-inner .active.carousel-item-left,
+#hero .carousel-inner .active.carousel-item-right {
+  left: 0;
+  transform: translate3d(0, 0, 0);
+}
+
+#hero .carousel-control-prev, #hero .carousel-control-next {
+  width: 10%;
+  opacity: 1;
+}
+
+#hero .carousel-control-next-icon, #hero .carousel-control-prev-icon {
+  background: none;
+  font-size: 36px;
+  line-height: 1;
+  width: auto;
+  height: auto;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 10px;
+  transition: 0.3s;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#hero .carousel-control-next-icon:hover, #hero .carousel-control-prev-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#hero .carousel-indicators li {
+  cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+  #hero h2 {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  #hero p {
+    width: 50%;
+  }
+  #hero .carousel-control-prev, #hero .carousel-control-next {
+    width: 5%;
+  }
 }
 
 .overlay-gradient-bottom:after {
@@ -47,58 +162,23 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
   background-color: false;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.65) 100%);
   z-index: 1
 }
 
-#hero h1 {
-  margin: 0 0 10px 0;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 56px;
-  color: #fff;
-}
-
-#hero h2 {
-  color: #eee;
-  margin-bottom: 10px;
-  font-size: 24px;
-  font-weight: 300;
-  font-family: "Nunito", "Poppins", sans-serif;
-}
-
 #hero .btn-get-started {
   font-size: 64px;
   transition: 0.5s;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.712);
   height: 60px;
   z-index: 2;
 }
 
 #hero .btn-get-started:hover {
   padding-top: 10px;
-  color: #14b1ff;
-}
-
-@media (min-width: 1024px) {
-  #hero {
-    background-attachment: fixed;
-  }
-}
-
-@media (max-width: 768px) {
-
-  #hero h1 {
-    font-size: 28px;
-    line-height: 36px;
-  }
-  #hero h2,h4 {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 30px;
-  }
+  color: #fff;
 }
 
 .background-walk-y {
@@ -119,10 +199,21 @@ h1, h2, h3, h4, h5, h6 {
   background-size: 100%
 }
 
-@media(max-width:1199.98px) {
-  .background-walk-y {
-      background-size: cover
-  }
+.background-walk-yt {
+  background-repeat: no-repeat;
+  background-position: 0 0%;
+  -webkit-animation-name: backgroundWalkYt;
+  animation-name: backgroundWalkYt;
+  -webkit-animation-duration: 40s;
+  animation-duration: 40s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear
 }
 
 @-webkit-keyframes backgroundWalkY {
@@ -143,14 +234,32 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Date */
-
-.absolute-bottom-right {
-  position: absolute;
-  right: 0;
-  bottom: 5%;
-  z-index: 2;
+@-webkit-keyframes backgroundWalkYt {
+  0% {
+      background-position: 0 100%
+  }
+  100% {
+      background-position: 0 0
+  }
 }
+
+@keyframes backgroundWalkYt {
+  0% {
+      background-position: 0 100%
+  }
+  100% {
+      background-position: 0 0
+  }
+}
+
+/* @media(max-width:1199.98px) {
+  .background-walk-y {
+      background-size: cover
+  }
+  .background-walk-yt {
+    background-size: cover
+  }
+} */
 
 /*--------------------------------------------------------------
 # Back to top button
