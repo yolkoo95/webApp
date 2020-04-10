@@ -2,11 +2,16 @@
   Homepage CSS
 */
 
+@font-face {
+  font-family: 'Nunito';
+  src: url('../fonts/Nunito/Nunito-Regular.ttf'), url('../fonts/Nunito/Nunito-Italic.ttf'), url('../fonts/Nunito/Nunito-Bold.ttf')
+};
+
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Nunito", "Open Sans", sans-serif;
   color: #444444;
 }
 
@@ -20,7 +25,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Nunito", "Raleway", sans-serif;
 }
 
 /*--------------------------------------------------------------
@@ -61,7 +66,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 10px;
   font-size: 24px;
   font-weight: 300;
-  font-family: "Poppins", sans-serif;
+  font-family: "Nunito", "Poppins", sans-serif;
 }
 
 #hero .btn-get-started {
@@ -89,7 +94,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 28px;
     line-height: 36px;
   }
-  #hero h2 {
+  #hero h2,h4 {
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
@@ -208,7 +213,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1;
   font-weight: 600;
   letter-spacing: 1px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Nunito", "Open Sans", sans-serif;
 }
 
 #header .logo h1 a, #header .logo h1 a:hover {
@@ -273,7 +278,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px 15px;
   transition: 0.3s;
   font-size: 15px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Nunito", "Poppins", sans-serif;
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
@@ -486,7 +491,7 @@ section {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #aaaaaa;
-  font-family: "Poppins", sans-serif;
+  font-family: "Nunito", "Poppins", sans-serif;
 }
 
 .section-title h2::after {
@@ -504,7 +509,7 @@ section {
   font-size: 36px;
   font-weight: 700;
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: "Nunito", "Poppins", sans-serif;
   color: #2a2c39;
 }
 
@@ -544,7 +549,7 @@ section {
 }
 
 .about .content .btn-learn-more {
-  font-family: "Raleway", sans-serif;
+  font-family: "Nunito", "Raleway", sans-serif;
   font-weight: 600;
   font-size: 14px;
   letter-spacing: 1px;
@@ -669,7 +674,7 @@ section {
 }
 
 .cta .cta-btn {
-  font-family: "Raleway", sans-serif;
+  font-family: "Nunito", "Raleway", sans-serif;
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
@@ -907,7 +912,8 @@ section {
 .faq .faq-list a {
   display: block;
   position: relative;
-  font-family: #009cea;
+  font-family: "Nunito";
+  color: #009cea;
   font-size: 18px;
   font-weight: 500;
 }
@@ -1332,7 +1338,7 @@ section {
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
-  font-family: "Raleway", sans-serif;
+  font-family: "Nunito", "Raleway", sans-serif;
   color: #576971;
 }
 
