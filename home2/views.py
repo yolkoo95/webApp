@@ -1,5 +1,5 @@
 from django.shortcuts import render
-import random
+from .lib.intro import intro
 
 # Create your views here.
 
@@ -7,7 +7,9 @@ def homepage(request):
     
     context = {
         'show_intro': True,
-        'img_num': random.randint(0, 13),
     }
+    
+    # merge dict from intro() and context
+    context = dict(context, **intro())
 
     return render(request, 'home2/homepage.html', context)
