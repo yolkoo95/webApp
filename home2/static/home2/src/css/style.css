@@ -28,10 +28,24 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 75vh;
-  background: url("../img/bg/home-bg-23.jpg") top center;
+  height: 90vh;
+  background: url("../img/bg/home-bg-23.jpg");
+  background-position: relative;
   background-size: cover;
   padding: 0 15px;
+  z-index: 1;
+}
+
+.overlay-gradient-bottom:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90vh;
+  background-color: false;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.65) 100%);
+  z-index: 1
 }
 
 #hero h1 {
@@ -55,6 +69,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.5s;
   color: #fff;
   height: 60px;
+  z-index: 2;
 }
 
 #hero .btn-get-started:hover {
@@ -69,6 +84,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+
   #hero h1 {
     font-size: 28px;
     line-height: 36px;
@@ -79,6 +95,58 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 30px;
   }
 }
+
+.background-walk-y {
+  background-repeat: no-repeat;
+  background-position: 0 0%;
+  -webkit-animation-name: backgroundWalkY;
+  animation-name: backgroundWalkY;
+  -webkit-animation-duration: 40s;
+  animation-duration: 40s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+  animation-direction: alternate;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  background-size: 100%
+}
+
+@media(max-width:1199.98px) {
+  .background-walk-y {
+      background-size: cover
+  }
+}
+
+@-webkit-keyframes backgroundWalkY {
+  0% {
+      background-position: 0 0%
+  }
+  100% {
+      background-position: 0 100%
+  }
+}
+
+@keyframes backgroundWalkY {
+  0% {
+      background-position: 0 0%
+  }
+  100% {
+      background-position: 0 100%
+  }
+}
+
+/* Date */
+
+.absolute-bottom-right {
+  position: absolute;
+  right: 0;
+  bottom: 5%;
+  z-index: 2;
+}
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
