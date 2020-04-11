@@ -188,9 +188,9 @@
   // Initi AOS
   AOS.init({
     duration: 1000,
-    easing: "ease-in-out",
-    once: true,
-    mirror: false
+    easing: "ease-in-out-back",
+    // once: true,
+    // mirror: false
   });
 
 })(jQuery);
