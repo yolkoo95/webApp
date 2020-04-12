@@ -787,6 +787,17 @@ section {
   margin-bottom: 0;
 }
 
+.features img {
+  width: 350px;
+  height: 400px;
+}
+
+@media (max-width: 992px) {
+  .features img {
+    display: none;
+  }
+}
+
 /*--------------------------------------------------------------
 # Cta
 --------------------------------------------------------------*/
@@ -895,6 +906,51 @@ section {
   line-height: 24px;
   margin-bottom: 0;
 }
+
+/*--------------------------------------------------------------
+# Transition
+--------------------------------------------------------------*/
+.events {
+  /* background: url(../img/bg/home-bg-0.jpg) center center no-repeat; */
+  background-size: cover;
+  position: relative;
+}
+
+.events::before {
+  content: '';
+  background-color: rgba(12, 11, 10, 0.8);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.events .container {
+  position: relative;
+}
+
+.events .carousel-content {
+  text-align: center;
+}
+
+.events .carousel-content blockquote p {
+  color: rgba(255, 255, 255, 0.947);
+  margin-bottom: 30px;
+  font-size: 26px;
+  font-weight: 300;
+}
+
+.carousel-content blockquote footer{
+  color: rgba(255, 255, 255, 0.808);
+}
+
+@media (min-width: 1024px) {
+  .events {
+    background-attachment: fixed;
+  }
+}
+
 
 /*--------------------------------------------------------------
 # Portfolio

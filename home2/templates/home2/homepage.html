@@ -1,4 +1,5 @@
 {% extends 'home2/base.html' %} 
+{% load static %}
 {% block title %} 
   Homepage 
 {% endblock %} 
@@ -83,8 +84,7 @@
           <div class="row">
             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
               <h3>
-                Web application are developed with bootstrap framework and other third party
-                libraries.
+                Web application section consists of our many fancy works developed by our web designers
               </h3>
               <p class="font-italic">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -92,8 +92,8 @@
               </p>
               <ul>
                 <li>
-                  <i class="ri-check-double-line"></i> Ullamco laboris nisi ut
-                  aliquip ex ea commodo consequat.
+                  <i class="ri-check-double-line"></i> Web application are developed with bootstrap framework and other third party
+                  libraries.
                 </li>
                 <li>
                   <i class="ri-check-double-line"></i> Duis aute irure dolor in
@@ -115,7 +115,7 @@
               </p>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 text-center">
-              <img src="src/img/features-1.png" alt="" class="img-fluid" />
+              <img src="{% static 'home2/src/img/design/design5.jpg' %}" alt="" class="img-fluid img-thumbnail" />
             </div>
           </div>
         </div>
@@ -160,7 +160,7 @@
               </ul>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 text-center">
-              <img src="src/img/features-2.png" alt="" class="img-fluid" />
+              <img src="src/img/features-2.png" alt="feature1" class="img-fluid" />
             </div>
           </div>
         </div>
@@ -335,6 +335,19 @@
     </div>
   </section>
   <!-- End Services Section -->
+
+  <!-- ======= Transition ====== -->
+  <section class="events" id="events" style="background-image: url('../../static/home2/src/img/bg/home-bg-{{ intro_slide1 }}.jpg');">
+    <div class="container">
+      <div class="carousel-content">
+        <blockquote class="blockquote text-center">
+          <p class="mb-0">He never grew up, but he never stopped growing.</p>
+          <footer class="blockquote-footer">Arthur C. Clarke</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+  <!-- End Transition Section -->
 
   <!-- ======= Portfolio Section ======= -->
   <section id="portfolio" class="portfolio">
