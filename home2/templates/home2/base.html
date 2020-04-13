@@ -27,6 +27,11 @@
     <link rel="stylesheet" href="{% static 'home2/src/css/bootstrap.min.css' %}">
     
     <link href="{% static 'home2/src/css/style.css' %}" rel="stylesheet">
+
+    {% block style %}
+
+    {% endblock %}
+
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>

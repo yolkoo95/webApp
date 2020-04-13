@@ -1,0 +1,79 @@
+{% extends 'home2/base.html' %} 
+{% load static %} 
+
+{% block title %} 
+  Leetcode 
+{%endblock %} 
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'leetcode/src/css/colorScheme.css' %}" />
+<link rel="stylesheet" href="{% static 'leetcode/src/css/custom.css' %}" />
+{% endblock %} 
+
+{% block body %}
+<div class="container-fluid mt-4">
+  <div class="card" id="codeEditor">
+    <div class="card-header">
+      <div class="questionDescription">
+        {% include 'leetcode/code/problems/twoSum/des.html' %}
+      </div>
+    </div>
+    <div class="card-body">
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a
+            class="nav-item nav-link active"
+            id="nav-editor-tab"
+            data-toggle="tab"
+            href="#nav-cpp"
+            role="tab"
+            aria-controls="nav-cpp"
+            aria-selected="true"
+            >C++</a
+          >
+          <a
+            class="nav-item nav-link"
+            id="nav-python-tab"
+            data-toggle="tab"
+            href="#nav-python"
+            role="tab"
+            aria-controls="nav-python"
+            aria-selected="false"
+            >Python</a
+          >
+        </div>
+      </nav>
+      <div class="codeContent">
+        <div class="tab-content" id="nav-tabContent">
+          <!-- cpp -->
+          <div
+            class="tab-pane fade show active"
+            id="nav-cpp"
+            role="tabpanel"
+            aria-labelledby="nav-cpp-tab"
+          >
+            <div class="highlight mt-3">
+              {% include 'leetcode/code/problems/twoSum/cpp.html' %}
+            </div>
+          </div>
+
+          <!-- python -->
+          <div
+            class="tab-pane fade"
+            id="nav-python"
+            role="tabpanel"
+            aria-labelledby="nav-python-tab"
+          >
+            <div class="highlight mt-3">
+              {% include 'leetcode/code/problems/twoSum/py.html' %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+<script src="{% static 'leetcode/src/js/math.js' %}"></script>
+{% endblock %}

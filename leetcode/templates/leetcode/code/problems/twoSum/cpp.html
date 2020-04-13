@@ -1,0 +1,157 @@
+<pre>
+    <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+    <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+    <span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
+    <span class="cp">#include</span> <span class="cpf">&lt;stack&gt;</span><span class="cp"></span>
+    <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+  
+    <span class="cm">/*</span>
+    <span class="cm"> * Tree Node</span>
+    <span class="cm"> */</span>
+  
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+    <span class="k">class</span> <span class="nc">BinaryTree</span><span class="p">;</span>
+  
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+    <span class="k">class</span> <span class="nc">TreeNode</span> <span class="p">{</span>
+        <span class="k">friend</span> <span class="n">BinaryTree</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">TreeNode</span><span class="p">()</span>
+        <span class="o">:</span><span class="n">parent_</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span> <span class="n">leftChild_</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span> <span class="n">rightChild_</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">key_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span> <span class="n">T</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="n">TreeNode</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span> <span class="n">key</span><span class="p">)</span>
+        <span class="o">:</span><span class="n">parent_</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span> <span class="n">leftChild_</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span> <span class="n">rightChild_</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">key_</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span> <span class="n">T</span><span class="p">(</span><span class="n">key</span><span class="p">));</span>
+        <span class="p">}</span>
+        <span class="o">~</span><span class="n">TreeNode</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">key_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+            <span class="n">parent_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+            <span class="n">leftChild_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+            <span class="n">rightChild_</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+        <span class="p">}</span>
+  
+        <span class="k">const</span> <span class="n">T</span> <span class="n">key</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="o">*</span><span class="n">key_</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;&amp;</span> <span class="n">parent</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">parent_</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;&amp;</span> <span class="n">leftChild</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">leftChild_</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;&amp;</span> <span class="n">rightChild</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">rightChild_</span><span class="p">;</span>
+        <span class="p">}</span>
+  
+    <span class="k">private</span><span class="o">:</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">key_</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;</span> <span class="n">parent_</span><span class="p">;</span>
+        <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;</span> <span class="n">leftChild_</span><span class="p">,</span> <span class="n">rightChild_</span><span class="p">;</span>
+    <span class="p">};</span>
+  
+    <span class="cm">/*</span>
+    <span class="cm"> * BinaryTree</span>
+    <span class="cm"> */</span>
+  
+    <span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+    <span class="k">class</span> <span class="nc">BinaryTree</span> <span class="p">{</span>
+    <span class="k">public</span><span class="o">:</span>
+        <span class="n">BinaryTree</span><span class="p">()</span>
+        <span class="o">:</span><span class="n">root_</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+        <span class="o">~</span><span class="n">BinaryTree</span><span class="p">()</span> <span class="p">{</span> <span class="p">}</span>
+  
+        <span class="kt">void</span> <span class="n">InitBinaryTree</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;&amp;</span> <span class="n">vec</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">vec</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">auto</span> <span class="n">treeNode</span> <span class="o">=</span> <span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="k">if</span> <span class="p">(((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">vec</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">vec</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+                        <span class="n">treeNode</span><span class="o">-&gt;</span><span class="n">leftChild_</span> <span class="o">=</span> <span class="n">vec</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+                    <span class="p">}</span>
+                    <span class="k">if</span> <span class="p">(((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">vec</span><span class="p">.</span><span class="n">size</span><span class="p">())</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">vec</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">))</span> <span class="p">{</span>
+                        <span class="n">treeNode</span><span class="o">-&gt;</span><span class="n">rightChild_</span> <span class="o">=</span> <span class="n">vec</span><span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">];</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="n">root_</span> <span class="o">=</span> <span class="n">vec</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="p">}</span>
+  
+        <span class="kt">void</span> <span class="n">NRPreorderTraverse</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+            <span class="n">stack</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="n">output</span><span class="p">;</span>
+            <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root_</span><span class="p">);</span>
+            <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">output</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">output</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">output</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="p">()</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">output</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="p">());</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">output</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">()</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">output</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">());</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+  
+        <span class="kt">void</span> <span class="n">NRInorderTraverse</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+            <span class="n">stack</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="n">output</span><span class="p">;</span>
+            <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">root_</span><span class="p">;</span>
+            <span class="k">while</span> <span class="p">((</span><span class="n">p</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">()))</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">p</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+                    <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">();</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="p">{</span>
+                    <span class="n">output</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">output</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span><span class="p">;</span>
+                    <span class="n">p</span> <span class="o">=</span> <span class="n">output</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="p">();</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+  
+        <span class="kt">void</span> <span class="n">NRPostorderTraverse</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+            <span class="n">stack</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+            <span class="n">stack</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;&gt;</span> <span class="n">s_o</span><span class="p">;</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="n">output</span><span class="p">;</span>
+            <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">root_</span><span class="p">);</span>
+            <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">output</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+                <span class="n">s_o</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">output</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">output</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">()</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">output</span><span class="o">-&gt;</span><span class="n">leftChild</span><span class="p">());</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">output</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="p">()</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">output</span><span class="o">-&gt;</span><span class="n">rightChild</span><span class="p">());</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">s_o</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+                <span class="n">output</span> <span class="o">=</span> <span class="n">s_o</span><span class="p">.</span><span class="n">top</span><span class="p">();</span> <span class="n">s_o</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">output</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; &quot;</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+  
+    <span class="k">private</span><span class="o">:</span>
+        <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="n">root_</span><span class="p">;</span>
+    <span class="p">};</span>
+  
+    <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span> <span class="n">argv</span><span class="p">[])</span> <span class="p">{</span>
+        <span class="n">BinaryTree</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">bsTree</span><span class="p">;</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&gt;</span> <span class="n">vec</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">total</span><span class="p">,</span> <span class="n">key</span><span class="p">;</span>
+        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">total</span><span class="p">;</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">total</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">key</span><span class="p">;</span>
+            <span class="k">auto</span> <span class="n">treeNode</span> <span class="o">=</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="k">new</span> <span class="n">TreeNode</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">key</span><span class="p">));</span>
+            <span class="n">vec</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">treeNode</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">bsTree</span><span class="p">.</span><span class="n">InitBinaryTree</span><span class="p">(</span><span class="n">vec</span><span class="p">);</span>
+        <span class="n">bsTree</span><span class="p">.</span><span class="n">NRPreorderTraverse</span><span class="p">();</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">bsTree</span><span class="p">.</span><span class="n">NRInorderTraverse</span><span class="p">();</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+        <span class="n">bsTree</span><span class="p">.</span><span class="n">NRPostorderTraverse</span><span class="p">();</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+  
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+</pre>
