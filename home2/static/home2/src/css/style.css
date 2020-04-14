@@ -311,7 +311,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.5s;
   z-index: 997;
   transition: all 0.5s;
-  padding: 15px 0;
+  padding: 10px 0px 15px 0px;
   background: #fff;
 }
 
@@ -320,11 +320,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header .logo h1 {
-  font-size: 28px;
+  font-size: 26px;
   margin: 0;
-  padding: 6px 0;
+  padding: 8px 0px 6px 0px;
   line-height: 1;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 1px;
   font-family: "Nunito", "Open Sans", sans-serif;
 }
@@ -397,7 +397,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #7b909a;
   padding: 10px 15px;
   transition: 0.3s;
-  font-size: 18px;
+  font-size: 16px;
   font-family: "Nunito", "Poppins", sans-serif;
 }
 
@@ -865,7 +865,7 @@ section {
 
 .events::before {
   content: '';
-  background-color: rgba(12, 11, 10, .8);
+  background-color: rgba(12, 11, 10, .5);
   position: absolute;
   top: 0;
   right: 0;
