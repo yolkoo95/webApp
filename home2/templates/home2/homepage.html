@@ -52,6 +52,11 @@
   <!-- ======= Features Section ======= -->
   <section id="features" class="features">
     <div class="container">
+      <div class="section-title" data-aos="zoom-out">
+        <h2>Interests</h2>
+        <p>What we're focus</p>
+      </div>
+
       <ul class="nav nav-tabs row d-flex">
         <li class="nav-item col-3" data-aos="zoom-in">
           <a class="nav-link active show" data-toggle="tab" href="#tab-1">
@@ -150,38 +155,31 @@
           <div class="row">
             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
               <h3>
-                Voluptatibus commodi ut accusamus ea repudiandae ut autem dolor
-                ut assumenda
+                You must find awesome photography works here
               </h3>
               <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                aute irure dolor in reprehenderit in voluptate velit esse cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum
+                The photos in collection is supplied by our photographer(Lee), most of them are HD for us.
+                They are all free for you to use, but please do NOT for business purpose. 
               </p>
               <ul>
                 <li>
-                  <i class="ri-check-double-line"></i> Ullamco laboris nisi ut
-                  aliquip ex ea commodo consequat.
+                  <i class="ri-check-double-line"></i> Photo collection composes all kinds of photography works 
+                  in life, like landscape, village, figure and so forth.
                 </li>
                 <li>
-                  <i class="ri-check-double-line"></i> Duis aute irure dolor in
-                  reprehenderit in voluptate velit.
+                  <i class="ri-check-double-line"></i> We are pleased if you would like to share your photography works 
+                  here. If you want enjoy us please <a href="#contact">contact us</a>.
                 </li>
                 <li>
-                  <i class="ri-check-double-line"></i> Provident mollitia neque
-                  rerum asperiores dolores quos qui a. Ipsum neque dolor
-                  voluptate nisi sed.
+                  <i class="ri-check-double-line"></i> all works shared here are following BSD licenses.
                 </li>
               </ul>
               <p class="font-italic">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                To photographers and photography lovers, "life itself is not real. you are the people who put life into stones and pebbles."
               </p>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 text-center">
-              <img src="src/img/features-3.png" alt="" class="img-fluid" />
+              <img src="{% static 'home2/src/img/design/design1.jpg' %}" alt="LeetCode" class="img-fluid img-thumbnail" />
             </div>
           </div>
         </div>
@@ -210,7 +208,7 @@
                   <i class="ri-check-double-line"></i> All codes are open sources, you could download them at Github.
                 </li>
               </ul>
-              <a class="btn-link" href="{% url 'appstore' %}">Start coding</a>
+              <a class="btn-link" href="{% url 'leetcode' %}">Start coding</a>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 text-center">
               <img src="{% static 'home2/src/img/design/design23.jpg' %}" alt="LeetCode" class="img-fluid img-thumbnail" />
@@ -236,10 +234,10 @@
             <div class="icon">
               <i class="las la-basketball-ball" style="color: #ff689b;"></i>
             </div>
-            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+            <h4 class="title"><a href="">Web Server Construction</a></h4>
             <p class="description">
-              Voluptatum deleniti atque corrupti quos dolores et quas molestias
-              excepturi sint occaecati cupiditate non provident
+              We are delighted to serve clients who are willing to construct a web server. We are able to
+              develop SMTP server, blog server and servers for business.
             </p>
           </div>
         </div>
@@ -248,10 +246,10 @@
             <div class="icon">
               <i class="las la-book" style="color: #e9bf06;"></i>
             </div>
-            <h4 class="title"><a href="">Dolor Sitema</a></h4>
+            <h4 class="title"><a href="">Online Slides</a></h4>
             <p class="description">
-              Minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-              aliquip ex ea commodo consequat tarad limino ata
+              Online slides are much more convenient and fancier than normal presentation.
+               We could meet all your needs in online-slides making.
             </p>
           </div>
         </div>
@@ -261,10 +259,10 @@
             <div class="icon">
               <i class="las la-file-alt" style="color: #3fcdc7;"></i>
             </div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+            <h4 class="title"><a href="">Code Sharing</a></h4>
             <p class="description">
-              Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur
+              We are pleased to provide services for people who want to share their codes and ideas in our community
+              for free.
             </p>
           </div>
         </div>
@@ -273,10 +271,10 @@
             <div class="icon">
               <i class="las la-tachometer-alt" style="color: #41cf2e;"></i>
             </div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
+            <h4 class="title"><a href="">Server Maintaining</a></h4>
             <p class="description">
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              officia deserunt mollit anim id est laborum
+              We could help server administrator maintain their website and give 
+              our solutions to problems you meet as far as we can.
             </p>
           </div>
         </div>
@@ -286,10 +284,10 @@
             <div class="icon">
               <i class="las la-globe-americas" style="color: #d6ff22;"></i>
             </div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
+            <h4 class="title"><a href="">Photo Sharing</a></h4>
             <p class="description">
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui
-              blanditiis praesentium voluptatum deleniti atque
+              You are welcome to share your photography works at our site as many photographer and 
+              photography amateurs do here.
             </p>
           </div>
         </div>
@@ -298,10 +296,10 @@
             <div class="icon">
               <i class="las la-clock" style="color: #4680ff;"></i>
             </div>
-            <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
+            <h4 class="title"><a href="">Web Application</a></h4>
             <p class="description">
-              Et harum quidem rerum facilis est et expedita distinctio. Nam
-              libero tempore, cum soluta nobis est eligendi
+              We are able to make web applications meeting your needs if you like, and also you
+              are welcome to join our community.
             </p>
           </div>
         </div>
@@ -601,94 +599,37 @@
       <ul class="faq-list">
         <li data-aos="fade-up" data-aos-delay="100">
           <a data-toggle="collapse" class="" href="#faq1"
-            >Non consectetur a erat nam at lectus urna duis?
+            >Who we are?
             <i class="icofont-simple-up"></i
           ></a>
           <div id="faq1" class="collapse show" data-parent=".faq-list">
             <p>
-              Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id
-              volutpat lacus laoreet non curabitur gravida. Venenatis lectus
-              magna fringilla urna porttitor rhoncus dolor purus non.
+              We are students who are passionate about web application development and art 
+              design. Our idea is to share our portfolio with anyone who love web design or 
+              those love our works.
             </p>
           </div>
         </li>
 
         <li data-aos="fade-up" data-aos-delay="200">
           <a data-toggle="collapse" href="#faq2" class="collapsed"
-            >Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?
+            >How to join our community?
             <i class="icofont-simple-up"></i
           ></a>
           <div id="faq2" class="collapse" data-parent=".faq-list">
             <p>
-              Dolor sit amet consectetur adipiscing elit pellentesque habitant
-              morbi. Id interdum velit laoreet id donec ultrices. Fringilla
-              phasellus faucibus scelerisque eleifend donec pretium. Est
-              pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
-              cursus turpis massa tincidunt dui.
+              It is easy to join us, register an account and we will notify how to join our group chat via mail.
             </p>
           </div>
         </li>
 
         <li data-aos="fade-up" data-aos-delay="300">
           <a data-toggle="collapse" href="#faq3" class="collapsed"
-            >Dolor sit amet consectetur adipiscing elit pellentesque habitant
-            morbi? <i class="icofont-simple-up"></i
+            >Where could I find source code of web application to which I prefer? <i class="icofont-simple-up"></i
           ></a>
           <div id="faq3" class="collapse" data-parent=".faq-list">
             <p>
-              Eleifend mi in nulla posuere sollicitudin aliquam ultrices
-              sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla
-              pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque
-              eu tincidunt. Lectus urna duis convallis convallis tellus. Urna
-              molestie at elementum eu facilisis sed odio morbi quis
-            </p>
-          </div>
-        </li>
-
-        <li data-aos="fade-up" data-aos-delay="400">
-          <a data-toggle="collapse" href="#faq4" class="collapsed"
-            >Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?
-            <i class="icofont-simple-up"></i
-          ></a>
-          <div id="faq4" class="collapse" data-parent=".faq-list">
-            <p>
-              Dolor sit amet consectetur adipiscing elit pellentesque habitant
-              morbi. Id interdum velit laoreet id donec ultrices. Fringilla
-              phasellus faucibus scelerisque eleifend donec pretium. Est
-              pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
-              cursus turpis massa tincidunt dui.
-            </p>
-          </div>
-        </li>
-
-        <li data-aos="fade-up" data-aos-delay="500">
-          <a data-toggle="collapse" href="#faq5" class="collapsed"
-            >Tempus quam pellentesque nec nam aliquam sem et tortor consequat?
-            <i class="icofont-simple-up"></i
-          ></a>
-          <div id="faq5" class="collapse" data-parent=".faq-list">
-            <p>
-              Molestie a iaculis at erat pellentesque adipiscing commodo.
-              Dignissim suspendisse in est ante in. Nunc vel risus commodo
-              viverra maecenas accumsan. Sit amet nisl suscipit adipiscing
-              bibendum est. Purus gravida quis blandit turpis cursus in
-            </p>
-          </div>
-        </li>
-
-        <li data-aos="fade-up" data-aos-delay="600">
-          <a data-toggle="collapse" href="#faq6" class="collapsed"
-            >Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis
-            nunc eget lorem dolor? <i class="icofont-simple-up"></i
-          ></a>
-          <div id="faq6" class="collapse" data-parent=".faq-list">
-            <p>
-              Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris
-              vitae ultricies leo integer malesuada nunc vel. Tincidunt eget
-              nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut
-              venenatis tellus in metus vulputate eu scelerisque. Pellentesque
-              diam volutpat commodo sed egestas egestas fringilla phasellus
-              faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
+              We have released source code of most of our webapp at Github, and also you could find source code of our website there, but all our works follow BSD licenses.
             </p>
           </div>
         </li>
@@ -709,22 +650,21 @@
         <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
           <div class="member" data-aos="fade-up">
             <div class="member-img">
-              <img src="src/img/team/team-1.jpg" class="img-fluid" alt="" />
+              <img src="{% static 'home2/src/img/team/minzhi.png' %}" class="img-fluid" alt="" />
               <div class="social">
-                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-wechat"></i></a>
                 <a href=""><i class="icofont-facebook"></i></a>
-                <a href=""><i class="icofont-instagram"></i></a>
                 <a href=""><i class="icofont-linkedin"></i></a>
               </div>
             </div>
             <div class="member-info">
-              <h4>Walter White</h4>
-              <span>Chief Executive Officer</span>
+              <h4>Minzhi QU</h4>
+              <span>Web Programmer</span>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <!-- <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
           <div class="member" data-aos="fade-up" data-aos-delay="100">
             <div class="member-img">
               <img src="src/img/team/team-2.jpg" class="img-fluid" alt="" />
@@ -740,9 +680,9 @@
               <span>Product Manager</span>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <!-- <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
           <div class="member" data-aos="fade-up" data-aos-delay="200">
             <div class="member-img">
               <img src="src/img/team/team-3.jpg" class="img-fluid" alt="" />
@@ -758,9 +698,9 @@
               <span>CTO</span>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+        <!-- <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
           <div class="member" data-aos="fade-up" data-aos-delay="300">
             <div class="member-img">
               <img src="src/img/team/team-4.jpg" class="img-fluid" alt="" />
@@ -776,7 +716,7 @@
               <span>Accountant</span>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -796,19 +736,19 @@
             <div class="address">
               <i class="icofont-google-map"></i>
               <h4>Location:</h4>
-              <p>A108 Adam Street, New York, NY 535022</p>
+              <p>Yan Ta Street, SX 610100, CHN</p>
             </div>
 
             <div class="email">
               <i class="icofont-envelope"></i>
               <h4>Email:</h4>
-              <p>info@example.com</p>
+              <p>15399018708@163.com</p>
             </div>
 
             <div class="phone">
               <i class="icofont-phone"></i>
               <h4>Call:</h4>
-              <p>+1 5589 55488 55s</p>
+              <p>(86)+133-0928-5508</p>
             </div>
           </div>
         </div>
