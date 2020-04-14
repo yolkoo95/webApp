@@ -72,3 +72,15 @@ a:hover {
 .codeContent::-webkit-scrollbar{
     display: none;
 }
+
+@media (max-width: 960px) {
+    #editorSearch {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .codeContent pre {
+        font-size: 10px;
+    }
+}
