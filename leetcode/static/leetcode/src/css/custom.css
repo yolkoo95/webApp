@@ -1,0 +1,74 @@
+body {
+    /* font-size: 18px; */
+    background-image: url(../img/design-h-06.jpg);
+    background-size: 100vw;
+}
+
+
+/* Override link style */
+
+a {
+    color: grey;
+}
+
+a:hover {
+    color: #f8f9fa;
+}
+
+.nav-tabs {
+    border-bottom: none;
+}
+
+.nav-link {
+    padding-top: 0.3rem;
+    padding-right: 1.5rem;
+    padding-bottom: 0.3rem;
+    padding-left: 1.5rem;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #f8f9fa;
+}
+
+.nav-tabs .nav-link {
+    border:transparent;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+}
+
+.nav-tabs .nav-link.active {
+    border: transparent;
+}
+
+.nav .form-control {
+    height: 1.7rem;
+    border: none;
+}
+
+/* Code content */
+
+#codeEditor .fade {
+    transition: none;
+}
+
+.codeContent {
+    height: 100vh;
+    border: transparent;
+    border-radius: .5rem;
+    overflow: scroll;
+}
+
+#codeEditor pre {
+    margin-bottom: 0rem;
+}
+
+#codeEditor pre a:hover{
+    font-weight: bold;
+    color: rgba(34, 33, 33, 0.927)
+}
+
+/* set scrollbar */
+
+.codeContent::-webkit-scrollbar{
+    display: none;
+}
