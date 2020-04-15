@@ -68,5 +68,12 @@
     <script src="{% static 'home2/src/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'home2/src/js/main.js' %}"></script>
     <script src="{% static 'home2/src/js/form_checker.js' %}"></script>
+    <script src="{% static 'home2/src/js/zoom.js' %}"></script>
+    <script>
+        document.querySelector( '.zoom-body' ).addEventListener( 'click', function( event ) {
+            event.preventDefault();
+            zoom.to({ element: event.target });
+        } );
+    </script>
 </body>
 </html>

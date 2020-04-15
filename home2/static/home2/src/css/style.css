@@ -1215,49 +1215,20 @@ section {
   color: #fff;
 }
 
-.contact .php-email-form {
+
+.contact .email-form {
   width: 100%;
   background: #fff;
 }
 
-.contact .php-email-form .form-group {
-  padding-bottom: 8px;
-}
-
-.contact .php-email-form .validate {
-  display: none;
-  color: red;
-  margin: 0 0 15px 0;
-  font-weight: 400;
-  font-size: 13px;
-}
-
-.contact .php-email-form .error-message {
-  display: none;
-  color: #fff;
-  background: #ed3c0d;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .sent-message {
-  display: none;
-  color: #fff;
-  background: #18d26e;
-  text-align: center;
-  padding: 15px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .loading {
+.contact .email-form .loading {
   display: none;
   background: #fff;
   text-align: center;
   padding: 15px;
 }
 
-.contact .php-email-form .loading:before {
+.contact .email-form .loading:before {
   content: "";
   display: inline-block;
   border-radius: 50%;
@@ -1270,21 +1241,7 @@ section {
   animation: animate-loading 1s linear infinite;
 }
 
-.contact .php-email-form input, .contact .php-email-form textarea {
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 14px;
-}
-
-.contact .php-email-form input {
-  height: 44px;
-}
-
-.contact .php-email-form textarea {
-  padding: 10px 12px;
-}
-
-.contact .php-email-form button[type="submit"] {
+.contact .email-form button[type="submit"] {
   background: #009cea;
   border: 0;
   padding: 10px 24px;
@@ -1293,7 +1250,7 @@ section {
   border-radius: 50px;
 }
 
-.contact .php-email-form button[type="submit"]:hover {
+.contact .email-form button[type="submit"]:hover {
   background: #1eb4ff;
 }
 
@@ -1562,7 +1519,7 @@ section {
   border: 1px solid #e3e7e9;
 }
 
-#footer .footer-top .footer-newsletter form input[type="email"] {
+#footer .footer-top .footer-newsletter form input[type="text"] {
   border: 0;
   padding: 4px;
   width: calc(100% - 110px);
@@ -1574,7 +1531,6 @@ section {
   right: -2px;
   bottom: -1px;
   border: 0;
-  background: none;
   font-size: 16px;
   padding: 0 20px;
   background: #009cea;

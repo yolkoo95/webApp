@@ -755,68 +755,105 @@
 
         <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
           <form
-            action="forms/contact.php"
+            action=""
             method="post"
             role="form"
-            class="php-email-form"
+            class="email-form needs-validation"
+            novalidate
           >
             <div class="form-row">
-              <div class="col-md-6 form-group">
+              <div class="form-group col-md-6">
+                <!-- <label for="name">Nickname</label> -->
                 <input
-                  type="text"
-                  name="name"
-                  class="form-control"
                   id="name"
-                  placeholder="Your Name"
-                  data-rule="minlen:4"
-                  data-msg="Please enter at least 4 chars"
-                />
-                <div class="validate"></div>
-              </div>
-              <div class="col-md-6 form-group">
-                <input
-                  type="email"
+                  type="text"
                   class="form-control"
-                  name="email"
-                  id="email"
-                  placeholder="Your Email"
-                  data-rule="email"
-                  data-msg="Please enter a valid email"
+                  name="name"
+                  placeholder="Nickname"
+                  required
                 />
-                <div class="validate"></div>
+                <div class="invalid-feedback">
+                  Please fill in your nickname
+                </div>
+              </div>
+              <div class="form-group col-md-6 col-sm-12 col-xs-12">
+                <!-- email -->
+                <!-- <label for="email">Email</label> -->
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="email"
+                    class="form-control col-7"
+                    placeholder="Email"
+                    required
+                  />
+                  <select
+                    class="custom-select input-group-append col-5"
+                    id="email_postfix"
+                    style="
+                      border-top-right-radius: 0.25rem;
+                      border-bottom-right-radius: 0.25rem;
+                    "
+                    required
+                  >
+                    <option value="@gmail.com" selected=""
+                      >@gmail.com</option
+                    >
+                    <option value="@qq.com">@qq.com</option>
+                    <option value="@outlook.com">@outlook.com</option>
+                    <option value="@163.com">@163.com</option>
+                    <option value="@126.com">@126.com</option>
+                    <option value="@foxmail.com">@foxmail.com</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please fill in your email
+                  </div>
+              </div>
               </div>
             </div>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control"
-                name="subject"
-                id="subject"
-                placeholder="Subject"
-                data-rule="minlen:4"
-                data-msg="Please enter at least 8 chars of subject"
-              />
-              <div class="validate"></div>
-            </div>
-            <div class="form-group">
-              <textarea
-                class="form-control"
-                name="message"
-                rows="5"
-                data-rule="required"
-                data-msg="Please write something for us"
-                placeholder="Message"
-              ></textarea>
-              <div class="validate"></div>
-            </div>
-            <div class="mb-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">
-                Your message has been sent. Thank you!
+            <div class="form-row">
+              <div class="form-group col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                <!-- subject -->
+                <!-- <label for="subject">Subject</label> -->
+                <input
+                  id="subject"
+                  type="text"
+                  class="form-control"
+                  name="subject"
+                  placeholder="Subject"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please fill in the subject
+                </div>
+              </div>
+              <div class="form-group col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                <!-- addition -->
+                <!-- <label for="addition">Addition</label> -->
+                <input
+                  id="addition"
+                  type="text"
+                  class="form-control"
+                  name="addition"
+                  placeholder="Additional Info"
+                />
               </div>
             </div>
-            <div class="text-center">
+            <div class="form-row">
+              <div class="col-md-12 form-group">
+                <textarea
+                  class="form-control"
+                  name="message"
+                  rows="4"
+                  placeholder="Message"
+                  required
+                ></textarea>
+                <div class="invalid-feedback">
+                  Please fill in content for email
+                </div>
+              </div>
+            </div>   
+            <div class="text-center" style="font-size: 16px;">
               <button type="submit">Send Message</button>
             </div>
           </form>
