@@ -7,14 +7,14 @@
 
 {% block style %}
 <link rel="stylesheet" href="{% static 'leetcode/src/css/colorScheme.css' %}" />
-<link rel="stylesheet" href="{% static 'leetcode/src/css/custom.css' %}" />
+<link rel="stylesheet" href="{% static 'leetcode/src/css/codepage.css' %}" />
 {% endblock %} 
 
 {% block body %}
 <div class="container mt-4 mb-4">
   <div class="row justify-content-end">
     <div class="col-9">
-      <div class="card" id="codeEditor">
+      <div class="card zoom-section" id="codeEditor">
         <div class="card-header bg-white">
           <div class="questionDescription">
             {% include 'leetcode/code/problems/twoSum/des.html' %}
@@ -95,4 +95,11 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
 <script src="{% static 'leetcode/src/js/math.js' %}"></script>
+
+<script>
+  document.querySelector( '.zoom-section' ).addEventListener( 'click', function( event ) {
+      event.preventDefault();
+      zoom.to({ element: event.target });
+  } );
+</script>
 {% endblock %}
