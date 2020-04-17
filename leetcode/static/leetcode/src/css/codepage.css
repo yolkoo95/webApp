@@ -62,9 +62,13 @@ a:hover {
     margin-bottom: 0rem;
 }
 
-#codeEditor pre a:hover{
+#codeEditor pre a:hover {
     font-weight: bold;
     color: rgba(34, 33, 33, 0.927)
+}
+
+#codeEditor .details, .card-footer {
+    font-family: 'Nunito';
 }
 
 /* set scrollbar */

@@ -23,11 +23,11 @@ def codepage(request, category, probName):
         examples = lines
 
     # return (HttpResponse(examples))
- 
+    
     context = {
         'category': category,
         'probName': probName,
-        'desc1': desc1,
+        'desc1': desc1, 
         'desc2': desc2,
         'begin': begin,
         'examples': examples,
