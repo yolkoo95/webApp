@@ -24,7 +24,7 @@ body {
     position: relative;
     padding: 4px;
     font-size: 18px;
-    z-index: 1000;
+    z-index: 2;
 
     -webkit-transform: translateZ(0px);
     -moz-transform: translateZ(0px);

@@ -2,24 +2,41 @@
 {% load static %} 
 
 {% block title %} 
-  Leetcode 
+  {{ category }} - {{ probName }}
 {%endblock %} 
 
 {% block style %}
-<link rel="stylesheet" href="{% static 'leetcode/src/css/colorScheme.css' %}" />
-<link rel="stylesheet" href="{% static 'leetcode/src/css/codepage.css' %}" />
+  <link rel="stylesheet" href="{% static 'leetcode/src/css/colorScheme.css' %}" />
+  <link rel="stylesheet" href="{% static 'leetcode/src/css/codepage.css' %}" />
 {% endblock %} 
 
 {% block body %}
 <div class="container mt-4 mb-4">
   <div class="row justify-content-end">
     <div class="col-9">
-      <div class="card zoom-section" id="codeEditor">
+      <div class="card" id="codeEditor">
+        <!-- Description -->
         <div class="card-header bg-white">
           <div class="questionDescription">
-            {% include 'leetcode/code/problems/twoSum/des.html' %}
+            <h2 class="text-center mr-5 mb-1">{{ probName }}</h2>
+            <hr>
+            <div class="details">
+              <p>
+                {{ desc1 }}
+              </p>
+              <p>
+                {{ desc2 }}
+              </p>
+            </div>
+            <code>
+              {{ begin }}
+              {% for example in examples %}
+                <br>&emsp;&emsp;{{ example }}
+              {% endfor %}
+            </code>
           </div>
         </div>
+        <!-- Content -->
         <div class="card-body bg-dark p-2">
           <nav>
             <div class="nav nav-tabs bg-dark d-flex justify-content-center" id="nav-tab" role="tablist">              
@@ -67,7 +84,7 @@
                 aria-labelledby="nav-cpp-tab"
               >
                 <div class="highlight">
-                  {% include 'leetcode/code/problems/twoSum/cpp.html' %}
+                  {% include cppURL %}
                 </div>
               </div>
     
@@ -79,7 +96,7 @@
                 aria-labelledby="nav-python-tab"
               >
                 <div class="highlight">
-                  {% include 'leetcode/code/problems/twoSum/py.html' %}
+                  {% include pyURL %}
                 </div>
               </div>
             </div>

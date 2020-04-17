@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import HttpResponse, render
+import os
 
 # Create your views here.
 
@@ -6,18 +7,32 @@ def codehome(request):
 
     return render(request, 'leetcode/codehome.html')
 
-def leetcode(request):
+def codepage(request, category, probName):
     
-    return render(request, 'leetcode/leetcode.html')
+    # read problem description from txt
+    dirPath = os.path.dirname(os.path.abspath(__file__))
+    relPath = 'static/leetcode/src/leetcode/3Sum.txt'
+    fileURL = os.path.join(dirPath, relPath)
+    
+    with open(fileURL, 'r') as f:
+        lines = (line.rstrip() for line in f)
+        lines = list((line for line in lines if line))
+        desc1 = lines.pop(0)
+        desc2 = lines.pop(0)
+        begin = lines.pop(0)
+        examples = lines
 
-def cs50(request):
-    
-    return render(request, 'leetcode/leetcode.html')
+    # return (HttpResponse(examples))
+ 
+    context = {
+        'category': category,
+        'probName': probName,
+        'desc1': desc1,
+        'desc2': desc2,
+        'begin': begin,
+        'examples': examples,
+        'cppURL': 'leetcode/code/' + category + '/' + probName + '/cpp.html',
+        'pyURL': 'leetcode/code/' + category + '/' + probName + '/py.html',
+    }
 
-def datastructure(request):
-    
-    return render(request, 'leetcode/leetcode.html')
-
-def webapp(request):
-    
-    return render(request, 'leetcode/leetcode.html')
+    return render(request, 'leetcode/codepage.html', context)
