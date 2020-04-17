@@ -87,23 +87,15 @@
                   {% include cppURL %}
                 </div>
               </div>
-    
-              <!-- python -->
-              <div
-                class="tab-pane fade"
-                id="nav-python"
-                role="tabpanel"
-                aria-labelledby="nav-python-tab"
-              >
-                <div class="highlight">
-                  {% include pyURL %}
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
+        <!-- Footer -->
         <div class="card-footer bg-white">
-          {% include 'leetcode/code/leetcode/3Sum/note.html' %}
+          {% for note in notes %}
+            <p>{{ note }}</p>
+          {% endfor %}
         </div>
       </div>
     </div>    

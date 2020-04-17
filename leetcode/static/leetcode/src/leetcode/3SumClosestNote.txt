@@ -1,0 +1,8 @@
+the idea as blow: 1) sort the array. 2) take the element one by one, calculate the two numbers in reset array.
+
+notes: be careful the duplication number.
+ 
+for example: 
+[-4,-1,-1,1,2] target=1 take -4, can calculate the "two number problem" of the reset array [-1,-1,1,2] while target=5 
+[(-4),-1,-1,1,2]  target=5  distance=4 because the -1+2 = 1 which < 5, then move the 'low' pointer(skip the duplication) [(-4),-1,-1,1,2]  target=5  distance=2 
+take -1(skip the duplication), can cacluate the "two number problem" of the reset array [1,2] while target=2 [-4,-1,(-1),1,2]  target=2  distance=1

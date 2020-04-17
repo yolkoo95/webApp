@@ -9,10 +9,12 @@ def codehome(request):
 
 def codepage(request, category, probName):
     
-    # read problem description from txt
+    # read problem description and note from txt
     dirPath = os.path.dirname(os.path.abspath(__file__))
-    relPath = 'static/leetcode/src/leetcode/3Sum.txt'
+    relPath = 'static/leetcode/src/leetcode/' + probName + '.txt'
+    relPathNote = 'static/leetcode/src/leetcode/' + probName + 'Note.txt'
     fileURL = os.path.join(dirPath, relPath)
+    noteURL = os.path.join(dirPath, relPathNote)
     
     with open(fileURL, 'r') as f:
         lines = (line.rstrip() for line in f)
@@ -21,8 +23,12 @@ def codepage(request, category, probName):
         desc2 = lines.pop(0)
         begin = lines.pop(0)
         examples = lines
+    
+    with open(noteURL, 'r') as f:
+        lines = (line.rstrip() for line in f)
+        notes = list((line for line in lines if line))
 
-    # return (HttpResponse(examples))
+    # return (HttpResponse(notes))
     
     context = {
         'category': category,
@@ -31,6 +37,7 @@ def codepage(request, category, probName):
         'desc2': desc2,
         'begin': begin,
         'examples': examples,
+        'notes': notes,
         'cppURL': 'leetcode/code/' + category + '/' + probName + '/cpp.html',
         'pyURL': 'leetcode/code/' + category + '/' + probName + '/py.html',
     }
