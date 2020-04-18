@@ -1,0 +1,2 @@
+1) Sort the array,
+2) traverse the array, and solve the problem by using "3Sum" solution.
