@@ -45,26 +45,43 @@
                   <h5 class="ml-4 text-info">Unicorn.org</h5>
                 </div>
               </div>
-              <a
-                class="nav-item nav-link active"
-                id="nav-editor-tab"
-                data-toggle="tab"
-                href="#nav-cpp"
-                role="tab"
-                aria-controls="nav-cpp"
-                aria-selected="true"
-                >C++</a
-              >
-              <!-- <a
-                class="nav-item nav-link ml-1 mr-2"
-                id="nav-python-tab"
-                data-toggle="tab"
-                href="#nav-python"
-                role="tab"
-                aria-controls="nav-python"
-                aria-selected="false"
-                >Python</a
-              > -->
+              {% if language == 'cpp' or addition == 'cpp' %}
+                <a
+                  class="nav-item nav-link active"
+                  id="nav-editor-tab"
+                  data-toggle="tab"
+                  href="#nav-cpp"
+                  role="tab"
+                  aria-controls="nav-cpp"
+                  aria-selected="true"
+                  >C++</a
+                >
+              {% endif %}
+              {% if language == 'py' or addition == 'py' %}
+                <a
+                  class="nav-item nav-link active"
+                  id="nav-python-tab"
+                  data-toggle="tab"
+                  href="#nav-python"
+                  role="tab"
+                  aria-controls="nav-python"
+                  aria-selected="true"
+                  >Python</a
+                >
+              {% endif %}
+              {% if language == 'html' or addition == 'html' %}
+                <a
+                  class="nav-item nav-link ml-1 mr-2"
+                  id="nav-python-tab"
+                  data-toggle="tab"
+                  href="#nav-html"
+                  role="tab"
+                  aria-controls="nav-html"
+                  aria-selected="false"
+                  >HTML</a
+                >
+              {% endif %}
+
               <div id="editorSearch" class="ml-auto mr-4">
                 <div class="row">
                   <form class="form-inline my-2 my-md-0">
@@ -76,18 +93,47 @@
           </nav>
           <div class="codeContent bg-light">
             <div class="tab-content" id="nav-tabContent">
-              <!-- cpp -->
-              <div
-                class="tab-pane fade show active"
-                id="nav-cpp"
-                role="tabpanel"
-                aria-labelledby="nav-cpp-tab"
-              >
-                <div class="highlight">
-                  {% include cppURL %}
+              {% if language == 'cpp' or addition == 'cpp' %}
+                <!-- cpp -->
+                <div
+                  class="tab-pane fade show active"
+                  id="nav-cpp"
+                  role="tabpanel"
+                  aria-labelledby="nav-cpp-tab"
+                >
+                  <div class="highlight">
+                    {% include cppURL %}
+                  </div>
                 </div>
-              </div>
-
+              {% endif %}
+              
+              {% if language == 'py' or addition == 'py' %}
+                <!-- python -->
+                <div
+                  class="tab-pane fade show active"
+                  id="nav-python"
+                  role="tabpanel"
+                  aria-labelledby="nav-python-tab"
+                >
+                  <div class="highlight">
+                    {% include pyURL %}
+                  </div>
+                </div>
+              {% endif %}
+              
+              {% if language == 'html' or addition == 'html' %}
+                <!-- html -->
+                <div
+                  class="tab-pane fade"
+                  id="nav-html"
+                  role="tabpanel"
+                  aria-labelledby="nav-html-tab"
+                >
+                  <div class="highlight">
+                    {% include htmlURL %}
+                  </div>
+                </div>
+              {% endif %}
             </div>
           </div>
         </div>
@@ -105,10 +151,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
 <script src="{% static 'leetcode/src/js/math.js' %}"></script>
 
-<script>
+<!-- <script>
   document.querySelector( '.zoom-section' ).addEventListener( 'click', function( event ) {
       event.preventDefault();
       zoom.to({ element: event.target });
   } );
-</script>
+</script> -->
 {% endblock %}

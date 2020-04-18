@@ -52,7 +52,8 @@ a:hover {
 }
 
 .codeContent {
-    height: 100vh;
+    height: auto;
+    max-height: 100vh;
     border: transparent;
     border-radius: .5rem;
     overflow: scroll;
