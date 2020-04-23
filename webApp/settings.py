@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'radar.apps.RadarConfig',
     'ticktock.apps.TicktockConfig',
     'leetcode.apps.LeetcodeConfig',
+    'checkwave.apps.CheckwaveConfig',
 ]
 
 MIDDLEWARE = [
