@@ -1,0 +1,5 @@
+Hello, this is cs50 lecture3.
+
+This codes will show us how to add new applications to flask, SMTP in particular.
+
+Let's get started.
