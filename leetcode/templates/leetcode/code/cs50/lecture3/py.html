@@ -1,0 +1,27 @@
+<pre>
+
+  <small class="text-muted"><a>1  </a></small><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span>
+  <small class="text-muted"><a>2  </a></small>
+  <small class="text-muted"><a>3  </a></small><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+  <small class="text-muted"><a>4  </a></small>
+  <small class="text-muted"><a>5  </a></small><span class="n">students</span> <span class="o">=</span> <span class="p">[]</span>
+  <small class="text-muted"><a>6  </a></small>
+  <small class="text-muted"><a>7  </a></small><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+  <small class="text-muted"><a>8  </a></small><span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+  <small class="text-muted"><a>9  </a></small>    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;index.html&quot;</span><span class="p">)</span>
+  <small class="text-muted"><a>10  </a></small>
+  <small class="text-muted"><a>11  </a></small><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/registrant&quot;</span><span class="p">)</span>
+  <small class="text-muted"><a>12  </a></small><span class="k">def</span> <span class="nf">registrant</span><span class="p">():</span>
+  <small class="text-muted"><a>13  </a></small>    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;registered.html&quot;</span><span class="p">,</span> <span class="n">students</span><span class="o">=</span><span class="n">students</span><span class="p">)</span>
+  <small class="text-muted"><a>14  </a></small>
+  <small class="text-muted"><a>15  </a></small><span class="nd">@app.route</span><span class="p">(</span><span class="s2">&quot;/register&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;POST&quot;</span><span class="p">])</span>
+  <small class="text-muted"><a>16  </a></small><span class="k">def</span> <span class="nf">register</span><span class="p">():</span>
+  <small class="text-muted"><a>17  </a></small>    <span class="n">name</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span> <span class="c1"># if method is &#39;GET&#39;, xxx = request.args.get(&quot;xxx&quot;)</span>
+  <small class="text-muted"><a>18  </a></small>    <span class="n">dorm</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dorm&quot;</span><span class="p">)</span> <span class="c1"># if method is &#39;POST&#39;, xxx = request.form.get(&quot;xxx&quot;)</span>
+  <small class="text-muted"><a>19  </a></small>    <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">dorm</span><span class="p">:</span>
+  <small class="text-muted"><a>20  </a></small>        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;failure.html&quot;</span><span class="p">)</span>
+  <small class="text-muted"><a>21  </a></small>
+  <small class="text-muted"><a>22  </a></small>    <span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> from </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">dorm</span><span class="p">))</span>
+  <small class="text-muted"><a>23  </a></small>    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/registrant&quot;</span><span class="p">)</span>
+
+</pre>
