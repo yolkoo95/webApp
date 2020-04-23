@@ -1,0 +1,5 @@
+Hello, this is cs50 lecture2.
+
+This codes will show us how to use flask templates, which is based on jinja2.
+
+Let's enjoy this fancy feature.

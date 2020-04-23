@@ -1,5 +1,5 @@
-Hello, this is cs50 lecture1
+Hello, this is cs50 lecture1.
 
-This lecture will show us how to use flask
+This lecture will show us how to use flask.
 
-Let's start
+Let's start.

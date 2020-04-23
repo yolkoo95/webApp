@@ -1,1 +1,1 @@
-flask notification
+The codes are intended to give you a intuition on how to use flask.
