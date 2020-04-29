@@ -21,7 +21,7 @@ def codepage(request, category, probName):
         lines = list((line for line in lines if line))
         desc1 = lines.pop(0)
         desc2 = lines.pop(0)
-        begin = lines.pop(0)
+        begin = lines.pop(0) # example description
         examples = lines
     
     with open(noteURL, 'r') as f:        
@@ -37,6 +37,9 @@ def codepage(request, category, probName):
     if category == 'cs50':
         language = 'py'
         addition = 'html'
+    if category == 'datastructure':
+        language = 'cpp'
+        addition = ''
 
     context = {
         'category': category,
@@ -52,5 +55,6 @@ def codepage(request, category, probName):
         'pyURL': 'leetcode/code/' + category + '/' + probName + '/py.html',
         'htmlURL': 'leetcode/code/' + category + '/' + probName + '/html.html',
     }
+    # URL indicate where to find source code 
 
     return render(request, 'leetcode/codepage.html', context)

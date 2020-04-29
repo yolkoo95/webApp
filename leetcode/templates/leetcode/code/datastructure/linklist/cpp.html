@@ -1,0 +1,223 @@
+<pre>
+
+  <small class="text-muted"><a>1  </a></small><span class="cm">/* entry.h */</span>
+  <small class="text-muted"><a>2  </a></small><span class="cp">#ifndef entry_h</span>
+  <small class="text-muted"><a>3  </a></small><span class="cp">#define entry_h</span>
+  <small class="text-muted"><a>4  </a></small>
+  <small class="text-muted"><a>5  </a></small><span class="k">class</span> <span class="nc">Entry</span> <span class="p">{</span>
+  <small class="text-muted"><a>6  </a></small>    <span class="k">friend</span> <span class="kt">void</span> <span class="n">PrintEntry</span><span class="p">(</span><span class="k">const</span> <span class="n">Entry</span><span class="o">&amp;</span> <span class="n">entry</span><span class="p">);</span>
+  <small class="text-muted"><a>7  </a></small><span class="k">private</span><span class="o">:</span>
+  <small class="text-muted"><a>8  </a></small>    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">_name</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+  <small class="text-muted"><a>9  </a></small>    <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">_phone_num</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+  <small class="text-muted"><a>10  </a></small><span class="k">public</span><span class="o">:</span>
+  <small class="text-muted"><a>11  </a></small>    <span class="n">Entry</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+  <small class="text-muted"><a>12  </a></small>    <span class="n">Entry</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">phoneNum</span><span class="p">)</span>
+  <small class="text-muted"><a>13  </a></small>    <span class="o">:</span><span class="n">_name</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">_phone_num</span><span class="p">(</span><span class="n">phoneNum</span><span class="p">)</span> <span class="p">{</span>
+  <small class="text-muted"><a>14  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>15  </a></small>
+  <small class="text-muted"><a>16  </a></small>    <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">Name</span><span class="p">()</span> <span class="p">{</span>
+  <small class="text-muted"><a>17  </a></small>        <span class="k">return</span> <span class="n">_name</span><span class="p">;</span>
+  <small class="text-muted"><a>18  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>19  </a></small>
+  <small class="text-muted"><a>20  </a></small>    <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">PhoneNum</span><span class="p">()</span> <span class="p">{</span>
+  <small class="text-muted"><a>21  </a></small>        <span class="k">return</span> <span class="n">_phone_num</span><span class="p">;</span>
+  <small class="text-muted"><a>22  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>23  </a></small>
+  <small class="text-muted"><a>24  </a></small>    <span class="kt">void</span> <span class="n">SetEntry</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">phoneNum</span><span class="p">)</span> <span class="p">{</span>
+  <small class="text-muted"><a>25  </a></small>        <span class="n">_name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+  <small class="text-muted"><a>26  </a></small>        <span class="n">_phone_num</span> <span class="o">=</span> <span class="n">phoneNum</span><span class="p">;</span>
+  <small class="text-muted"><a>27  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>28  </a></small>
+  <small class="text-muted"><a>29  </a></small>    <span class="kt">void</span> <span class="n">PrintEntry</span><span class="p">(</span><span class="k">const</span> <span class="n">Entry</span><span class="o">&amp;</span> <span class="n">entry</span><span class="p">)</span> <span class="p">{</span>
+  <small class="text-muted"><a>30  </a></small>        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;name:&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">entry</span><span class="p">.</span><span class="n">_name</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, phoneNum:&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">entry</span><span class="p">.</span><span class="n">_phone_num</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+  <small class="text-muted"><a>31  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>32  </a></small>
+  <small class="text-muted"><a>33  </a></small><span class="p">};</span>
+  <small class="text-muted"><a>34  </a></small>
+  <small class="text-muted"><a>35  </a></small><span class="kt">void</span> <span class="nf">PrintEntry</span><span class="p">(</span><span class="k">const</span> <span class="n">Entry</span><span class="o">&amp;</span> <span class="n">entry</span><span class="p">)</span> <span class="p">{</span>
+  <small class="text-muted"><a>36  </a></small>    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;name:&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">entry</span><span class="p">.</span><span class="n">_name</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;, phoneNum:&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">entry</span><span class="p">.</span><span class="n">_phone_num</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+  <small class="text-muted"><a>37  </a></small><span class="p">}</span>
+  <small class="text-muted"><a>38  </a></small>
+  <small class="text-muted"><a>39  </a></small><span class="cp">#endif</span>
+  <small class="text-muted"><a>40  </a></small>
+  <small class="text-muted"><a>41  </a></small><span class="cm">/* entry.cc */</span>
+  <small class="text-muted"><a>42  </a></small><span class="cp">#include</span> <span class="cpf">&quot;entry.h&quot;</span><span class="cp"></span>
+  <small class="text-muted"><a>43  </a></small>
+  <small class="text-muted"><a>44  </a></small><span class="cm">/* node.h */</span>
+  <small class="text-muted"><a>45  </a></small><span class="cp">#ifndef node_h</span>
+  <small class="text-muted"><a>46  </a></small><span class="cp">#define node_h</span>
+  <small class="text-muted"><a>47  </a></small><span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
+  <small class="text-muted"><a>48  </a></small><span class="cp">#include</span> <span class="cpf">&lt;cassert&gt;</span><span class="cp"></span>
+  <small class="text-muted"><a>49  </a></small><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+  <small class="text-muted"><a>50  </a></small>
+  <small class="text-muted"><a>51  </a></small><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <small class="text-muted"><a>52  </a></small><span class="k">class</span> <span class="nc">Node</span> <span class="p">{</span>
+  <small class="text-muted"><a>53  </a></small><span class="k">private</span><span class="o">:</span>
+  <small class="text-muted"><a>54  </a></small>    <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">_pRecord</span><span class="p">;</span>
+  <small class="text-muted"><a>55  </a></small><span class="k">public</span><span class="o">:</span>
+  <small class="text-muted"><a>56  </a></small>    <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="n">Next</span><span class="p">;</span>
+  <small class="text-muted"><a>57  </a></small>
+  <small class="text-muted"><a>58  </a></small>    <span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span>
+  <small class="text-muted"><a>59  </a></small>    <span class="o">:</span><span class="n">_pRecord</span><span class="p">(</span><span class="k">nullptr</span><span class="p">),</span> <span class="n">Next</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+  <small class="text-muted"><a>60  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>61  </a></small>    <span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">record</span><span class="p">)</span>
+  <small class="text-muted"><a>62  </a></small>    <span class="o">:</span> <span class="n">Next</span><span class="p">(</span><span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+  <small class="text-muted"><a>63  </a></small>        <span class="n">_pRecord</span> <span class="o">=</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="k">new</span> <span class="n">T</span><span class="p">(</span><span class="n">record</span><span class="p">));</span>
+  <small class="text-muted"><a>64  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>65  </a></small>
+  <small class="text-muted"><a>66  </a></small>    <span class="n">T</span><span class="o">&amp;</span> <span class="n">Record</span><span class="p">()</span> <span class="p">{</span>
+  <small class="text-muted"><a>67  </a></small>        <span class="n">assert</span><span class="p">(</span><span class="n">_pRecord</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">);</span>
+  <small class="text-muted"><a>68  </a></small>        <span class="k">return</span> <span class="o">*</span><span class="n">_pRecord</span><span class="p">;</span>
+  <small class="text-muted"><a>69  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>70  </a></small>
+  <small class="text-muted"><a>71  </a></small>    <span class="k">virtual</span> <span class="o">~</span><span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
+  <small class="text-muted"><a>72  </a></small>        <span class="n">_pRecord</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+  <small class="text-muted"><a>73  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>74  </a></small><span class="p">};</span>
+  <small class="text-muted"><a>75  </a></small>
+  <small class="text-muted"><a>76  </a></small><span class="cp">#endif</span>
+  <small class="text-muted"><a>77  </a></small>
+  <small class="text-muted"><a>78  </a></small><span class="cm">/* node.cc */</span>
+  <small class="text-muted"><a>79  </a></small><span class="cp">#include</span> <span class="cpf">&quot;node.h&quot;</span><span class="cp"></span>
+  <small class="text-muted"><a>80  </a></small>
+  <small class="text-muted"><a>81  </a></small><span class="cm">/* linklist.h */</span>
+  <small class="text-muted"><a>82  </a></small><span class="cp">#ifndef linklist_h</span>
+  <small class="text-muted"><a>83  </a></small><span class="cp">#define linklist_h</span>
+  <small class="text-muted"><a>84  </a></small><span class="cp">#include</span> <span class="cpf">&quot;node.h&quot;</span><span class="cp"></span>
+  <small class="text-muted"><a>85  </a></small><span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
+  <small class="text-muted"><a>86  </a></small><span class="cp">#include</span> <span class="cpf">&lt;functional&gt;</span><span class="cp"></span>
+  <small class="text-muted"><a>87  </a></small><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+  <small class="text-muted"><a>88  </a></small>
+  <small class="text-muted"><a>89  </a></small><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span>
+  <small class="text-muted"><a>90  </a></small><span class="k">class</span> <span class="nc">LinkList</span> <span class="p">{</span>
+  <small class="text-muted"><a>91  </a></small><span class="k">private</span><span class="o">:</span>
+  <small class="text-muted"><a>92  </a></small>    <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="n">_head</span><span class="p">;</span>
+  <small class="text-muted"><a>93  </a></small><span class="k">public</span><span class="o">:</span>
+  <small class="text-muted"><a>94  </a></small>    <span class="n">LinkList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
+  <small class="text-muted"><a>95  </a></small>        <span class="n">_head</span> <span class="o">=</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="k">new</span> <span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">());</span>
+  <small class="text-muted"><a>96  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>97  </a></small>
+  <small class="text-muted"><a>98  </a></small>    <span class="kt">void</span> <span class="n">InsertFirst</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">record</span><span class="p">)</span> <span class="p">{</span>
+  <small class="text-muted"><a>99  </a></small>        <span class="k">auto</span> <span class="n">node</span> <span class="o">=</span> <span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="k">new</span> <span class="n">Node</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">record</span><span class="p">));</span>
+  <small class="text-muted"><a>100  </a></small>        <span class="n">node</span><span class="o">-&gt;</span><span class="n">Next</span> <span class="o">=</span> <span class="n">_head</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">;</span>
+  <small class="text-muted"><a>101  </a></small>        <span class="n">_head</span><span class="o">-&gt;</span><span class="n">Next</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+  <small class="text-muted"><a>102  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>103  </a></small>
+  <small class="text-muted"><a>104  </a></small>    <span class="kt">void</span> <span class="n">InsertLast</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">record</span><span class="p">)</span> <span class="p">{</span>
+  <small class="text-muted"><a>105  </a></small>
+  <small class="text-muted"><a>106  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>107  </a></small>
+  <small class="text-muted"><a>108  </a></small>    <span class="kt">bool</span> <span class="n">IsEmpty</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>
+  <small class="text-muted"><a>109  </a></small>        <span class="k">if</span> <span class="p">(</span><span class="n">_head</span><span class="o">-&gt;</span><span class="n">Next</span> <span class="o">==</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+  <small class="text-muted"><a>110  </a></small>            <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+  <small class="text-muted"><a>111  </a></small>        <span class="p">}</span>
+  <small class="text-muted"><a>112  </a></small>        <span class="k">else</span> <span class="p">{</span>
+  <small class="text-muted"><a>113  </a></small>            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+  <small class="text-muted"><a>114  </a></small>        <span class="p">}</span>
+  <small class="text-muted"><a>115  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>116  </a></small>
+  <small class="text-muted"><a>117  </a></small>    <span class="kt">int</span> <span class="n">Length</span><span class="p">()</span> <span class="k">const</span><span class="p">{</span>
+  <small class="text-muted"><a>118  </a></small>        <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <small class="text-muted"><a>119  </a></small>        <span class="k">auto</span> <span class="n">node</span> <span class="o">=</span> <span class="n">_head</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">;</span>
+  <small class="text-muted"><a>120  </a></small>        <span class="k">while</span> <span class="p">(</span><span class="n">node</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+  <small class="text-muted"><a>121  </a></small>            <span class="o">++</span><span class="n">length</span><span class="p">;</span>
+  <small class="text-muted"><a>122  </a></small>            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">;</span>
+  <small class="text-muted"><a>123  </a></small>        <span class="p">}</span>
+  <small class="text-muted"><a>124  </a></small>        <span class="k">return</span> <span class="n">length</span><span class="p">;</span>
+  <small class="text-muted"><a>125  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>126  </a></small>
+  <small class="text-muted"><a>127  </a></small>    <span class="kt">void</span> <span class="n">Traverse</span><span class="p">(</span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="k">const</span> <span class="n">T</span><span class="o">&amp;</span> <span class="n">record</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">func</span><span class="p">)</span> <span class="p">{</span>
+  <small class="text-muted"><a>128  </a></small>        <span class="k">auto</span> <span class="n">node</span> <span class="o">=</span> <span class="n">_head</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">;</span>
+  <small class="text-muted"><a>129  </a></small>        <span class="k">while</span> <span class="p">(</span><span class="n">node</span> <span class="o">!=</span> <span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+  <small class="text-muted"><a>130  </a></small>            <span class="n">func</span><span class="p">(</span><span class="n">node</span><span class="o">-&gt;</span><span class="n">Record</span><span class="p">());</span>
+  <small class="text-muted"><a>131  </a></small>            <span class="n">node</span> <span class="o">=</span> <span class="n">node</span><span class="o">-&gt;</span><span class="n">Next</span><span class="p">;</span>
+  <small class="text-muted"><a>132  </a></small>        <span class="p">}</span>
+  <small class="text-muted"><a>133  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>134  </a></small>
+  <small class="text-muted"><a>135  </a></small>    <span class="k">virtual</span> <span class="o">~</span><span class="n">LinkList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">()</span> <span class="p">{</span>
+  <small class="text-muted"><a>136  </a></small>        <span class="n">_head</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+  <small class="text-muted"><a>137  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>138  </a></small><span class="p">};</span>
+  <small class="text-muted"><a>139  </a></small>
+  <small class="text-muted"><a>140  </a></small><span class="cp">#endif</span>
+  <small class="text-muted"><a>141  </a></small>
+  <small class="text-muted"><a>142  </a></small><span class="cm">/* linklist.cc */</span>
+  <small class="text-muted"><a>143  </a></small><span class="cp">#include</span> <span class="cpf">&quot;linklist.h&quot;</span><span class="cp"></span>
+  <small class="text-muted"><a>144  </a></small>
+  <small class="text-muted"><a>145  </a></small><span class="cm">/* unittest.cc */</span>
+  <small class="text-muted"><a>146  </a></small><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+  <small class="text-muted"><a>147  </a></small><span class="cp">#include</span> <span class="cpf">&lt;memory&gt;</span><span class="cp"></span>
+  <small class="text-muted"><a>148  </a></small><span class="cp">#include</span> <span class="cpf">&quot;Entry.h&quot;</span><span class="cp"></span>
+  <small class="text-muted"><a>149  </a></small><span class="cp">#include</span> <span class="cpf">&quot;gtest/gtest.h&quot;</span><span class="cp"></span>
+  <small class="text-muted"><a>150  </a></small>
+  <small class="text-muted"><a>151  </a></small><span class="cp">#include</span> <span class="cpf">&quot;linklist.h&quot;</span><span class="cp"></span>
+  <small class="text-muted"><a>152  </a></small><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+  <small class="text-muted"><a>153  </a></small>
+  <small class="text-muted"><a>154  </a></small><span class="c1">//#define NORMAL_TEST</span>
+  <small class="text-muted"><a>155  </a></small><span class="cp">#define SCALE_TEST</span>
+  <small class="text-muted"><a>156  </a></small>
+  <small class="text-muted"><a>157  </a></small>
+  <small class="text-muted"><a>158  </a></small><span class="cp">#ifdef NORMAL_TEST</span>
+  <small class="text-muted"><a>159  </a></small><span class="cm">/* Normal Test */</span>
+  <small class="text-muted"><a>160  </a></small><span class="n">TEST</span><span class="p">(</span><span class="n">LinkListTest</span><span class="p">,</span> <span class="n">InsertWork</span><span class="p">)</span> <span class="p">{</span>
+  <small class="text-muted"><a>161  </a></small>    <span class="n">Entry</span> <span class="n">s</span><span class="p">(</span><span class="s">&quot;Nave&quot;</span><span class="p">,</span> <span class="s">&quot;114&quot;</span><span class="p">);</span>
+  <small class="text-muted"><a>162  </a></small>    <span class="n">LinkList</span><span class="o">&lt;</span><span class="n">Entry</span><span class="o">&gt;</span> <span class="n">list</span><span class="p">;</span>
+  <small class="text-muted"><a>163  </a></small>    <span class="n">list</span><span class="p">.</span><span class="n">InsertFirst</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+  <small class="text-muted"><a>164  </a></small>    <span class="n">EXPECT_EQ</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">list</span><span class="p">.</span><span class="n">Length</span><span class="p">());</span>
+  <small class="text-muted"><a>165  </a></small><span class="p">}</span>
+  <small class="text-muted"><a>166  </a></small><span class="cm">/* End Normal Test */</span>
+  <small class="text-muted"><a>167  </a></small><span class="cp">#endif</span>
+  <small class="text-muted"><a>168  </a></small>
+  <small class="text-muted"><a>169  </a></small>
+  <small class="text-muted"><a>170  </a></small><span class="cp">#ifdef SCALE_TEST</span>
+  <small class="text-muted"><a>171  </a></small><span class="cm">/* Scale Test */</span>
+  <small class="text-muted"><a>172  </a></small><span class="k">class</span> <span class="nc">LinkListTest</span> <span class="o">:</span> <span class="k">public</span> <span class="o">::</span><span class="n">testing</span><span class="o">::</span><span class="n">Test</span> <span class="p">{</span>
+  <small class="text-muted"><a>173  </a></small><span class="k">protected</span><span class="o">:</span>
+  <small class="text-muted"><a>174  </a></small>    <span class="k">virtual</span> <span class="kt">void</span> <span class="n">SetUp</span><span class="p">()</span> <span class="p">{</span>
+  <small class="text-muted"><a>175  </a></small>        <span class="n">Entry</span> <span class="n">s1</span><span class="p">(</span><span class="s">&quot;Sara&quot;</span><span class="p">,</span> <span class="s">&quot;110&quot;</span><span class="p">);</span>
+  <small class="text-muted"><a>176  </a></small>        <span class="n">Entry</span> <span class="nf">s2</span><span class="p">(</span><span class="s">&quot;John&quot;</span><span class="p">,</span> <span class="s">&quot;119&quot;</span><span class="p">);</span>
+  <small class="text-muted"><a>177  </a></small>        <span class="n">Entry</span> <span class="nf">s3</span><span class="p">(</span><span class="s">&quot;Tony&quot;</span><span class="p">,</span> <span class="s">&quot;120&quot;</span><span class="p">);</span>
+  <small class="text-muted"><a>178  </a></small>
+  <small class="text-muted"><a>179  </a></small>        <span class="n">_list1</span><span class="p">.</span><span class="n">InsertFirst</span><span class="p">(</span><span class="n">s1</span><span class="p">);</span>    
+  <small class="text-muted"><a>180  </a></small>        <span class="n">_list2</span><span class="p">.</span><span class="n">InsertFirst</span><span class="p">(</span><span class="n">s2</span><span class="p">);</span>
+  <small class="text-muted"><a>181  </a></small>        <span class="n">_list2</span><span class="p">.</span><span class="n">InsertFirst</span><span class="p">(</span><span class="n">s3</span><span class="p">);</span>
+  <small class="text-muted"><a>182  </a></small>    <span class="p">}</span>
+  <small class="text-muted"><a>183  </a></small>
+  <small class="text-muted"><a>184  </a></small>    <span class="n">LinkList</span><span class="o">&lt;</span><span class="n">Entry</span><span class="o">&gt;</span> <span class="n">_list0</span><span class="p">;</span>
+  <small class="text-muted"><a>185  </a></small>    <span class="n">LinkList</span><span class="o">&lt;</span><span class="n">Entry</span><span class="o">&gt;</span> <span class="n">_list1</span><span class="p">;</span>
+  <small class="text-muted"><a>186  </a></small>    <span class="n">LinkList</span><span class="o">&lt;</span><span class="n">Entry</span><span class="o">&gt;</span> <span class="n">_list2</span><span class="p">;</span>
+  <small class="text-muted"><a>187  </a></small><span class="p">};</span>
+  <small class="text-muted"><a>188  </a></small>
+  <small class="text-muted"><a>189  </a></small><span class="n">TEST_F</span><span class="p">(</span><span class="n">LinkListTest</span><span class="p">,</span> <span class="n">IsEmptyInitially</span><span class="p">)</span> <span class="p">{</span>
+  <small class="text-muted"><a>190  </a></small>    <span class="n">ASSERT_TRUE</span><span class="p">(</span><span class="n">_list0</span><span class="p">.</span><span class="n">IsEmpty</span><span class="p">())</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Initialized list should be  empty&quot;</span><span class="p">;</span>
+  <small class="text-muted"><a>191  </a></small>    <span class="n">EXPECT_TRUE</span><span class="p">(</span><span class="n">_list0</span><span class="p">.</span><span class="n">IsEmpty</span><span class="p">());</span>    
+  <small class="text-muted"><a>192  </a></small>    <span class="n">EXPECT_EQ</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">_list0</span><span class="p">.</span><span class="n">Length</span><span class="p">());</span>
+  <small class="text-muted"><a>193  </a></small><span class="p">}</span>
+  <small class="text-muted"><a>194  </a></small>
+  <small class="text-muted"><a>195  </a></small><span class="n">TEST_F</span><span class="p">(</span><span class="n">LinkListTest</span><span class="p">,</span> <span class="n">InsertFirstWorks</span><span class="p">)</span> <span class="p">{</span>
+  <small class="text-muted"><a>196  </a></small>    <span class="n">EXPECT_EQ</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">_list1</span><span class="p">.</span><span class="n">Length</span><span class="p">());</span>
+  <small class="text-muted"><a>197  </a></small>    <span class="n">EXPECT_EQ</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">_list2</span><span class="p">.</span><span class="n">Length</span><span class="p">());</span>
+  <small class="text-muted"><a>198  </a></small>
+  <small class="text-muted"><a>199  </a></small>    <span class="n">Entry</span> <span class="nf">s4</span><span class="p">(</span><span class="s">&quot;Lily&quot;</span><span class="p">,</span> <span class="s">&quot;911&quot;</span><span class="p">);</span> 
+  <small class="text-muted"><a>200  </a></small>    <span class="n">_list2</span><span class="p">.</span><span class="n">InsertFirst</span><span class="p">(</span><span class="n">s4</span><span class="p">);</span>
+  <small class="text-muted"><a>201  </a></small>    <span class="n">EXPECT_EQ</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">_list2</span><span class="p">.</span><span class="n">Length</span><span class="p">());</span>    
+  <small class="text-muted"><a>202  </a></small><span class="p">}</span>
+  <small class="text-muted"><a>203  </a></small>
+  <small class="text-muted"><a>204  </a></small><span class="n">TEST_F</span><span class="p">(</span><span class="n">LinkListTest</span><span class="p">,</span> <span class="n">DeleteFirstWorks</span><span class="p">)</span> <span class="p">{</span>
+  <small class="text-muted"><a>205  </a></small>    <span class="c1">// another test ...</span>
+  <small class="text-muted"><a>206  </a></small>    <span class="n">ASSERT_NE</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">_list2</span><span class="p">.</span><span class="n">Length</span><span class="p">())</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;When equal 2, means CREAT a new LinkListTest object&quot;</span><span class="p">;</span>
+  <small class="text-muted"><a>207  </a></small><span class="p">}</span>
+  <small class="text-muted"><a>208  </a></small><span class="cm">/* End Scale Test */</span>
+  <small class="text-muted"><a>209  </a></small><span class="cp">#endif</span>
+  <small class="text-muted"><a>210  </a></small>
+  <small class="text-muted"><a>211  </a></small><span class="cm">/* In TEST_F, we can visit protected member in calss (LinkListTest), cause that:</span>
+  <small class="text-muted"><a>212  </a></small><span class="cm"> * 1. Google Test constructs a LinkListTest object (let&#39;s call it t1).</span>
+  <small class="text-muted"><a>213  </a></small><span class="cm"> * 2. t1.SetUp() initialize t1.</span>
+  <small class="text-muted"><a>214  </a></small><span class="cm"> * 3. The first test (IsEmptyInitially) runs on t1.</span>
+  <small class="text-muted"><a>215  </a></small><span class="cm"> * 4. t1.TearDown() cleans up after the test finishes.</span>
+  <small class="text-muted"><a>216  </a></small><span class="cm"> * 5. t1 is destructed.</span>
+  <small class="text-muted"><a>217  </a></small><span class="cm"> * 6. The above steps are repeated on another LinkList object, this time running</span>
+  <small class="text-muted"><a>218  </a></small><span class="cm"> * the InsertFirstWorks test.</span>
+  <small class="text-muted"><a>219  </a></small><span class="cm">*/</span>
+
+</pre>
