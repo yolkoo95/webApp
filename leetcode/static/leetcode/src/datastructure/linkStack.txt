@@ -1,0 +1,5 @@
+1st para.: Statement/Introduction
+
+2nd para.: Description
+
+3rd para.: Example/Conclusion (plus examples, one example for one line)
