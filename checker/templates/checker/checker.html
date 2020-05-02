@@ -1,4 +1,4 @@
-{% extends 'home/base.html' %} 
+{% extends 'home2/base.html' %} 
 {% load static %}
 
 {% block title %} 
@@ -147,7 +147,7 @@
   {% if results %}
   <hr />
   <h2 class="text-muted text-center">Match Results:</h2>
-  <div class="row justify-content-center mt-3">
+  <div class="row justify-content-center mt-3 mb-5">
     <div class="col-5">
       <div class="list-group">
         {% if pattern %}
@@ -172,7 +172,7 @@
   {% endif %}
 </div>
 
-<!-- Back to Homepage -->
+<!-- Back to Homepage
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-3">
@@ -185,5 +185,5 @@
       >
     </div>
   </div>
-</div>
+</div> -->
 {% endblock %}
