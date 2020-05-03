@@ -1,0 +1,157 @@
+{% extends 'home2/base.html' %} {% load static %} {% block style %}
+<style>
+  body {
+    background-image: url("../../static/home2/src/img/design/design-h-10.jpg");
+    background-size: 100vw;
+  }
+</style>
+
+<link rel="stylesheet" href="{% static 'codehome/src/css/markdown.css' %}" />
+{% endblock %} {% block title %} Terms {% endblock %} {% block body %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <div id="wrapper">
+          <h2 id="terms-of-service">Terms of Service</h2>
+
+          <h3 id="privacy-policy">Privacy Policy</h3>
+
+          <p>
+            Protecting your private information is our priority. This Statement
+            of Privacy applies to www.yolkoo.com and Unicorn and governs data
+            collection and usage. For the purposes of this Privacy Policy,
+            unless otherwise noted, all references to Unicorn include
+            www.yolkoo.com and Unicorn . The Unicorn website is a Web
+            Application for general public to use freely site. By using the
+            Unicorn website, you consent to the data practices described in this
+            statement.
+          </p>
+
+          <h3 id="collection-of-your-personal-information">
+            Collection of your Personal Information
+          </h3>
+
+          <p>
+            We do not collect any personal information about you unless you
+            voluntarily provide it to us. However, you may be required to
+            provide certain personal information to us when you elect to use
+            certain products or services available on the Site. These may
+            include:
+          </p>
+
+          <ul>
+            <li>registering for an account on our Site;</li>
+            <li>
+              entering a sweepstakes or contest sponsored by us or one of our
+              partners;
+            </li>
+            <li>signing up for special offers from selected third parties;</li>
+            <li>sending us an email message;</li>
+            <li>
+              submitting your credit card or other payment information when
+              ordering and purchasing products and services on our Site.
+            </li>
+          </ul>
+
+          <p>
+            To wit, we will use your information for, but not limited to,
+            communicating with you in relation to services and/or products you
+            have requested from us. We also may gather additional personal or
+            non-personal information in the future.
+          </p>
+
+          <h3 id="sharing-information-with-third-parties">
+            Sharing Information with Third Parties
+          </h3>
+
+          <p>
+            Unicorn does not sell, rent or lease its customer lists to third
+            parties. Unicorn may share data with trusted partners to help
+            perform statistical analysis, send you email or postal mail, provide
+            customer support, or arrange for deliveries. All such third parties
+            are prohibited from using your personal information except to
+            provide these services to Unicorn and they are required to maintain
+            the confidentiality of your information.<br />
+            Unicorn may disclose your personal information, without notice, if
+            required to do so by law or in the good faith belief that such
+            action is necessary to:
+          </p>
+
+          <ul>
+            <li>
+              conform to the edicts of the law or comply with legal process
+              served on Unicorn or the site;
+            </li>
+            <li>protect and defend the rights or property of Unicorn;</li>
+            <li>
+              act under exigent circumstances to protect the personal safety of
+              users of Unicorn , or the public.
+            </li>
+          </ul>
+
+          <h3 id="links">Links</h3>
+
+          <p>
+            This website contains links to other sites. Please be aware that we
+            are not responsible for the content or privacy practices of such
+            other sites. We encourage our users to be aware when they leave our
+            site and to read the privacy statements of any other site that
+            collects personally identifiable information.
+          </p>
+
+          <h3 id="children-under-thirteen">Children Under Thirteen</h3>
+
+          <p>
+            Unicorn does not knowingly collect personally identifiable
+            information from children under the age of thirteen. If you are
+            under the age of thirteen, you must ask your parent or guardian for
+            permission to use this website.
+          </p>
+
+          <h3 id="e-mail-communications">E-mail Communications</h3>
+
+          <p>
+            From time to time, Unicorn may contact you via email for the purpose
+            of providing announcements, promotional offers, alerts,
+            confirmations, surveys, and/or other general communication.
+          </p>
+
+          <h3 id="changes-to-this-statement">Changes to this Statement</h3>
+
+          <p>
+            Unicorn reserves the right to change this Privacy Policy from time
+            to time. We will notify you about significant changes in the way we
+            treat personal information by sending a notice to the primary email
+            address specified in your account, by placing a prominent notice on
+            our site, andJor by updating any privacy information on this page.
+          </p>
+
+          <h3 id="contact-information">Contact Information</h3>
+
+          <p>
+            Unicorn welcomes your questions or comments regarding this Statement
+            of Privacy. If you believe that Unicorn has not adhered to this
+            Statement, please contact Unicorn at:
+          </p>
+
+          <p>
+            Unicorn Org.<br />
+            Shaanxi, Xi'an, China<br />
+            Tel:(86)133-0928-5508<br />
+            15399018708@163.com
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block js %}
+<div style="display: none;" markdown="0">
+  <!--This seemingly unnecessary div markup is the only thing keeping this script working after Markdown conversion. Trust me.-->
+  <script src="{% static 'codehome/src/js/markdown.js' %}"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</div>
+{% endblock %}

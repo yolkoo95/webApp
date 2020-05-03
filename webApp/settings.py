@@ -40,11 +40,6 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'home2.apps.Home2Config',
     'appstore.apps.AppstoreConfig',
-    'checker.apps.CheckerConfig',
-    'logindemo.apps.LogindemoConfig',
-    'radar.apps.RadarConfig',
-    'ticktock.apps.TicktockConfig',
-    'checkwave.apps.CheckwaveConfig',
     'codehome.apps.CodehomeConfig',
 ]
 

@@ -13,3 +13,7 @@ def homepage(request):
     context = dict(context, **intro())
 
     return render(request, 'home2/homepage.html', context)
+
+def terms(request):
+
+    return render(request, 'home2/terms.html')
