@@ -172,7 +172,7 @@
 
 .highlight .kt {
     color: #B00040;
-    font-weight: bold;
+    font-weight: normal;
 }
 
 /* Keyword.Type */
@@ -235,7 +235,7 @@
 /* Name.Exception */
 
 .highlight .nf {
-    color: #0000FF
+    color: #0076BA
 }
 
 /* Name.Function */
