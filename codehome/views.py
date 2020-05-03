@@ -5,7 +5,7 @@ import os
 
 def codehome(request):
 
-    return render(request, 'leetcode/codehome.html')
+    return render(request, 'codehome/codehome.html')
 
 def codepage(request, category, problemName):
     
@@ -39,11 +39,11 @@ def codepage(request, category, problemName):
         'language': language,
         'addition': addition,
         'problemName': problemName,
-        'problemURL': 'leetcode/code/' + category + '/' + problemName + '/' + problemName + '.html',
-        'cppURL': 'leetcode/code/' + category + '/' + problemName + '/cpp.html',
-        'pyURL': 'leetcode/code/' + category + '/' + problemName + '/py.html',
-        'htmlURL': 'leetcode/code/' + category + '/' + problemName + '/html.html',
+        'problemURL': 'codehome/code/' + category + '/' + problemName + '/' + problemName + '.html',
+        'cppURL': 'codehome/code/' + category + '/' + problemName + '/cpp.html',
+        'pyURL': 'codehome/code/' + category + '/' + problemName + '/py.html',
+        'htmlURL': 'codehome/code/' + category + '/' + problemName + '/html.html',
     }
     # URL indicate where to find source code 
 
-    return render(request, 'leetcode/codepage.html', context)
+    return render(request, 'codehome/codepage.html', context)

@@ -25,5 +25,5 @@ urlpatterns = [
     path('lab/radar/', include('radar.urls')),
     path('graphic/ticktock/', include('ticktock.urls')),
     path('appstore/', include('appstore.urls')),
-    path('code/', include('leetcode.urls')),
+    path('code/', include('codehome.urls')),
 ]
