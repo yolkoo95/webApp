@@ -6,6 +6,7 @@
 {% endblock %} 
 
 {% block style %}
+  <link rel="stylesheet" href="{% static 'leetcode/src/css/markdown.css' %}">
   <link rel="stylesheet" href="{% static 'leetcode/src/css/colorScheme.css' %}" />
   <link rel="stylesheet" href="{% static 'leetcode/src/css/codepage.css' %}" />
 {% endblock %} 
@@ -18,22 +19,11 @@
         <!-- Description -->
         <div class="card-header bg-white">
           <div class="questionDescription">
-            <h2 class="text-center mr-5 mb-1">{{ probName }}</h2>
+            <h2 class="text-center mr-5 mb-1">{{ problemName }}</h2>
             <hr>
-            <div class="details">
-              <p>
-                {{ desc1 }}
-              </p>
-              <p>
-                {{ desc2 }}
-              </p>
+            <div id="wrapper">
+              {% include problemURL %}
             </div>
-            <code>
-              {{ begin }}
-              {% for example in examples %}
-                <br>&emsp;&emsp;{{ example }}
-              {% endfor %}
-            </code>
           </div>
         </div>
         <!-- Content -->
@@ -137,12 +127,6 @@
             </div>
           </div>
         </div>
-        <!-- Footer -->
-        <div class="card-footer bg-white">
-          {% for note in notes %}
-            <p>{{ note }}</p>
-          {% endfor %}
-        </div>
       </div>
     </div>    
   </div>
@@ -150,6 +134,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
 <script src="{% static 'leetcode/src/js/math.js' %}"></script>
+<script src="{% static 'leetcode/src/js/markdown.js' %}"></script> 
 
 <!-- <script>
   document.querySelector( '.zoom-section' ).addEventListener( 'click', function( event ) {

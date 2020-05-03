@@ -1,3 +1,0 @@
-The code is intended to give you a sense of how to use jinja templates in flask framework.
-
-Writing for developer: in order to avoid conflict of rendering {{ }} or {% %} with jinja, if you want to show {{ }} or {% %} in code editor, you need write it as { { } } and { % % } respectively.
