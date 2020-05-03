@@ -6,7 +6,7 @@ body {
 
 #code ul {
     position: relative;
-    height: 40vh;
+    max-height: 40vh;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
