@@ -30,9 +30,6 @@ def codepage(request, category, problemName):
     if category == 'cs50':
         language = 'py'
         addition = 'html'
-    if category == 'datastructure':
-        language = 'cpp'
-        addition = ''
 
     context = {
         'category': category,
@@ -47,3 +44,13 @@ def codepage(request, category, problemName):
     # URL indicate where to find source code 
 
     return render(request, 'codehome/codepage.html', context)
+
+def notepage(request, category, topic):
+    
+    context = {
+        'category': category,
+        'topic': topic,
+        'contentURL': 'codehome/code' + category + '/' + topic + '/topic.html',
+    }
+
+    return render(request, 'codehome/notepage.html', context)

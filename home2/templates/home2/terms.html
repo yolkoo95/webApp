@@ -4,6 +4,15 @@
     background-image: url("../../static/home2/src/img/design/design-h-10.jpg");
     background-size: 100vw;
   }
+
+  .container #wrapper {
+    max-height: 100vh;
+    overflow: scroll;
+  }
+
+  .container #wrapper::-webkit-scrollbar{
+    display: none;
+  }
 </style>
 
 <link rel="stylesheet" href="{% static 'codehome/src/css/markdown.css' %}" />

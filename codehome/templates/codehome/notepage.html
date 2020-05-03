@@ -1,0 +1,35 @@
+{% extends 'home2/base.html' %}
+{% load static %}
+
+{% block title %} 
+  {{ category }} - {{ problemName }}
+{% endblock %} 
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'codehome/src/css/markdown.css' %}">
+  <link rel="stylesheet" href="{% static 'codehome/src/css/notepage.css' %}" />
+{% endblock %} 
+
+{% block body %}
+    <div id="notepage" class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <div class="my-3 p-3 bg-light rounded shadow-sm">
+              <div id="wrapper">
+                {% include contentURL %}
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+  <div style="display: none;" markdown="0">
+    <!--This seemingly unnecessary div markup is the only thing keeping this script working after Markdown conversion. Trust me.-->
+    <script src="{% static 'codehome/src/js/markdown.js' %}"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </div>
+{% endblock %}
