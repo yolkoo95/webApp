@@ -1,0 +1,302 @@
+{% load static %}
+<h1 id="strings">Strings</h1>
+
+<h2 id="table-of-contents">Table of contents</h2>
+
+<ul>
+<li><a href="#strings-in-cpp">Strings in Cpp</a></li>
+<li><a href="#strings-and-characters">Strings and Characters</a>
+
+<ul>
+<li><a href="#ascii">ASCII</a></li>
+</ul>
+</li>
+<li><a href="#a-standard-library">A Standard Library</a></li>
+<li><a href="#string-operators">String Operators</a></li>
+<li><a href="#cpp-vs-c-strings">Cpp vs C Strings</a></li>
+<li><a href="#c-string-issues">C string issues</a></li>
+</ul>
+
+
+<h2 id="strings-in-cpp">Strings in Cpp</h2>
+
+<pre><code class="cpp">#include &lt;string&gt;
+
+string s = &quot;hello&quot;;</code></pre>
+
+
+<p>A string is a sequence of characters, and can be the empty string: &ldquo; &rdquo;</p>
+
+<p>In C++, a string has &ldquo;double quotes&rdquo;, not single quotes:</p>
+
+<ul>
+<li><strong>&ldquo;this is a string&rdquo;</strong></li>
+<li><strong>&lsquo;this is not a string&rsquo;</strong></li>
+</ul>
+
+
+<p>Strings are similar to Python and Java strings, although the functions have different names and in some cases different behavior.</p>
+
+<p>The biggest difference between a Python or Java string and a C++ string is that C++ strings are mutable (changeable).</p>
+
+<p>The second biggest difference is that in C++, we actually have two types of strings (more on that in a bit)</p>
+
+<h2 id="strings-and-characters">Strings and Characters</h2>
+
+<p>Strings are made up of characters of type <strong>char</strong>, and the characters of a string can be accessed by the index in the string (this should be familiar):</p>
+
+<pre><code class="cpp">string stanfordTree = &quot;Fear the Tree&quot;;</code></pre>
+
+
+
+
+<pre><code>    index:	 0	 1	 2	 3	 4	 5	 6	 7	 8	 9	 10	 11	 12
+character:	&apos;F&apos;	&apos;e&apos;	&apos;a&apos;	&apos;r&apos;	&apos; &apos;	&apos;t&apos;	&apos;h&apos;	&apos;e&apos;	&apos; &apos;	&apos;T&apos;	&apos;r&apos;	&apos;e&apos;	&apos;e&apos;</code></pre>
+
+
+
+
+<pre><code class="cpp">char c1 = stanfordTree[3];    // &apos;r&apos;
+char c2 = stanfordTree.at(2); // &apos;a&apos;</code></pre>
+
+
+<p>Notice that <strong>char</strong>s have single quotes and are limited to one ASCII character. A space char is &lsquo; &rsquo;, not &lsquo;&rsquo; (in fact, &lsquo;&rsquo; is not a valid char at all. It is hard to see on the slide, but there is an actual space character between the single quotes in a valid space char, and there is no space in the not-valid example)</p>
+
+<p>There are two ways to loop through the characters in a string:</p>
+
+<pre><code class="cpp">for (int i = 0; i &lt; stanfordTree.length(); i++) {
+    cout &lt;&lt; i &lt;&lt; &quot; : &apos;&quot; &lt;&lt; stanfordTree[i] &lt;&lt; &quot;&apos;&quot; &lt;&lt; endl;
+}
+cout &lt;&lt; endl;
+
+for (char c : stanfordTree) {
+    cout &lt;&lt; &quot;&apos;&quot; &lt;&lt; c &lt;&lt; &quot;&apos;&quot; &lt;&lt; endl;
+}
+cout &lt;&lt; endl;</code></pre>
+
+
+<p>Output:</p>
+
+<pre><code class="cpp">0 : &apos;F&apos;
+1 : &apos;e&apos;
+2 : &apos;a&apos;
+3 : &apos;r&apos;
+4 : &apos; &apos;
+5 : &apos;t&apos;
+6 : &apos;h&apos;
+7 : &apos;e&apos;
+8 : &apos; &apos;
+9 : &apos;T&apos;
+10 : &apos;r&apos;
+11 : &apos;e&apos;
+12 : &apos;e&apos;
+
+&apos;F&apos;
+&apos;e&apos;
+&apos;a&apos;
+&apos;r&apos;
+&apos; &apos;
+&apos;t&apos;
+&apos;h&apos;
+&apos;e&apos;
+&apos; &apos;
+&apos;T&apos;
+&apos;r&apos;
+&apos;e&apos;
+&apos;e&apos;</code></pre>
+
+
+<h3 id="ascii">ASCII</h3>
+
+<p><img src="{% static 'codehome/src/img/julius-caesar.png'%}" alt="caesar" /></p>
+ 
+<p><img src="{% static 'codehome/src/img/ascii-table.png' %}" alt="ascii" style="width: 25vw"/></p>
+
+<p>Characters have a numerical representation, as shown in the <strong>ASCII</strong> table above.</p>
+
+<ul>
+<li><code>cout &lt;&lt; (int) 'A' &lt;&lt; endl; // 65</code></li>
+<li>This means you can perform math on characters, but you need to be careful:</li>
+</ul>
+
+
+<pre><code class="cpp">string plainText = &quot;ATTACK AT DAWN&quot;;
+string cipherText = &quot;&quot;;
+int key = 5; // caesar shift by five
+    
+// only works for uppercase!
+for (int i=0; i&lt;(int)plainText.length(); i++) {
+    char plainChar = plainText[i];
+    char cipherChar;
+    if (plainChar &gt;= &apos;A&apos; &amp;&amp; plainChar &lt;= &apos;Z&apos;) {
+        cipherChar = plainText[i] + key;
+        if (cipherChar &gt; &apos;Z&apos;) {
+            cipherChar -= 26; // wrap back around
+        }
+    } else {
+        cipherChar = plainChar;
+    }
+    cipherText += cipherChar;
+}
+cout &lt;&lt; &quot;Plain text:  &quot; &lt;&lt; plainText &lt;&lt; endl;
+cout &lt;&lt; &quot;Cipher text: &quot; &lt;&lt; cipherText &lt;&lt; endl;</code></pre>
+
+
+<p>Output:</p>
+
+<pre><code class="cpp">Plain text:  ATTACK AT DAWN
+Cipher text: FYYFHP FY IFBS</code></pre>
+
+
+<h2 id="a-standard-library">A Standard Library</h2>
+
+<p><code>#include &lt;cctype&gt;</code></p>
+
+<p>This library provides functions that check a single <strong>char</strong> for a property (e.g., if it is a digit), or return a char converted in some way (e.g., to uppercase)</p>
+
+<ul>
+<li><code>isalnum</code>: checks if a character is alphanumeric</li>
+<li><code>isalpha</code>: checks if a character is alphabetic</li>
+<li><code>islower</code>: checks if a character is lowercase</li>
+<li><code>isupper</code>: checks if a character is an uppercase character</li>
+<li><code>isdigit</code>: checks if a character is a digit</li>
+<li><code>isxdigit</code>: checks if a character is a hexadecimal character</li>
+<li><code>iscntrl</code>: checks if a character is a control character</li>
+<li><code>isgraph</code>: checks if a character is a graphical character</li>
+<li><code>isspace</code>: checks if a character is a space character</li>
+<li><code>isblank</code>: checks if a character is a blank character</li>
+<li><code>isprint</code>: checks if a character is a printing character</li>
+<li><code>ispunct</code>: checks if a character is a punctuation character</li>
+<li><code>tolower</code>: converts a character to lowercase</li>
+<li><code>toupper</code>: converts a character to uppercase</li>
+</ul>
+
+
+<p>Examples:</p>
+
+<pre><code class="cpp">string mixed = &quot;ab80c3d27&quot;;
+cout &lt;&lt; &quot;The digits in &quot; &lt;&lt; mixed &lt;&lt; &quot;: &quot; &lt;&lt; endl;
+for (int i = 0; i &lt; mixed.length(); i++) {
+  if (isdigit(mixed[i])) {
+      cout &lt;&lt; mixed[i] &lt;&lt; endl;
+  }
+}
+string s = &quot;my string&quot;;
+for (int i = 0; i &lt; s.length(); i++) {
+  s[i] = toupper(s[i]);
+}
+cout &lt;&lt; &quot;Now &quot; &lt;&lt; s &lt;&lt; &quot; is all UPPERCASE.&quot; &lt;&lt; endl;</code></pre>
+
+
+<h2 id="string-operators">String Operators</h2>
+
+<p>As in Python and Java, you can concatenate strings using <code>+</code> or <code>+=</code></p>
+
+<pre><code class="cpp">string s1 = &quot;Chris&quot;;
+string s2 = s1 + &quot;Gregg&quot;; // s2 == ChrisGregg</code></pre>
+
+
+<p>Like in Python (but unlike) in Java, you can compare strings using relational operators:</p>
+
+<pre><code class="cpp">string s3 = &quot;Zebra&quot;;
+if ((s1 &lt; s3) &amp;&amp; (s3 != &quot;Walrus&quot;)) {
+    cout &lt;&lt; s1 &lt;&lt; &quot; &lt; &quot; &lt;&lt; s3 &lt;&lt; endl;
+    cout &lt;&lt; &quot;letters earlier in the alphabet are &quot; &lt;&lt; endl
+         &lt;&lt; &quot;less than letters later in the alphabet.&quot;
+         &lt;&lt; endl;
+}
+
+cout &lt;&lt; endl;
+
+s1[0] = tolower(s1[0]); // s1 now == &quot;chris&quot;
+if (s1 &gt; s3) {
+    cout &lt;&lt; s1 &lt;&lt; &quot; &gt; &quot; &lt;&lt; s3 &lt;&lt; endl;
+    cout &lt;&lt; &quot;UPPERCASE letters are less than LOWERCASE letters&quot;
+         &lt;&lt; endl;
+}</code></pre>
+
+
+<p>Output:</p>
+
+<pre><code class="cpp">Chris &lt; Zebra
+letters earlier in the alphabet are 
+less than letters later in the alphabet.
+
+chris &gt; Zebra
+UPPERCASE letters are less than LOWERCASE letters</code></pre>
+
+
+<p>Unlike in Python and Java, strings are mutable and can be changed (!):</p>
+
+<pre><code class="cpp">s3.append(&quot;Giraffe&quot;); // s2 is now &quot;ZebraGiraffe&quot;
+s3.erase(4,3); // s2 is now &quot;Zebrraffe&quot; (which would be a very cool animal)
+s3[5] = &apos;i&apos;; // s2 is now &quot;Zebrriffe&quot;
+s3[9] = &apos;e&apos;; // BAD!!!1! PROGRAM MAY CRASH! POSSIBLE BUFFER OVERFLOW! NO NO NO!</code></pre>
+
+
+<p>Unlike in Python and Java, C++ does not bounds check for you! The compiler doesn&rsquo;t check for you, and Qt Creator won&rsquo;t warn you about this. We have entered the scary territory of you must know what you are doing. Buffer overflows are a critical way for viruses and hackers to do their dirty work, and they can also cause hard to track down bugs.</p>
+
+<p>The following functions are part of the string class, and can be useful:</p>
+
+<ul>
+<li><code>s.append(str)</code>: add text to the end of a string</li>
+<li><code>s.compare(str)</code>: return -1, 0, or 1 depending on relative ordering</li>
+<li><code>s.erase(index, length)</code> : delete text from a string starting at given index</li>
+<li><code>s.find(str)</code></li>
+<li><code>s.rfind(str)</code>: first or last index where the start of <strong>str</strong> appears in this string (returns <code>string::npos</code> if not found)</li>
+<li><code>s.insert(index, str)</code>: add text into a string at a given index</li>
+<li><code>s.length() or s.size()</code>: number of characters in this string</li>
+<li><code>s.replace(index, len, str)</code>: replaces len chars at given index with new text</li>
+<li><code>s.substr(start, length)</code> or <code>s.substr(start)</code>: the next length characters beginning at start (inclusive); if length omitted, grabs till end of string</li>
+</ul>
+
+
+<h2 id="cpp-vs-c-strings">Cpp vs C Strings</h2>
+
+<p>C++ has (confusingly) two kinds of strings:</p>
+
+<ul>
+<li>C strings (char arrays), inherited from the C language.</li>
+<li>C++ strings (string objects), which is part of the standard C++ library.</li>
+<li>When possible, declare C++ strings for better usability.</li>
+</ul>
+
+
+<p>Any string literal such as &ldquo;hi there&rdquo; is a C string.</p>
+
+<p>C strings don&rsquo;t have member functions, and you must manipulate them through regular functions. You also must manage the memory properly – this is SUPER IMPORTANT and involves making sure you have allocated the correct memory.</p>
+
+<ul>
+<li>E.g., C strings do not have a <code>.length()</code> function (there are no member functions, as C strings are not part of a class.</li>
+</ul>
+
+
+<p>You can convert between string types:</p>
+
+<ul>
+<li><code>string("text");</code> converts C string literal into C++ string</li>
+<li><code>string s = someCStr;</code> converts a C string into a C++ string</li>
+<li><code>string.c_str()</code> returns a C string out of a C++ string</li>
+</ul>
+
+
+<h2 id="c-string-issues">C string issues</h2>
+
+<p>Does not compile! C strings can&rsquo;t be concatenated with <code>+</code></p>
+
+<pre><code class="cpp">string hiThere = &quot;hi&quot; + &quot;there&quot;;</code></pre>
+
+
+<p>These three all compile and work properly.</p>
+
+<pre><code class="cpp">string hiThere = string(&quot;hi&quot;) + &quot;there&quot;;
+string hello = &quot;hi&quot;;
+hello += &quot;there&quot;;</code></pre>
+
+
+<p>Bug: sets <code>n</code> to the memory address of the C string &ldquo;42&rdquo; (ack!). Qt Creator will produce a warning.</p>
+
+<pre><code class="cpp">int n = (int) &quot;42&quot;;</code></pre>
+
+
+<p>Works – this explicitly converts &ldquo;42&rdquo; to a C++ string, and convert it into an int.</p>
