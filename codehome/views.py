@@ -50,7 +50,7 @@ def notepage(request, category, topic):
     context = {
         'category': category,
         'topic': topic,
-        'contentURL': 'codehome/code' + category + '/' + topic + '/topic.html',
+        'contentURL': 'codehome/code/' + category + '/' + topic + '/' + topic + '.html',
     }
 
     return render(request, 'codehome/notepage.html', context)

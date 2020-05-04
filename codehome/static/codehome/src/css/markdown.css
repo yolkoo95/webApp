@@ -8,6 +8,28 @@
     vertical-align: baseline
 }
 
+#wrapper pre {
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 3px;
+    font-size: 95%;
+    line-height: 1.45;
+    padding: 16px;
+}
+
+#wrapper code {
+    background-color: rgba(0, 0, 0, 0.04);
+    border-radius: 3px;
+    font-size: 95%;
+    margin: 0;
+    padding-bottom: 0.2em;
+    padding-top: 0.2em;
+    padding: 0;
+}
+
+#wrapper pre code {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
 body #wrapper {
     margin: auto !important;
     line-height: 1.8;
@@ -100,6 +122,10 @@ body #wrapper {
 }
 
 #wrapper ul {
+    list-style-type: disc
+}
+
+#wrapper ul ul {
     list-style-type: circle
 }
 
@@ -217,7 +243,7 @@ blockquote> :last-child {
 }
 
 #wrapper pre, #wrapper code, #wrapper tt {
-    font-family: Menlo, Monaco, monospace;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
     text-align: left
 }
 
@@ -299,7 +325,7 @@ blockquote> :last-child {
     width: 100%;
     margin-bottom: 2em;
     padding: 0;
-    font-size: 13px;
+    font-size: 90%;
     border: 1px solid #ddd;
     border-collapse: separate;
     border-radius: 4px;
@@ -396,7 +422,7 @@ blockquote> :last-child {
         color: #eee !important
     }
     #wrapper a::selection {
-        background-color: rgba(255, 230, 102, 0.2)
+        background-color: rgba(157, 193, 200, 0.5)
     }
     #wrapper .inverted a::selection {
         background-color: rgba(255, 230, 102, 0.6)
@@ -453,7 +479,7 @@ blockquote> :last-child {
     overflow-x: auto;
     padding: 0.5em;
     color: #333;
-    background: #f8f8f8
+    background: rgba(0, 0, 0, 0.04);
 }
 
 .hljs-comment, .hljs-quote {
