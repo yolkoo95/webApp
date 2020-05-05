@@ -1,6 +1,6 @@
 # Strings
 
-## Table of contents
+## Table of Contents
 
 - [Strings in Cpp][1]
 - [Strings and Characters][2]
@@ -100,9 +100,9 @@ Output:
 
 ### ASCII
 
-![caesar](/Users/Quminzhi/Documents/python/webApp/codehome/static/codehome/src/img/julius-caesar.png)
+![caesar](/Users/Quminzhi/Documents/python/webApp/codehome/static/codehome/src/img/cpp/julius-caesar.png)
 
-![ascii](/Users/Quminzhi/Documents/python/webApp/codehome/static/codehome/src/img/ascii-table.png)
+![ascii](/Users/Quminzhi/Documents/python/webApp/codehome/static/codehome/src/img/cpp/ascii-table.png)
 
 Characters have a numerical representation, as shown in the **ASCII** table above.
 
