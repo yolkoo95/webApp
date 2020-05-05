@@ -31,5 +31,11 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
+    <!-- add class to all img to center them -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        $("img").addClass("rounded mx-auto d-block");
+      })
+    </script>
   </div>
 {% endblock %}

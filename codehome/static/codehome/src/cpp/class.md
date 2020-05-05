@@ -14,7 +14,7 @@
 	- [Intuition on Grid][11]
 	- [Grid Example Code][12]
 	- [Grid Functions][13]
-	- [Grid Example: Traversing a Grid][14]
+	- [Grid Example Traversing a Grid][14]
 	- [Common Pitfalls When Working with Collections in Cpp][15]
 - [Stacks][16]
 	- [Intuition on Stack][17]
@@ -87,7 +87,7 @@ A quadratic equation for variable x is one of the form:
 
 ax^2 + bx + c = 0
 
-- The two roots of a quadratic equation can be found using the quadratic formula as follows, ![quadratic-formula]({% static 'codehome/src/img/cpp/quadratic-formula.png' %})
+- The two roots of a quadratic equation can be found using the quadratic formula as follows, ![quadratic-formula](  static 'codehome/src/img/cpp/quadratic-formula.png'  )
 - Example: The roots of **x^2 - 3x - 4 = 0** are **x=4** and **x=-1**
 - How would we write a function named quadratic to solve quadratic equations?
     - What parameters should it accept?
@@ -226,7 +226,7 @@ For the exhaustive list, check out the [Stanford Vector class](https://web.stanf
 
 ## The Grid Container
 
-![matrix]({% static 'codehome/src/img/cpp/matrix.png' %})
+![matrix](  static 'codehome/src/img/cpp/matrix.png'  )
 
 The **Grid** is a Stanford library class for 2-dimensional arrays, like a matrix in math:
 
@@ -340,7 +340,7 @@ The following functions are part of the grid collection, and can be useful:
 
 For the exhaustive list, check out the [Stanford Grid class](https://web.stanford.edu/dept/cs_edu/cppdoc/Grid-class.html)
 
-### Grid Example: Traversing a Grid
+### Grid Example Traversing a Grid
 
 ```cpp
 void printGrid(Grid<char> &grid) {
@@ -397,7 +397,7 @@ A stack is an abstract data type with the following behaviors / functions:
 
 Why do we call it a stack? Because we model it using a stack of things:
 
-![stack]({% static 'codehome/src/img/cpp/stack.png' %})
+![stack](static 'codehome/src/img/cpp/stack.png')
 
 The **push**, **pop**, and **top** operations are the only operations allowed by the stack ADT, and as such, only the top element is accessible. Therefore, a stack is a Last-In-First-Out (LIFO) structure: the last item in is the first one out of a stack.
 
@@ -407,10 +407,12 @@ Stack operations are so useful that there is a stack built in to every program r
 
 Why are stacks used when functions are called?
 
-- Let's say we had a program like this: ![function-calls]({% static 'codehome/src/img/cpp/function-calls.png' %})
+- Let's say we had a program like this: 
+  ![function-calls](static 'codehome/src/img/cpp/function-calls.png')
 - `main` calls `function1`, which calls `function2`, which calls `function3`.
 - First, `function3` returns, then `function2` returns, then `function1` returns, then `main` returns.
-- This is a LIFO pattern! ![function-stack]({% static 'codehome/src/img/cpp/function-stack.png' %})
+- This is a LIFO pattern! 
+  ![function-stack](static 'codehome/src/img/cpp/function-stack.png')
 
 ### Stacks Tradeoffs
 
@@ -489,7 +491,7 @@ Original sentence: hope is what defines humanity
 
 The next ADT we are going to talk about is a queue. A queue is similar to a stack, except that (much like a real queue/line), it follows a "First-In-First-Out" (FIFO) model:
 
-![queue]({% static 'codehome/src/img/cpp/function-stack.png' %})
+![queue](  static 'codehome/src/img/cpp/function-stack.png'  )
 
 - The first person in line is the first person served.
 - The last person in line is the last person served.
@@ -767,7 +769,7 @@ The answer is: 8
 
 The HP 9100A Desktop Calculator: the world’s first programmable scientific desktop computer — really, the first desktop computer. (Wired, Dec. 2000)
 
-![hp-9100A]({% static 'codehome/src/img/cpp/hp-9100A.png' %})
+![hp-9100A](  static 'codehome/src/img/cpp/hp-9100A.png'  )
 
 - RPN (postfix)
 - Special algorithm for trigonometric and logarithmic functions
@@ -775,7 +777,7 @@ The HP 9100A Desktop Calculator: the world’s first programmable scientific des
 
 ## Sets
 
-![sets-maps]({% static 'codehome/src/img/cpp/sets-maps.png' %})
+![sets-maps](  static 'codehome/src/img/cpp/sets-maps.png'  )
 
 Today we are going to discuss two new collections: sets and maps.
 
@@ -796,7 +798,7 @@ A set is a collection of elements with no duplicates. Sets have (at least) the f
 
 Sets do NOT have **indexes**!
 
-![set2]({% static 'codehome/src/img/cpp/set2.png' %})
+![set2](  static 'codehome/src/img/cpp/set2.png'  )
 
 ### Sets Simple Example
 
@@ -876,7 +878,7 @@ A map is a collection of pairs *(k, v)*, sometimes called **key/value** pairs, w
 Other terms you may hear for a map are **dictionary** or **associative array**.
 A map is a generalization of an array, where the "indexes" don't need to be integers:
 
-![key-value-pairs]({% static 'codehome/src/img/cpp/set2.png' %})
+![key-value-pairs](  static 'codehome/src/img/cpp/set2.png'  )
 
 ### Using Maps
 
@@ -908,7 +910,7 @@ Output:
 
 Wikipedia: the key is the title, the value is the article:
 
-![wikipedia-articles]({% static 'codehome/src/img/cpp/wikipedia-articles.png' %})
+![wikipedia-articles](  static 'codehome/src/img/cpp/wikipedia-articles.png'  )
 
 ##### Creating Maps
 
@@ -1012,7 +1014,7 @@ Notice how we looped over the map – we only get the keys, and have to manually
 [11]: #intuition-on-grid
 [12]: #grid-example-code
 [13]: #grid-functions
-[14]: #grid-example:-traversing-a-grid
+[14]: #grid-example-traversing-a-grid
 [15]: #common-pitfalls-when-working-with-collections-in-cpp
 [16]: #stacks
 [17]: #intuition-on-stack
