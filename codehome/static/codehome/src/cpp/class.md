@@ -1,31 +1,6 @@
 # C++ Standard Class
 
 ## Table of Contents
-- [Review][1]
-	- [Quiz][2]
-	- [Solving the Quadratic Equation][3]
-- [Vector][4]
-	- [Intuition on Vector][5]
-	- [Creating a Vector][6]
-	- [Adding Elements to A Vector][7]
-	- [the for each Loop][8]
-	- [Vector Functions][9]
-- [The Grid Container][10]
-	- [Intuition on Grid][11]
-	- [Grid Example Code][12]
-	- [Grid Functions][13]
-	- [Grid Example: Traversing a Grid][14]
-	- [Common Pitfalls When Working with Collections in Cpp][15]
-- [Stacks][16]
-	- [Intuition on Stack][17]
-	- [Stacks Tradeoffs][18]
-	- [Reversing the words in a sentence][19]
-- [Queues][20]
-	- [Intuition on Queue][21]
-	- [Member Functions][22]
-	- [Queue Examples][23]
-	- [Queue Idiom][24]
-	- [More Advanced Stack Example Postfix][25]
 
 ## Review
 
@@ -202,7 +177,7 @@ Output:
 The following functions are part of the vector collection, and can be useful:
 
 - `vec.size()`: Returns the number of elements in the vector.
-- `isEmpty()`: Returns true if the vector is empty, false otherwise.
+- `isEmpty()`: Returns `true` if the vector is empty, `false` otherwise.
 - `vec[i]`: Selects the ith element of the vector.
 - `vec.add(value)`: Adds a new element to the end of the vector.
 - `vec.insert(index, value)`: Inserts the value before the specified index, and moves the values after it up by one index.
@@ -313,7 +288,7 @@ libc++abi.dylib: terminate_handler unexpectedly threw an exception
 15:25:55: The process was ended forcefully.
 ```
 
-Grids do bounds checking! If you want to bounds check without crashing, you should call the `grid.inBounds(row, col)` function, which returns true if the row and column are in bounds for the grid.
+Grids do bounds checking! If you want to bounds check without crashing, you should call the `grid.inBounds(row, col)` function, which returns `true` if the row and column are in bounds for the grid.
 
 ### Grid Functions
 
@@ -323,7 +298,7 @@ The following functions are part of the grid collection, and can be useful:
 - `grid.numCols()`: Returns the number of columns in the grid.
 - `grid[i][j]`: selects the element in the ith row and jth column.
 - `grid.resize(rows, cols)`: Changes the dimensions of the grid and re-initializes all entries to their default values.
-- `grid.inBounds(row, col)`: Returns true if the specified row, column position is in the grid, false otherwise.
+- `grid.inBounds(row, col)`: Returns `true` if the specified row, column position is in the grid, `false` otherwise.
 
 For the exhaustive list, check out the [Stanford Grid class](https://web.stanford.edu/dept/cs_edu/cppdoc/Grid-class.html)
 
@@ -380,7 +355,7 @@ A stack is an abstract data type with the following behaviors / functions:
 - `push(value)` (or `add(value)`) - place an entity onto the top of the stack
 - `pop()` (or `remove()`) - remove an entity from the top of the stack and return it
 - `top()` (or `peek()`) - look at the entity at the top of the stack, but don’t remove it
-- `isEmpty()` - a boolean value, true if the stack is empty, false if it has at least one element. (note: a runtime error occurs if a pop() or top() operation is attempted on an empty stack.)
+- `isEmpty()` - a boolean value, `true` if the stack is empty, `false` if it has at least one element. (note: a runtime error occurs if a pop() or top() operation is attempted on an empty stack.)
 
 Why do we call it a stack? Because we model it using a stack of things:
 
@@ -489,7 +464,7 @@ Like the stack, the queue Abstract Data Type can be implemented in many ways (we
 - `enqueue(value)` (or `add(value)`) - place an entity onto the back of the queue
 - `dequeue()` (or `remove()`) - remove an entity from the front of the queue and return it
 - `front()` (or `peek()`) - look at the entity at the front of the queue, but don’t remove it
-- `isEmpty()` - a boolean value, **true** if the queue is empty, **false** if it has at least one element. (note: a runtime error occurs if a `dequeue()` or `front()` operation is attempted on an empty queue).
+- `isEmpty()` - a boolean value, `true` if the queue is empty, `false` if it has at least one element. (note: a runtime error occurs if a `dequeue()` or `front()` operation is attempted on an empty queue).
 
 Please look at the Stanford Library Queue reference for other functions (e.g., there is a `back()` function that is analogous to `front()` for the back of the queue – but no removing the value!)
 
@@ -754,35 +729,237 @@ The answer is: 8
 
 The HP 9100A Desktop Calculator: the world’s first programmable scientific desktop computer — really, the first desktop computer. (Wired, Dec. 2000)
 
-![hp-9100A]({% static 'codehome/src/img/cpp/hp-9100A.png')
+![hp-9100A]({% static 'codehome/src/img/cpp/hp-9100A.png' %})
 
 - RPN (postfix)
 - Special algorithm for trigonometric and logarithmic functions
 - Cost $5000 in 1968 ($37,000 today)
 
+## Sets
+
+![sets-maps]({% static 'codehome/src/img/cpp/sets-maps.png' %})
+
+Today we are going to discuss two new collections: sets and maps.
+
+A *set* is a collection of elements with no duplicates:
+
+A *map* is a collection of key/value pairs, and the key is used to find the value. In python, we call this collection a **dict**.
+
+### Intuition on Set
+
+A set is a collection of elements with no duplicates. Sets have (at least) the following operations (and they are fast):
+
+- `add(value)`: adds a value to a set, and ignores if the set already contains the value
+- `contains(value)`: returns `true` if the set contains the value, `false` otherwise.
+- `remove(value)`: removes the value from the set. Does nothing if the value is not in the set.
+- `size()`: returns the number of elements in the set
+- `isEmpty()`: returns `true` if the set is empty, `false` otherwise.
+- Sets have other useful functions, and you should check the [documentation](https://web.stanford.edu/dept/cs_edu/cppdoc/Set-class.html) to see them.
+
+Sets do NOT have **indexes**!
+
+![set2]({% static 'codehome/src/img/cpp/set2.png' %})
+
+### Sets Simple Example
+
+```cpp
+Set<string> friends;
+friends.add("nick");
+friends.add("chris");
+friends.add("julie");
+cout << boolalpha << friends.contains("voldemort") << 
+     << noboolalpha << endl;
+for(string person : friends) {
+    cout << person << endl;
+}
+```
+
+Output:
+
+```cpp
+false
+chris
+julie
+nick
+```
+
+Notice – the output from the for loop is alphabetical! Sets keep their values sorted.
+
+### Looping over a Set
+
+```cpp
+for(type currElem : set) {
+    // process elements one at a time
+}
+```
+
+You can't use an index-based **for** loop, because Sets do not have indexes!
+
+```cpp
+for(int i=0; i < set.size(); i++) {
+  // does not work, no index!
+  cout << set[i];
+}
+```
+
+### Types of Sets
+
+There are actually two types of sets in the Stanford library:
+
+- Set
+    - Iteration over the elements is in sorted order
+    - Really fast access times! `O(log n)` per retrieval – we will learn about this in the next tutorial!
+    - Sets are implemented using a "binary search tree"
+- HashSet
+    - Iteration over the elements is not in a useful order (it is jumbled)
+    - Really, ridiculously fast!
+    - `O(1)` per retrieval (again, we will learn what this means in the next tutorial!)
+
+### Set Operands
+
+Sets can be compared, combined, etc.
+
+- `s1 == s2`
+  `true` if the sets contain exactly the same elements
+- `s1 != s2`
+  `true` if the sets don't contain the exact same elements
+- `s1 + s2`
+  returns the union of s1 and s2 (i.e., all elements in both)
+- `s1 * s2`
+  returns the intersection of s1 and s2 (i.e., only the elements in both sets)
+- `s1 - s2`
+  returns the difference of s1 and s2 (the elements in s1 but not in s2)
+
+## Maps
+
+### Intuition on Maps
+
+A map is a collection of pairs *(k, v)*, sometimes called **key/value** pairs, where v can be found quickly if you know k.
+Other terms you may hear for a map are **dictionary** or **associative array**.
+A map is a generalization of an array, where the "indexes" don't need to be integers:
+
+![key-value-pairs]({% static 'codehome/src/img/cpp/set2.png' %})
+
+### Using Maps
+
+A map allows you to get from one half of a pair to the other.
+
+E.g., to store an association from "Jenny" to "867-5309":
+
+```cpp
+//  key         value
+m["Jenny"] = "867-5309"; // or:
+m.put("Jenny", "867-5309");
+```
+
+To get Jenny's number:
+
+```cpp
+string ph = m["Jenny"] // or
+string ph = m.get("Jenny")
+cout << ph << endl;
+```
+
+Output:
+
+```cpp
+867-5309
+```
+
+##### Maps are Everywhere
+
+Wikipedia: the key is the title, the value is the article:
+
+![wikipedia-articles]({% static 'codehome/src/img/cpp/wikipedia-articles.png' %})
+
+##### Creating Maps
+
+A Stanford **Map** requires two parameters: one for keys, one for values:
+
+```cpp
+// maps from string keys to integer values
+Map<string, int> votes;
+
+// maps from double keys to Vector<int> values
+Map<string, Vector<string>> friendMap; 
+```
+
+### Map Functions
+
+The following functions are part of the **Map** class:
+
+- `m.clear()` : removes all key/value pairs from the map
+- `m.containsKey(key)` : returns `true` if the map contains a value for the given key
+- `m[key]`
+- `m.get(key)` : returns the value mapped to the given key; if **key** is not in the map, adds it with the default value (e.g., 0 or "")
+- `m.isEmpty()` : returns true if the map contains no key/value pairs (size 0)
+- `m.keys()` : returns a Vector copy of all keys in the map
+- `m[key] = value`
+- `m.put(key, value)` : adds a mapping from the given key to the given value; if the key already exists, **replaces** its value with the given one
+- `m.remove(key)` : removes any existing mapping for the given key (ignored if the key doesn't exist in the map)
+- `m.size()` : returns the number of key/value pairs in the map
+- `m.toString()` : returns a string such as "`{a:90, d:60, c:70}`"
+- `m.values()` : returns a **Vector** copy of all the values in the map
+
+### Map Example
+
+```cpp
+Map<string, string> wiki;
+
+// adds name / text pair to dataset
+wiki.put("Neopalpa donaldtrumpi", articleHTML);
+
+// returns corresponding articleHTML
+cout << wiki.get("Yosemite National Park");
+
+// removes the article
+wiki.remove("Britain in the E.U.");
+```
+
+### Types of Maps
+
+There are actually two types of maps in the Stanford library:
+
+- Map
+    - Iteration over the elements is in sorted order
+    - Really fast access times! `O(log n)` per retrieval – we will learn about this next tutorial!
+    - Maps are implemented using a "binary search tree"
+- HashMap
+    - Iteration over the elements is not in a useful order (it is jumbled)
+    - Really, ridiculously fast!
+    - `O(1)` per retrieval (again, we will learn what this means next time!)
+
+### Map Example Tallying Votes
+
+```cpp
+// tally votes:
+// (M)ilk, (S)tokes, (R)ogers
+string allVotes = "MMMRMSSMSSMMMMMRRMMMMRRRMMM";
+
+Map<char, int> voteTally;
+for (char v : allVotes) {
+    voteTally[v]++;
+}
+
+// loop over the map
+for (char initial : voteTally) {
+    int numVotes = voteTally[initial];
+    cout << initial << ": " << numVotes << " votes" << endl;
+}
+```
+
+Why does `voteTally[v]++;` work? It turns out that when you access a Map's value, you get back a reference! Therefore, updating it here allows it to update inside the map. Cool!
+
+It is equivalent to the following:
+
+```cpp
+int& currentTotal = voteTally[v];
+currentTotal++; // update inside the map
+```
+
+Notice how we looped over the map – we only get the keys, and have to manually ask for each value from the key.
+
+
 <EndMarkdown>
-[1]: #review
-[2]: #quiz
-[3]: #solving-the-quadratic-equation
-[4]: #vector
-[5]: #intuition-on-vector
-[6]: #creating-a-vector
-[7]: #adding-elements-to-a-vector
-[8]: #another-for-loop:-the-for-each-loop
-[9]: #vector-functions
-[10]: #the-grid-container
-[11]: #intuition-on-grid
-[12]: #grid-example-code
-[13]: #grid-functions
-[14]: #grid-example:-traversing-a-grid
-[15]: #common-pitfalls-when-working-with-collections-in-cpp
-[16]: #stacks
-[17]: #intuition-on-stack
-[18]: #stacks-tradeoffs
-[19]: #reversing-the-words-in-a-sentence
-[20]: #queues
-[21]: #intuition-on-queue
-[22]: #member-functions
-[23]: #queue-examples
-[24]: #queue-idiom
-[25]: #more-advanced-stack-example-postfix
+
+
