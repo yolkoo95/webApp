@@ -24,7 +24,7 @@
 
         <div class="col-lg-2 col-md-6 footer-links">
           <h4>Useful Links</h4>
-          <ul>
+          <ul class="scrollto animated">
             <li><i class="bx bx-chevron-right"></i><a href="{% url 'homepage2' %}">Home</a></li>
             <li>
               <i class="bx bx-chevron-right scrollto"></i> <a href="#about">About us</a>
@@ -34,7 +34,7 @@
             </li>
             <li>
               <i class="bx bx-chevron-right"></i> 
-              <a href="#service" data-toggle="modal" data-target="#Privacy">Privacy policy</a>
+              <a href="#" data-toggle="modal" data-target="#Privacy">Privacy policy</a>
               <!-- Privacy Panel-->
               <div class="modal fade" id="Privacy" tabindex="-1" role="dialog" aria-labelledby="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
@@ -119,7 +119,7 @@
             </li>
             <li>
               <i class="bx bx-chevron-right"></i>
-              <a href="url 'terms'">Terms of service</a>
+              <a href="{% url 'terms' %}">Terms of service</a>
             </li>
           </ul>
         </div>
