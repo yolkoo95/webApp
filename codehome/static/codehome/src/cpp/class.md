@@ -1,6 +1,44 @@
 # C++ Standard Class
 
 ## Table of Contents
+- [Review][1]
+	- [Quiz][2]
+	- [Solving the Quadratic Equation][3]
+- [Vector][4]
+	- [Intuition on Vector][5]
+	- [Creating a Vector][6]
+	- [Adding Elements to A Vector][7]
+	- [the for each Loop][8]
+	- [Vector Functions][9]
+- [The Grid Container][10]
+	- [Intuition on Grid][11]
+	- [Grid Example Code][12]
+	- [Grid Functions][13]
+	- [Grid Example: Traversing a Grid][14]
+	- [Common Pitfalls When Working with Collections in Cpp][15]
+- [Stacks][16]
+	- [Intuition on Stack][17]
+	- [Stacks Tradeoffs][18]
+	- [Reversing the words in a sentence][19]
+- [Queues][20]
+	- [Intuition on Queue][21]
+	- [Member Functions][22]
+	- [Queue Examples][23]
+	- [Queue Idiom][24]
+	- [More Advanced Stack Example Postfix][25]
+- [Sets][26]
+	- [Intuition on Set][27]
+	- [Sets Simple Example][28]
+	- [Looping over a Set][29]
+	- [Types of Sets][30]
+	- [Set Operands][31]
+- [Maps][32]
+	- [Intuition on Maps][33]
+	- [Using Maps][34]
+	- [Map Functions][35]
+	- [Map Example][36]
+	- [Types of Maps][37]
+	- [Map Example Tallying Votes][38]
 
 ## Review
 
@@ -961,5 +999,41 @@ Notice how we looped over the map – we only get the keys, and have to manually
 
 
 <EndMarkdown>
-
-
+[1]: #review
+[2]: #quiz
+[3]: #solving-the-quadratic-equation
+[4]: #vector
+[5]: #intuition-on-vector
+[6]: #creating-a-vector
+[7]: #adding-elements-to-a-vector
+[8]: #the-for-each-loop
+[9]: #vector-functions
+[10]: #the-grid-container
+[11]: #intuition-on-grid
+[12]: #grid-example-code
+[13]: #grid-functions
+[14]: #grid-example:-traversing-a-grid
+[15]: #common-pitfalls-when-working-with-collections-in-cpp
+[16]: #stacks
+[17]: #intuition-on-stack
+[18]: #stacks-tradeoffs
+[19]: #reversing-the-words-in-a-sentence
+[20]: #queues
+[21]: #intuition-on-queue
+[22]: #member-functions
+[23]: #queue-examples
+[24]: #queue-idiom
+[25]: #more-advanced-stack-example-postfix
+[26]: #sets
+[27]: #intuition-on-set
+[28]: #sets-simple-example
+[29]: #looping-over-a-set
+[30]: #types-of-sets
+[31]: #set-operands
+[32]: #maps
+[33]: #intuition-on-maps
+[34]: #using-maps
+[35]: #map-functions
+[36]: #map-example
+[37]: #types-of-maps
+[38]: #map-example-tallying-votes
