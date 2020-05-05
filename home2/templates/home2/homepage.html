@@ -66,22 +66,22 @@
         </li>
         <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="100">
           <a class="nav-link" data-toggle="tab" href="#tab-2">
-            <i class="ri-body-scan-line"></i>
-            <h4 class="d-none d-lg-block">Web Slides</h4>
-          </a>
-        </li>
-        <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="200">
-          <a class="nav-link" data-toggle="tab" href="#tab-3">
-            <i class="ri-sun-line"></i>
-            <h4 class="d-none d-lg-block">Photo Collection</h4>
-          </a>
-        </li>
-        <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="300">
-          <a class="nav-link" data-toggle="tab" href="#tab-4">
             <i class="ri-store-line"></i>
             <h4 class="d-none d-lg-block">Code Space</h4>
           </a>
         </li>
+        <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="200">
+          <a class="nav-link" data-toggle="tab" href="#tab-3">
+            <i class="ri-body-scan-line"></i>
+            <h4 class="d-none d-lg-block">Web Slides</h4>
+          </a>
+        </li>
+        <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="300">
+          <a class="nav-link" data-toggle="tab" href="#tab-4">
+            <i class="ri-sun-line"></i>
+            <h4 class="d-none d-lg-block">Photo Collection</h4>
+          </a>
+        </li>      
       </ul>
 
       <div class="tab-content" data-aos="fade-up">
@@ -119,8 +119,39 @@
             </div>
           </div>
         </div>
-        <!-- Web Slides -->
+        <!-- Code Space -->
         <div class="tab-pane" id="tab-2">
+          <div class="row">
+            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+              <h3>
+                We have a lot of resources in code space
+              </h3>
+              <p>
+                Code space consists of lots of useful resources, such as algorithm, ADT, leetcode problem sets and website source codes, which we are dedicated to share with you.
+              </p>
+              <p class="font-italic">
+                We will share our solusions for some of questions on leetcode, and hope to give you some ideas about algorithm questions.
+              </p>
+              <ul>
+                <li>
+                  <i class="ri-check-double-line"></i> All codes(C++) released have notation, so that you could figure it out easily.
+                </li>
+                <li>
+                  <i class="ri-check-double-line"></i> We create a fancy code table to prettify the display of code.
+                </li>
+                <li>
+                  <i class="ri-check-double-line"></i> All codes are open sources, you could download them at Github.
+                </li>
+              </ul>
+              <a class="btn-link" href="{% url 'codehome' %}">Start coding</a>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 text-center">
+              <img src="{% static 'home2/src/img/design/design23.jpg' %}" alt="LeetCode" class="img-fluid img-thumbnail" />
+            </div>
+          </div>
+        </div>
+        <!-- Web Slides -->
+        <div class="tab-pane" id="tab-3">
           <div class="row">
             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
               <h3>
@@ -152,7 +183,7 @@
           </div>
         </div>
         <!-- Collection -->
-        <div class="tab-pane" id="tab-3">
+        <div class="tab-pane" id="tab-4">
           <div class="row">
             <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
               <h3>
@@ -184,37 +215,7 @@
             </div>
           </div>
         </div>
-        <!-- Code Space -->
-        <div class="tab-pane" id="tab-4">
-          <div class="row">
-            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
-              <h3>
-                We have a lot of resources in code space
-              </h3>
-              <p>
-                Code space consists of lots of useful resources, such as algorithm, ADT, leetcode problem sets and website source codes, which we are dedicated to share with you.
-              </p>
-              <p class="font-italic">
-                We will share our solusions for some of questions on leetcode, and hope to give you some ideas about algorithm questions.
-              </p>
-              <ul>
-                <li>
-                  <i class="ri-check-double-line"></i> All codes(C++) released have notation, so that you could figure it out easily.
-                </li>
-                <li>
-                  <i class="ri-check-double-line"></i> We create a fancy code table to prettify the display of code.
-                </li>
-                <li>
-                  <i class="ri-check-double-line"></i> All codes are open sources, you could download them at Github.
-                </li>
-              </ul>
-              <a class="btn-link" href="{% url 'codehome' %}">Start coding</a>
-            </div>
-            <div class="col-lg-6 order-1 order-lg-2 text-center">
-              <img src="{% static 'home2/src/img/design/design23.jpg' %}" alt="LeetCode" class="img-fluid img-thumbnail" />
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
   </section>
@@ -341,7 +342,7 @@
       </ul>
 
       <div class="row portfolio-container" data-aos="fade-up">
-        <div class="col-lg-4 col-md-6 portfolio-item filter-photo">
+        <div class="col-lg-3 col-md-3 portfolio-item filter-photo">
           <div class="portfolio-img">
             <img
               src="../../static/home2/src/img/portfolio/design10.jpg"
@@ -353,7 +354,7 @@
             <h4>Design</h4>
             <p>Design Gallery</p>
             <a
-              href="../../static/home2/src/img/portfolio/design10.jpg"
+              href="../../static/home2/src/img/design/design10.jpg"
               data-gall="portfolioGallery"
               class="venobox preview-link"
               title="Design Gallery"
@@ -368,7 +369,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-photo">
+        <div class="col-lg-3 col-md-3 portfolio-item filter-code">
           <div class="portfolio-img">
             <img
               src="../../static/home2/src/img/portfolio/design11.jpg"
@@ -377,17 +378,17 @@
             />
           </div>
           <div class="portfolio-info">
-            <h4>Design</h4>
-            <p>Design Gallery2</p>
+            <h4>Tutorial</h4>
+            <p>A tour for C++</p>
             <a
-              href="../../static/home2/src/img/portfolio/design11.jpg"
+              href="../../static/home2/src/img/design/design11.jpg"
               data-gall="portfolioGallery"
               class="venobox preview-link"
               title="Design Gallery2"
               ><i class="bx bx-plus"></i
             ></a>
             <a
-              href="portfolio-details.html"
+              href="{% url 'notepage' 'cpp' 'basic' %}"
               class="details-link"
               title="More Details"
               ><i class="bx bx-link"></i
@@ -395,7 +396,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <div class="col-lg-3 col-md-3 portfolio-item filter-app">
           <div class="portfolio-img">
             <img
               src="../../static/home2/src/img/portfolio/design12.jpg"
@@ -407,7 +408,7 @@
             <h4>Webapp</h4>
             <p>Regular Expression Checker</p>
             <a
-              href="../../static/home2/src/img/portfolio/design12.jpg"
+              href="../../static/home2/src/img/design/design12.jpg"
               data-gall="portfolioGallery"
               class="venobox preview-link"
               title="Regular Expression Checker"
@@ -422,7 +423,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        <div class="col-lg-3 col-md-3 portfolio-item filter-app">
           <div class="portfolio-img">
             <img
               src="../../static/home2/src/img/portfolio/design13.jpg"
@@ -434,7 +435,7 @@
             <h4>Webapp</h4>
             <p>HTML Radar</p>
             <a
-              href="../../static/home2/src/img/portfolio/design13.jpg"
+              href="../../static/home2/src/img/design/design13.jpg"
               data-gall="portfolioGallery"
               class="venobox preview-link"
               title="HTML Radar"
