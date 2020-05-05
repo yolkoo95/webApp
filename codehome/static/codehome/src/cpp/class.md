@@ -1,6 +1,31 @@
 # C++ Standard Class
 
 ## Table of Contents
+- [Review][1]
+	- [Quiz][2]
+	- [Solving the Quadratic Equation][3]
+- [Vector][4]
+	- [Intuition on Vector][5]
+	- [Creating a Vector][6]
+	- [Adding Elements to A Vector][7]
+	- [the for each Loop][8]
+	- [Vector Functions][9]
+- [The Grid Container][10]
+	- [Intuition on Grid][11]
+	- [Grid Example Code][12]
+	- [Grid Functions][13]
+	- [Grid Example: Traversing a Grid][14]
+	- [Common Pitfalls When Working with Collections in Cpp][15]
+- [Stacks][16]
+	- [Intuition on Stack][17]
+	- [Stacks Tradeoffs][18]
+	- [Reversing the words in a sentence][19]
+- [Queues][20]
+	- [Intuition on Queue][21]
+	- [Member Functions][22]
+	- [Queue Examples][23]
+	- [Queue Idiom][24]
+	- [More Advanced Stack Example Postfix][25]
 
 ## Review
 
@@ -153,7 +178,7 @@ Output:
 16
 ```
 
-### Another for Loop: the for each Loop
+### the for each Loop
 
 The following is a loop that automatically gets the next value in a collection,
 
@@ -331,7 +356,7 @@ ab
 cd
 ef
 ```
-### Common Pitfalls When Working with Collections in C++
+### Common Pitfalls When Working with Collections in Cpp
 
 - `Vector numbers;`
     - Needs a type! Should be: `Vector<int> numbers;`
@@ -374,7 +399,7 @@ Why are stacks used when functions are called?
 - First, `function3` returns, then `function2` returns, then `function1` returns, then `main` returns.
 - This is a LIFO pattern! ![function-stack]({% static 'codehome/src/img/cpp/function-stack.png' %})
 
-### Stacks: Tradeoffs
+### Stacks Tradeoffs
 
 What are some downsides to using a stack?
 
@@ -560,7 +585,7 @@ Output:
 
 There will still be three values left in the queue `(2, 4, 6)`, but we only looped through the queue for the original values.
 
-### More Advanced Stack Example: Postfix
+### More Advanced Stack Example Postfix
 
 When you were first learning algebraic expressions, your teacher probably gave you a problem like this, and said, "What is the result?"
 
@@ -734,3 +759,30 @@ The HP 9100A Desktop Calculator: the world’s first programmable scientific des
 - RPN (postfix)
 - Special algorithm for trigonometric and logarithmic functions
 - Cost $5000 in 1968 ($37,000 today)
+
+<EndMarkdown>
+[1]: #review
+[2]: #quiz
+[3]: #solving-the-quadratic-equation
+[4]: #vector
+[5]: #intuition-on-vector
+[6]: #creating-a-vector
+[7]: #adding-elements-to-a-vector
+[8]: #another-for-loop:-the-for-each-loop
+[9]: #vector-functions
+[10]: #the-grid-container
+[11]: #intuition-on-grid
+[12]: #grid-example-code
+[13]: #grid-functions
+[14]: #grid-example:-traversing-a-grid
+[15]: #common-pitfalls-when-working-with-collections-in-cpp
+[16]: #stacks
+[17]: #intuition-on-stack
+[18]: #stacks-tradeoffs
+[19]: #reversing-the-words-in-a-sentence
+[20]: #queues
+[21]: #intuition-on-queue
+[22]: #member-functions
+[23]: #queue-examples
+[24]: #queue-idiom
+[25]: #more-advanced-stack-example-postfix
