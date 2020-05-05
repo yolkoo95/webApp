@@ -1,0 +1,734 @@
+{% extends 'home2/base.html' %} 
+{% load static %}
+{% block title %} 
+  Homepage 
+{% endblock %} 
+
+{%block body %}
+<main id="main">
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-title" data-aos="zoom-out">
+        <h2>About</h2>
+        <p>Who we are</p>
+      </div>
+
+      <div class="row content" data-aos="fade-up">
+        <div class="col-lg-6">
+          <p>
+            We are students who are passionate about web application development and art design. Our idea 
+            is to share our portfolio with anyone who love web design or those love our works.
+          </p>
+          <ul>
+            <li>
+              <i class="ri-check-double-line"></i> Web applications are increasingly popular, 
+              we are dedicated to create some fancy web application for you.
+            </li>
+            <li>
+              <i class="ri-check-double-line"></i> Photos shared on our website are open to all users, 
+              and if you need to use them, please follow BSD licenses.
+            </li>
+            <li>
+              <i class="ri-check-double-line"></i> We are recruiting people who are willing to share creative 
+              ideas or fancy works with others.
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            With the development of web tech and related industry, web application becomes promising. We are dedicated
+            to share our works to each other. We believe creative changes world, ideas worth spreading. If you want to 
+            learn more about us, please contact us. &emsp;[]~(￣▽￣)~*
+          </p>
+          <p>We turn not older with years, but newer every day.</p>
+          <a href="#team" class="btn-learn-more">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End About Section -->
+
+  <!-- ======= Features Section ======= -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-title" data-aos="zoom-out">
+        <h2>Interests</h2>
+        <p>What we're focus</p>
+      </div>
+
+      <ul class="nav nav-tabs row d-flex">
+        <li class="nav-item col-3" data-aos="zoom-in">
+          <a class="nav-link active show" data-toggle="tab" href="#tab-1">
+            <i class="ri-gps-line"></i>
+            <h4 class="d-none d-lg-block">Web Application</h4>
+          </a>
+        </li>
+        <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="100">
+          <a class="nav-link" data-toggle="tab" href="#tab-2">
+            <i class="ri-store-line"></i>
+            <h4 class="d-none d-lg-block">Code Space</h4>
+          </a>
+        </li>
+        <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="200">
+          <a class="nav-link" data-toggle="tab" href="#tab-3">
+            <i class="ri-body-scan-line"></i>
+            <h4 class="d-none d-lg-block">Web Slides</h4>
+          </a>
+        </li>
+        <li class="nav-item col-3" data-aos="zoom-in" data-aos-delay="300">
+          <a class="nav-link" data-toggle="tab" href="#tab-4">
+            <i class="ri-sun-line"></i>
+            <h4 class="d-none d-lg-block">Photo Collection</h4>
+          </a>
+        </li>      
+      </ul>
+
+      <div class="tab-content" data-aos="fade-up">
+        <!-- Web Application -->
+        <div class="tab-pane active show" id="tab-1">
+          <div class="row">
+            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+              <h3>
+                Web application section consists of our many fancy works developed by our web designers
+              </h3>
+              <!-- <p class="font-italic"> -->
+              <p>
+                Web application is becoming more and more popular. Inspired by ideas of IOS, Android and other OSs,
+                we create HTML version works.
+              </p>
+              <ul>
+                <li>
+                  <i class="ri-check-double-line"></i> Web application are developed with bootstrap framework and other third party
+                  libraries.
+                </li>
+                <li>
+                  <i class="ri-check-double-line"></i> All webapp are located in App Store page, which is a IOS-like platform.
+                </li>
+                <li>
+                  <i class="ri-check-double-line"></i> Code of our webapp is shared at <a href="https://github.com/yolkoo95/webApp">Github</a>, and our works follow BSD licenses. 
+                </li>
+              </ul>
+              <p>
+                Our fancy works are developed by our amazing hardworking team, if you like our works, please star us at <a href="https://github.com/yolkoo95/webApp">Github</a>.
+              </p>
+              <a class="btn-link" href="{% url 'appstore' %}">Go to App Store</a>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 text-center">
+              <img src="{% static 'home2/src/img/design/design5.jpg' %}" alt="Webapp" class="img-fluid img-thumbnail" />
+            </div>
+          </div>
+        </div>
+        <!-- Code Space -->
+        <div class="tab-pane" id="tab-2">
+          <div class="row">
+            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+              <h3>
+                We have a lot of resources in code space
+              </h3>
+              <p>
+                Code space consists of lots of useful resources, such as algorithm, ADT, leetcode problem sets and website source codes, which we are dedicated to share with you.
+              </p>
+              <p class="font-italic">
+                We will share our solusions for some of questions on leetcode, and hope to give you some ideas about algorithm questions.
+              </p>
+              <ul>
+                <li>
+                  <i class="ri-check-double-line"></i> All codes(C++) released have notation, so that you could figure it out easily.
+                </li>
+                <li>
+                  <i class="ri-check-double-line"></i> We create a fancy code table to prettify the display of code.
+                </li>
+                <li>
+                  <i class="ri-check-double-line"></i> All codes are open sources, you could download them at Github.
+                </li>
+              </ul>
+              <a class="btn-link" href="{% url 'codehome' %}">Start coding</a>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 text-center">
+              <img src="{% static 'home2/src/img/design/design23.jpg' %}" alt="LeetCode" class="img-fluid img-thumbnail" />
+            </div>
+          </div>
+        </div>
+        <!-- Web Slides -->
+        <div class="tab-pane" id="tab-3">
+          <div class="row">
+            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+              <h3>
+                Web slides provide online slides to us, which is beautiful interactive slides using HTML
+              </h3>
+              <p>
+                Our web slides are developed based on <a href="https://github.com/hakimel/reveal.js">reveal.js</a>. We design a lot of
+                fancy works with it.
+              </p>
+              <p class="font-italic">
+                If you want to make your own online slides and are afraid of coding, let us help you and checkout our <a href="#services">services</a>.
+              </p>
+              <ul>
+                <li>
+                  <i class="ri-check-double-line"></i> Web slides will make your presentation prettier and convenient.
+                </li>
+                <li>
+                  <i class="ri-check-double-line"></i> reveal.js comes with a broad range of features including nested slides, Markdown support, PDF export.
+                </li>
+                <li>
+                  <i class="ri-check-double-line"></i> If you like our works, please star our works at Github.
+                </li>
+              </ul>
+              <a class="btn-link" href="#">Go to visit</a>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 text-center">
+              <img src="{% static 'home2/src/img/design/design22.jpg' %}" alt="Web Slide" class="img-fluid img-thumbnail" />
+            </div>
+          </div>
+        </div>
+        <!-- Collection -->
+        <div class="tab-pane" id="tab-4">
+          <div class="row">
+            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+              <h3>
+                You must find awesome photography works here
+              </h3>
+              <p>
+                The photos in collection is supplied by our photographer(Lee), most of them are HD for us.
+                They are all free for you to use, but please do NOT for business purpose. 
+              </p>
+              <ul>
+                <li>
+                  <i class="ri-check-double-line"></i> Photo collection composes all kinds of photography works 
+                  in life, like landscape, village, figure and so forth.
+                </li>
+                <li>
+                  <i class="ri-check-double-line"></i> We are pleased if you would like to share your photography works 
+                  here. If you want enjoy us please <a href="#contact">contact us</a>.
+                </li>
+                <li>
+                  <i class="ri-check-double-line"></i> all works shared here are following BSD licenses.
+                </li>
+              </ul>
+              <p class="font-italic">
+                To photographers and photography lovers, "life itself is not real. you are the people who put life into stones and pebbles."
+              </p>
+            </div>
+            <div class="col-lg-6 order-1 order-lg-2 text-center">
+              <img src="{% static 'home2/src/img/design/design1.jpg' %}" alt="LeetCode" class="img-fluid img-thumbnail" />
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  <!-- End Features Section -->
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-title" data-aos="zoom-out">
+        <h2>Services</h2>
+        <p>What we do offer</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="icon-box" data-aos="zoom-in-left">
+            <div class="icon">
+              <i class="las la-basketball-ball" style="color: #ff689b;"></i>
+            </div>
+            <h4 class="title"><a href="">Web Server Construction</a></h4>
+            <p class="description">
+              We are delighted to serve clients who are willing to construct a web server. We are able to
+              develop SMTP server, blog server and servers for business.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
+          <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
+            <div class="icon">
+              <i class="las la-book" style="color: #e9bf06;"></i>
+            </div>
+            <h4 class="title"><a href="">Online Slides</a></h4>
+            <p class="description">
+              Online slides are much more convenient and fancier than normal presentation.
+               We could meet all your needs in online-slides making.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mt-5 mt-lg-0">
+          <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
+            <div class="icon">
+              <i class="las la-file-alt" style="color: #3fcdc7;"></i>
+            </div>
+            <h4 class="title"><a href="">Code Sharing</a></h4>
+            <p class="description">
+              We are pleased to provide services for people who want to share their codes and ideas in our community
+              for free.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mt-5">
+          <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="300">
+            <div class="icon">
+              <i class="las la-tachometer-alt" style="color: #41cf2e;"></i>
+            </div>
+            <h4 class="title"><a href="">Server Maintaining</a></h4>
+            <p class="description">
+              We could help server administrator maintain their website and give 
+              our solutions to problems you meet as far as we can.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 mt-5">
+          <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="400">
+            <div class="icon">
+              <i class="las la-globe-americas" style="color: #d6ff22;"></i>
+            </div>
+            <h4 class="title"><a href="">Photo Sharing</a></h4>
+            <p class="description">
+              You are welcome to share your photography works at our site as many photographer and 
+              photography amateurs do here.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mt-5">
+          <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="500">
+            <div class="icon">
+              <i class="las la-clock" style="color: #4680ff;"></i>
+            </div>
+            <h4 class="title"><a href="">Web Application</a></h4>
+            <p class="description">
+              We are able to make web applications meeting your needs if you like, and also you
+              are welcome to join our community.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Services Section -->
+
+  <!-- ======= Transition ====== -->
+  <section class="events" id="events" style="background-image: url('../../static/home2/src/img/bg/home-bg-{{ intro_slide1 }}.jpg');">
+    <div class="container">
+      <div class="carousel-content">
+        <blockquote class="blockquote text-center">
+          <p class="mb-0">He never grew up, but he never stopped growing.</p>
+          <footer class="blockquote-footer">Arthur C. Clarke</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+  <!-- End Transition Section -->
+
+  <!-- ======= Portfolio Section ======= -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <div class="section-title" data-aos="zoom-out">
+        <h2>Portfolio</h2>
+        <p>What we've done</p>
+      </div>
+
+      <ul
+        id="portfolio-flters"
+        class="d-flex justify-content-end"
+        data-aos="fade-up"
+      >
+        <li data-filter="*" class="filter-active">All</li>
+        <li data-filter=".filter-app">App</li>
+        <li data-filter=".filter-photo">Photo</li>
+        <li data-filter=".filter-code">Code</li>
+      </ul>
+
+      <div class="row portfolio-container" data-aos="fade-up">
+        <div class="col-lg-3 col-md-3 portfolio-item filter-photo">
+          <div class="portfolio-img">
+            <img
+              src="../../static/home2/src/img/portfolio/design10.jpg"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+          <div class="portfolio-info">
+            <h4>Design</h4>
+            <p>Design Gallery</p>
+            <a
+              href="../../static/home2/src/img/design/design10.jpg"
+              data-gall="portfolioGallery"
+              class="venobox preview-link"
+              title="Design Gallery"
+              ><i class="bx bx-plus"></i
+            ></a>
+            <a
+              href="portfolio-details.html"
+              class="details-link"
+              title="More Details"
+              ><i class="bx bx-link"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3 portfolio-item filter-code">
+          <div class="portfolio-img">
+            <img
+              src="../../static/home2/src/img/portfolio/design11.jpg"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+          <div class="portfolio-info">
+            <h4>Tutorial</h4>
+            <p>A tour for C++</p>
+            <a
+              href="../../static/home2/src/img/design/design11.jpg"
+              data-gall="portfolioGallery"
+              class="venobox preview-link"
+              title="Design Gallery2"
+              ><i class="bx bx-plus"></i
+            ></a>
+            <a
+              href="{% url 'notepage' 'cpp' 'basic' %}"
+              class="details-link"
+              title="More Details"
+              ><i class="bx bx-link"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3 portfolio-item filter-app">
+          <div class="portfolio-img">
+            <img
+              src="../../static/home2/src/img/portfolio/design12.jpg"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+          <div class="portfolio-info">
+            <h4>Webapp</h4>
+            <p>Regular Expression Checker</p>
+            <a
+              href="../../static/home2/src/img/design/design12.jpg"
+              data-gall="portfolioGallery"
+              class="venobox preview-link"
+              title="Regular Expression Checker"
+              ><i class="bx bx-plus"></i
+            ></a>
+            <a
+              href="{% url 'checker' %}"
+              class="details-link"
+              title="More Details"
+              ><i class="bx bx-link"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-3 portfolio-item filter-app">
+          <div class="portfolio-img">
+            <img
+              src="../../static/home2/src/img/portfolio/design13.jpg"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+          <div class="portfolio-info">
+            <h4>Webapp</h4>
+            <p>HTML Radar</p>
+            <a
+              href="../../static/home2/src/img/design/design13.jpg"
+              data-gall="portfolioGallery"
+              class="venobox preview-link"
+              title="HTML Radar"
+              ><i class="bx bx-plus"></i
+            ></a>
+            <a
+              href="{% url 'radar' %}"
+              class="details-link"
+              title="More Details"
+              ><i class="bx bx-link"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Portfolio Section -->
+
+  <!-- ======= F.A.Q Section ======= -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <div class="section-title" data-aos="zoom-out">
+        <h2>F.A.Q</h2>
+        <p>Frequently Asked Questions</p>
+      </div>
+
+      <ul class="faq-list">
+        <li data-aos="fade-up" data-aos-delay="100">
+          <a data-toggle="collapse" class="" href="#faq1"
+            >Who we are?
+            <i class="icofont-simple-up"></i
+          ></a>
+          <div id="faq1" class="collapse show" data-parent=".faq-list">
+            <p>
+              We are students who are passionate about web application development and art 
+              design. Our idea is to share our portfolio with anyone who love web design or 
+              those love our works.
+            </p>
+          </div>
+        </li>
+
+        <li data-aos="fade-up" data-aos-delay="200">
+          <a data-toggle="collapse" href="#faq2" class="collapsed"
+            >How to join our community?
+            <i class="icofont-simple-up"></i
+          ></a>
+          <div id="faq2" class="collapse" data-parent=".faq-list">
+            <p>
+              It is easy to join us, register an account and we will notify how to join our group chat via mail.
+            </p>
+          </div>
+        </li>
+
+        <li data-aos="fade-up" data-aos-delay="300">
+          <a data-toggle="collapse" href="#faq3" class="collapsed"
+            >Where could I find source code of web application to which I prefer? <i class="icofont-simple-up"></i
+          ></a>
+          <div id="faq3" class="collapse" data-parent=".faq-list">
+            <p>
+              We have released source code of most of our webapp at Github, and also you could find source code of our website there, but all our works follow BSD licenses.
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <!-- End F.A.Q Section -->
+
+  <!-- ======= Team Section ======= -->
+  <section id="team" class="team">
+    <div class="container">
+      <div class="section-title" data-aos="zoom-out">
+        <h2>Team</h2>
+        <p>Our Hardworking Team</p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+          <div class="member" data-aos="fade-up">
+            <div class="member-img">
+              <img src="{% static 'home2/src/img/team/minzhi.png' %}" class="img-fluid" alt="" />
+              <div class="social">
+                <a href=""><i class="icofont-wechat"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>Minzhi QU</h4>
+              <span>Web Programmer, Architecture Designer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+          <div class="member" data-aos="fade-up" data-aos-delay="100">
+            <div class="member-img">
+              <img src="src/img/team/team-2.jpg" class="img-fluid" alt="" />
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>Sarah Jhonson</h4>
+              <span>Product Manager</span>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+          <div class="member" data-aos="fade-up" data-aos-delay="200">
+            <div class="member-img">
+              <img src="src/img/team/team-3.jpg" class="img-fluid" alt="" />
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>William Anderson</h4>
+              <span>CTO</span>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+          <div class="member" data-aos="fade-up" data-aos-delay="300">
+            <div class="member-img">
+              <img src="src/img/team/team-4.jpg" class="img-fluid" alt="" />
+              <div class="social">
+                <a href=""><i class="icofont-twitter"></i></a>
+                <a href=""><i class="icofont-facebook"></i></a>
+                <a href=""><i class="icofont-instagram"></i></a>
+                <a href=""><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+            <div class="member-info">
+              <h4>Amanda Jepson</h4>
+              <span>Accountant</span>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+  <!-- End Team Section -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title" data-aos="zoom-out">
+        <h2>Contact</h2>
+        <p>Contact Us</p>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-lg-4" data-aos="fade-right">
+          <div class="info">
+            <div class="address">
+              <i class="icofont-google-map"></i>
+              <h4>Location:</h4>
+              <p>Yan Ta Street, SX 610100, CHN</p>
+            </div>
+
+            <div class="email">
+              <i class="icofont-envelope"></i>
+              <h4>Email:</h4>
+              <p>15399018708@163.com</p>
+            </div>
+
+            <div class="phone">
+              <i class="icofont-phone"></i>
+              <h4>Call:</h4>
+              <p>(86)+133-0928-5508</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
+          <form
+            action=""
+            method="post"
+            role="form"
+            class="email-form needs-validation"
+            novalidate
+          >
+            {% csrf_token %}
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <!-- <label for="name">Nickname</label> -->
+                <input
+                  id="name"
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  placeholder="Nickname"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please fill in your nickname
+                </div>
+              </div>
+              <div class="form-group col-md-6 col-sm-12 col-xs-12">
+                <!-- email -->
+                <!-- <label for="email">Email</label> -->
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="email"
+                    class="form-control col-7"
+                    placeholder="Email"
+                    required
+                  />
+                  <select
+                    class="custom-select input-group-append col-5"
+                    id="email_postfix"
+                    style="
+                      border-top-right-radius: 0.25rem;
+                      border-bottom-right-radius: 0.25rem;
+                    "
+                    required
+                  >
+                    <option value="@gmail.com" selected=""
+                      >@gmail.com</option
+                    >
+                    <option value="@qq.com">@qq.com</option>
+                    <option value="@outlook.com">@outlook.com</option>
+                    <option value="@163.com">@163.com</option>
+                    <option value="@126.com">@126.com</option>
+                    <option value="@foxmail.com">@foxmail.com</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please fill in your email
+                  </div>
+              </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                <!-- subject -->
+                <!-- <label for="subject">Subject</label> -->
+                <input
+                  id="subject"
+                  type="text"
+                  class="form-control"
+                  name="subject"
+                  placeholder="Subject"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please fill in the subject
+                </div>
+              </div>
+              <div class="form-group col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                <!-- addition -->
+                <!-- <label for="addition">Addition</label> -->
+                <input
+                  id="addition"
+                  type="text"
+                  class="form-control"
+                  name="addition"
+                  placeholder="Additional Info"
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-12 form-group">
+                <textarea
+                  class="form-control"
+                  name="message"
+                  rows="4"
+                  placeholder="Message"
+                  required
+                ></textarea>
+                <div class="invalid-feedback">
+                  Please fill in content for email
+                </div>
+              </div>
+            </div>   
+            <div class="text-center" style="font-size: 16px;">
+              <button type="submit">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Contact Section -->
+</main>
+
+{% endblock %}

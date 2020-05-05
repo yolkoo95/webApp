@@ -1,0 +1,249 @@
+{% extends 'home2/base.html' %} 
+{% load static %} 
+
+{% block style %}
+<!-- <link rel="stylesheet" href="{% static 'leetcode/src/css/stroll.css' %}"> -->
+<link rel="stylesheet" href="{% static 'codehome/src/css/codehome.css' %}" />
+{% endblock %} 
+
+{% block title %} 
+  Code 
+{% endblock %} 
+
+{% block body %}
+<main id="code" class="container">
+  <div class="row justify-content-end" name="leetcode section">
+    <div class="col-8">
+      <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h4 class="border-bottom border-gray pb-3 mb-0 text-center">
+          Leetcode
+        </h4>
+        <ul class="wave">
+          <!-- 3Sum -->
+          <li>
+            <div class="media text-muted pt-3">
+              <svg
+                class="bd-placeholder-img mr-2 rounded"
+                width="32"
+                height="32"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+                role="img"
+                aria-label="3Sum: 32x32"
+              >
+                <title>3Sum</title>
+                <rect width="100%" height="100%" fill="#007bff" />
+                <text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text>
+              </svg>
+              <p
+                class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"
+              >
+                <strong class="d-block text-gray-dark"><a href="{% url 'codepage' 'leetcode' '3Sum' %}">3Sum</a></strong>
+                Given an array S of n integers, are there elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
+              </p>
+            </div>
+          </li>
+          <!-- 3SumClosest -->
+          <li>
+            <div class="media text-muted pt-3">
+              <svg
+                class="bd-placeholder-img mr-2 rounded"
+                width="32"
+                height="32"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+                role="img"
+                aria-label="Placeholder: 32x32"
+              >
+                <title>3SumClosest</title>
+                <rect width="100%" height="100%" fill="#e83e8c" />
+                <text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text>
+              </svg>
+              <p
+                class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"
+              >
+                <strong class="d-block text-gray-dark"><a href="{% url 'codepage' 'leetcode' '3SumClosest' %}">3SumClosest</a></strong>
+                Given an array S of n integers, find three integers in S such that the sum is closest to a given number, target. Return the sum of the three integers. You may assume that each input would have exactly one solution.
+              </p>
+            </div>
+          </li>
+          <!-- 4Sum -->
+          <li>
+            <div class="media text-muted pt-3">
+              <svg
+                class="bd-placeholder-img mr-2 rounded"
+                width="32"
+                height="32"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+                role="img"
+                aria-label="Placeholder: 32x32"
+              >
+                <title>4Sum</title>
+                <rect width="100%" height="100%" fill="#6f42c1" />
+                <text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text>
+              </svg>
+              <p
+                class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"
+              >
+                <strong class="d-block text-gray-dark"><a href="{% url 'codepage' 'leetcode' '4Sum' %}">4Sum</a></strong>
+                Given an array S of n integers, are there elements a, b, c, and d in S such that a + b + c + d = target? Find all unique quadruplets in the array which gives the sum of target.
+              </p>
+            </div>
+          </li>
+        </ul name="leetcodeEnd">
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-end" name="cpp section">
+    <div class="col-8">
+      <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h4 class="border-bottom border-gray pb-3 mb-0 text-center">
+          C++
+        </h4>
+        <ul class="wave">
+          <!-- Basic -->
+          <li>
+            <div class="media text-muted pt-3">
+              <svg
+                class="bd-placeholder-img mr-2 rounded"
+                width="32"
+                height="32"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+                role="img"
+                aria-label="3Sum: 32x32"
+              >
+                <title>Basic</title>
+                <rect width="100%" height="100%" fill="#D783FF" />
+                <text x="50%" y="50%" fill="#D783FF" dy=".3em">32x32</text>
+              </svg>
+              <p
+                class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"
+              >
+                <strong class="d-block text-gray-dark"><a href="{% url 'notepage' 'cpp' 'basic' %}">Basic</a></strong>
+                  <!-- description -->
+                  Introduction to C++ and some basic syntax of C++.
+              </p>
+            </div>
+          </li>
+ 
+          <!-- Strings -->
+          <li>
+            <div class="media text-muted pt-3">
+              <svg
+                class="bd-placeholder-img mr-2 rounded"
+                width="32"
+                height="32"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+                role="img"
+                aria-label="3Sum: 32x32"
+              >
+                <title>Strings</title>
+                <rect width="100%" height="100%" fill="#6f42c1" />
+                <text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text>
+              </svg>
+              <p
+                class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"
+              >
+                <strong class="d-block text-gray-dark"><a href="{% url 'notepage' 'cpp' 'strings' %}">Strings</a></strong>
+                  <!-- description -->
+                  Diving into C++ strings and related libraries.
+              </p>
+            </div>
+          </li>
+ 
+          <!-- Class -->
+          <li>
+            <div class="media text-muted pt-3">
+              <svg
+                class="bd-placeholder-img mr-2 rounded"
+                width="32"
+                height="32"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+                role="img"
+                aria-label="3Sum: 32x32"
+              >
+                <title>Class</title>
+                <rect width="100%" height="100%" fill="#6f42c1" />
+                <text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text>
+              </svg>
+              <p
+                class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"
+              >
+                <strong class="d-block text-gray-dark"><a href="{% url 'notepage' 'cpp' 'class' %}">Class</a></strong>
+                  <!-- description -->
+                  Introducing some standard classes in C++, such as vector, grid, stack, queue, set and map.
+              </p>
+            </div>
+          </li>
+        </ul name="cppEnd">
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-end" name="cs50 section">
+    <div class="col-8">
+      <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h4 class="border-bottom border-gray pb-3 mb-0 text-center">
+          CS50
+        </h4>
+        <ul class="wave">
+          <!-- lecture1 -->
+          <li>
+            <div class="media text-muted pt-3">
+              <svg
+                class="bd-placeholder-img mr-2 rounded"
+                width="32"
+                height="32"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+                role="img"
+                aria-label="3Sum: 32x32"
+              >
+                <title>Lecture1</title>
+                <rect width="100%" height="100%" fill="#D783FF" />
+                <text x="50%" y="50%" fill="#D783FF" dy=".3em">32x32</text>
+              </svg>
+              <p
+                class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"
+              >
+                <strong class="d-block text-gray-dark"><a href="{% url 'codepage' 'cs50' 'lecture1' %}">Lecture1</a></strong>
+                Give us an intuition on how to use flask.
+              </p>
+            </div>
+          </li>
+        </ul name="cs50End">
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="row justify-content-end" name="webprogram section">
+    <div class="col-8">
+      <div class="my-3 p-3 bg-white rounded shadow-sm">
+        <h4 class="border-bottom border-gray pb-3 mb-0 text-center">
+          Web Program
+        </h4>
+        <ul class="wave">
+
+        </ul name="webprogramEnd">
+      </div>
+    </div>
+  </div> -->
+</main>
+
+<!-- <script src="{% static 'codehome/src/js/stroll.min.js' %}"></script>
+  <script>
+    stroll.bind('#code ul');
+  </script> -->
+{% endblock %}

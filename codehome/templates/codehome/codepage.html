@@ -1,0 +1,145 @@
+{% extends 'home2/base.html' %} 
+{% load static %} 
+
+{% block title %} 
+  {{ category }} - {{ problemName }}
+{% endblock %} 
+
+{% block style %}
+  <link rel="stylesheet" href="{% static 'codehome/src/css/markdown.css' %}">
+  <link rel="stylesheet" href="{% static 'codehome/src/css/editorColorScheme.css' %}" />
+  <link rel="stylesheet" href="{% static 'codehome/src/css/codepage.css' %}" />
+{% endblock %} 
+
+{% block body %}
+<div class="container mt-4 mb-4">
+  <div class="row justify-content-end">
+    <div class="col-9">
+      <div class="card" id="codeEditor">
+        <!-- Description -->
+        <div class="card-header bg-white">
+          <div class="questionDescription">
+            <h2 class="text-center mr-5 mb-1">{{ problemName }}</h2>
+            <hr>
+            <div id="wrapper">
+              {% include problemURL %}
+            </div>
+          </div>
+        </div>
+        <!-- Content -->
+        <div class="card-body bg-dark p-2">
+          <nav>
+            <div class="nav nav-tabs bg-dark d-flex justify-content-center" id="nav-tab" role="tablist">              
+              <div class="mr-auto">
+                <div class="row">
+                  <h5 class="ml-4 text-info">Unicorn.org</h5>
+                </div>
+              </div>
+              {% if language == 'cpp' or addition == 'cpp' %}
+                <a
+                  class="nav-item nav-link active"
+                  id="nav-editor-tab"
+                  data-toggle="tab"
+                  href="#nav-cpp"
+                  role="tab"
+                  aria-controls="nav-cpp"
+                  aria-selected="true"
+                  >C++</a
+                >
+              {% endif %}
+              {% if language == 'py' or addition == 'py' %}
+                <a
+                  class="nav-item nav-link active"
+                  id="nav-python-tab"
+                  data-toggle="tab"
+                  href="#nav-python"
+                  role="tab"
+                  aria-controls="nav-python"
+                  aria-selected="true"
+                  >Python</a
+                >
+              {% endif %}
+              {% if language == 'html' or addition == 'html' %}
+                <a
+                  class="nav-item nav-link ml-1 mr-2"
+                  id="nav-python-tab"
+                  data-toggle="tab"
+                  href="#nav-html"
+                  role="tab"
+                  aria-controls="nav-html"
+                  aria-selected="false"
+                  >HTML</a
+                >
+              {% endif %}
+
+              <div id="editorSearch" class="ml-auto mr-4">
+                <div class="row">
+                  <form class="form-inline my-2 my-md-0">
+                    <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+                  </form>
+                </div>
+              </div>     
+            </div>
+          </nav>
+          <div class="codeContent bg-light">
+            <div class="tab-content" id="nav-tabContent">
+              {% if language == 'cpp' or addition == 'cpp' %}
+                <!-- cpp -->
+                <div
+                  class="tab-pane fade show active"
+                  id="nav-cpp"
+                  role="tabpanel"
+                  aria-labelledby="nav-cpp-tab"
+                >
+                  <div class="highlight">
+                    {% include cppURL %}
+                  </div>
+                </div>
+              {% endif %}
+              
+              {% if language == 'py' or addition == 'py' %}
+                <!-- python -->
+                <div
+                  class="tab-pane fade show active"
+                  id="nav-python"
+                  role="tabpanel"
+                  aria-labelledby="nav-python-tab"
+                >
+                  <div class="highlight">
+                    {% include pyURL %}
+                  </div>
+                </div>
+              {% endif %}
+              
+              {% if language == 'html' or addition == 'html' %}
+                <!-- html -->
+                <div
+                  class="tab-pane fade"
+                  id="nav-html"
+                  role="tabpanel"
+                  aria-labelledby="nav-html-tab"
+                >
+                  <div class="highlight">
+                    {% include htmlURL %}
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+<script src="{% static 'codehome/src/js/math.js' %}"></script>
+<script src="{% static 'codehome/src/js/markdown.js' %}"></script> 
+
+<!-- <script>
+  document.querySelector( '.zoom-section' ).addEventListener( 'click', function( event ) {
+      event.preventDefault();
+      zoom.to({ element: event.target });
+  } );
+</script> -->
+{% endblock %}

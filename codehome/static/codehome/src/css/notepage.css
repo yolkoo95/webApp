@@ -1,0 +1,13 @@
+body {
+    background-image: url(../img/design-h-10.jpg);
+    background-size: 100vw;
+}
+
+#notepage #wrapper {
+    max-height: 100vh;
+    overflow: scroll;
+}
+
+#notepage #wrapper::-webkit-scrollbar{
+    display: none;
+}

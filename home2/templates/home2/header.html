@@ -1,0 +1,51 @@
+{% load static %}
+<!-- ======= Header ======= -->
+<header id="header" class="">
+    <div class="container d-flex">
+
+      <div class="logo mr-auto">
+        <div class="row">
+          <img src="{% static 'home2/src/icon/favicon.png' %}" alt="logo" class="img-fluid">
+          <h1 class="text-light ml-2"><a href="{% url 'homepage2' %}">Unicorn</a></h1>
+        </div>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="{% url 'homepage2' %}">Home</a></li>
+          <li class="drop-down"><a href="">About</a>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#team">Team</a></li>
+              <!-- <li class="drop-down"><a href="#">Deep Drop Down</a>
+                <ul>
+                  <li><a href="#">Deep Drop Down 1</a></li>
+                  <li><a href="#">Deep Drop Down 2</a></li>
+                </ul>
+              </li> -->
+            </ul>
+          </li>
+          <li><a href="#services">Service</a></li>
+          <li class="drop-down"><a href="#portfolio">Portfolio</a>
+            <ul>
+              <li><a href="{% url 'appstore' %}">App Store</a></li>
+              <li><a href="">Slides</a></li>
+              <li><a href="{% url 'codehome' %}">Code</a></li>
+              <li><a href="">Collections</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+      <div class="header-social-links">
+        <a href="#" class="wechat"><i class="icofont-wechat"></i></a>
+        <a href="#" class="mail"><i class="icofont-envelope"></i></a>
+        <!-- <a href="#" class="twitter"><i class="icofont-twitter"></i></a> -->
+        <!-- <a href="#" class="facebook"><i class="icofont-facebook"></i></a> -->
+        <a href="https://github.com/yolkoo95/webApp" class="github"><i class="icofont-github"></i></a>
+        <!-- <a href="#" class="instagram"><i class="icofont-instagram"></i></a> -->
+      </div>
+
+    </div>
+</header><!-- End Header -->

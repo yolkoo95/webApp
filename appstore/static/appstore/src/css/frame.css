@@ -1,0 +1,130 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	/* set scroll */
+	overflow: scroll;
+	overflow-x: hidden;
+}
+
+body {
+	background: url('../images/appstore.jpg');
+	background-repeat: repeat-y;
+	background-size: 100% 100%;
+	background-attachment: scroll;
+	font-family: 'nunito', Helvetica, sans-serif;
+	font-size: 16px;
+}
+
+@font-face {
+    font-family: 'nunito';
+    src: url('../font/Nunito-Regular.ttf'), url('../font/Nunito-Italic.ttf'), url('../font/Nunito-Bold.ttf')
+};
+
+/* Scroll CSS */
+
+/* globally set display of scrollbar */
+::-webkit-scrollbar{
+	display: none;
+}
+
+body::-webkit-scrollbar {
+	/* basic style of scroll */
+	width: 10px;
+	height: 1px;
+	display: none;
+}
+
+body::-webkit-scrollbar-thumb {
+	/* blocks in scrollbar */
+	border-radius: 10px;
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+	background: #535353;
+}
+
+body::-webkit-scrollbar-track {
+	/* track */
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	background: #ededed;
+}
+
+.greet {
+	color: azure;
+	text-align: center;
+	text-shadow: 1px 1px 0px rgba( 0, 0, 0, 0.1 );
+}
+
+.greet h2{
+	position: relative;
+	top: 30%;
+	margin: 0;
+	font-size: 6.25em;
+}
+
+.greet p{
+	position: relative;
+	top: 30%;
+	margin: 0;;
+	font-size: 2.5em;
+}
+
+/* Layer CSS */
+
+.layer.one {
+	background: #dc6c5f;
+}
+
+/* .layer.two {
+	background: url('../images/appstore.jpg');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-attachment: fixed;
+} */
+
+.layer.three {
+	background: #64b9d2;
+}
+
+.bullets {
+	position: absolute;
+	width: 100%;
+	bottom: 20px;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.bullets li {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	margin: 0 3px;
+	background: rgba( 255, 255, 255, 0.5);
+	box-shadow: 0px 0px 4px rgba( 0, 0, 0, 0.2);
+	cursor: pointer;
+	-webkit-tap-highlight-color: rgba( 0, 0, 0, 0);
+}
+
+.bullets li:hover {
+	background: rgba( 255, 255, 255, 0.8);
+}
+
+.bullets li.active {
+	cursor: default;
+	background: #fff;
+}
+
+@media screen and (max-width: 400px) {
+	body {
+		font-size: 12px;
+	}
+	.layer h2 {
+		font-size: 5em;
+	}
+	.bullets li {
+		margin: 0 6px;
+	}
+}

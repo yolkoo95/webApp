@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <link
+      rel="icon"
+      href="{% static 'home2/src/icon/icon_512x512@2x.png' %}"
+      sizes="32x32"
+      type="image/png"
+    />
+    <link
+      rel="icon"
+      href="{% static 'home2/src/icon/icon_512x512@2x.png' %}"
+      sizes="16x16"
+      type="image/png"
+    />
+
+    <title>App Store</title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{% static 'home/src/css/bootstrap.min.css' %}"
+    />  
+
+    <link rel="stylesheet" href="{% static 'appstore/src/css/kontext.css' %}" />
+    <link rel="stylesheet" href="{% static 'appstore/src/css/frame.css' %}" />
+  </head>
+  <body>
+    <article class="kontext">
+      <div class="layer one show greet">
+        <h2>Welcome to App Store</h2>
+        <p>CREATIVE changes world, IDEAs worth spreading</p>
+      </div>
+      <div class="layer two">
+        <div role="AppShop" class="container mt-4">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card mb-3">
+                <div
+                  class="row h-md-250 no-gutters overflow-hidden flex-md-row shadow-sm position-relative"
+                >
+                  <div class="col d-flex flex-column position-static">
+                    <div class="card-body">
+                      <h5><strong class="d-inline-block mb-1 text-primary"
+                        >WebApp</strong></h5>
+                      <h5 class="card-title mb-0">Checker</h5>
+                      <div class="mb-2 text-muted">Apr 4</div>
+                      <p class="card-text mb-3">
+                        The app will help you check if your regular expression works well.
+                      </p>
+                      <a href="{% url 'checker' %}" target="_blank" class="stretched-link"
+                        >Go to app</a
+                      >
+                    </div>
+                  </div>
+                  <div class="col-4 d-none d-lg-block">
+                    <img
+                      src="{% static 'home/src/images/design0.jpg' %}"
+                      class="card-img"
+                      alt="img"
+                      height="230"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card mb-3">
+                <div
+                  class="row h-md-250 no-gutters overflow-hidden flex-md-row shadow-sm position-relative"
+                >
+                  <div class="col d-flex flex-column position-static">
+                    <div class="card-body">
+                      <h5><strong class="d-inline-block mb-1 text-success"
+                        >Design</strong>
+                      </h5>
+                      <h5 class="card-title mb-0">Login Demo</h5>
+                      <div class="mb-2 text-muted">Apr 4</div>
+                      <p class="card-text mb-1">
+                        This is a simple and pretty login demo designed with django and bootstrap.
+                      </p>
+                      <a href="{% url 'login' %}" target="_blank" class="stretched-link"
+                        >Go to visit</a
+                      >
+                    </div>
+                  </div>
+                  <div class="col-4 d-none d-lg-block">
+                    <img
+                      src="{% static 'home/src/images/design3.jpg' %}"
+                      class="card-img"
+                      alt="img"
+                      height="230"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card mb-3">
+                <div
+                  class="row h-md-250 no-gutters overflow-hidden flex-md-row shadow-sm position-relative"
+                >
+                  <div class="col d-flex flex-column position-static">
+                    <div class="card-body">
+                      <h5><strong class="d-inline-block mb-1 text-warning"
+                        >AppLab</strong></h5>
+                      <h5 class="card-title mb-0">Radar</h5>
+                      <div class="mb-2 text-muted">Apr 6</div>
+                      <p class="card-text mb-1">
+                        Radar designed with HTML5 canvas and bootstrap is a lab product so far.
+                      </p>
+                      <a href="{% url 'radar' %}" target="_blank" class="stretched-link"
+                        >Go to visit</a
+                      >
+                    </div>
+                  </div>
+                  <div class="col-4 d-none d-lg-block">
+                    <img
+                      src="{% static 'home/src/images/design5.jpg' %}"
+                      class="card-img"
+                      alt="img"
+                      height="230"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card mb-3">
+                <div
+                  class="row h-md-250 no-gutters overflow-hidden flex-md-row shadow-sm position-relative"
+                >
+                  <div class="col d-flex flex-column position-static">
+                    <div class="card-body">
+                      <h5><strong class="d-inline-block mb-1 text-info"
+                        >Graphic</strong></h5>
+                      <h5 class="card-title mb-0">Ticktock</h5>
+                      <div class="mb-2 text-muted">Apr 7</div>
+                      <p class="card-text mb-1">
+                        Based on HTML5 canvas and javascript, we create a ticktock animation.
+                      </p>
+                      <a href="{% url 'ticktock' %}" target="_blank" class="stretched-link"
+                        >Go to visit</a
+                      >
+                    </div>
+                  </div>
+                  <div class="col-4 d-none d-lg-block">
+                    <img
+                      src="{% static 'home/src/images/design6.jpg' %}"
+                      class="card-img"
+                      alt="img"
+                      height="230"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div name="appstoreEnd">
+        </div>
+      </div>
+      <div class="layer three greet">
+        <h2>Developing ...</h2>
+      </div>
+    </article>
+
+    <ul class="bullets"></ul>
+
+    <script src="{% static 'appstore/src/js/kontext.js' %}"></script>
+    <script src="{% static 'appstore/src/js/util.js' %}"></script>
+
+    <script>
+      !(function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (!d.getElementById(id)) {
+          js = d.createElement(s);
+          js.id = id;
+          js.src = '../../static/appstore/src/js/widgets.js';
+          fjs.parentNode.insertBefore(js, fjs);
+        }
+      })(document, "script", "twitter-wjs");
+    </script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="{% static 'home/src/js/bootstrap.min.js' %}"
+    ></script>
+  </body>
+</html>

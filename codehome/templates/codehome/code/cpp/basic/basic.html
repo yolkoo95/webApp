@@ -1,0 +1,730 @@
+<h1 id="a-tour-through-c++">A Tour Through C++</h1>
+
+<h2 id="table-of-contents">Table of contents</h2>
+
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#comments">Comments</a></li>
+<li><a href="#include-statements">Include Statements</a></li>
+<li><a href="#typed-variables">Typed Variables</a></li>
+<li><a href="#standard-output">Standard Output (cout)</a></li>
+<li><a href="#blocks:-curly-braces">Blocks: Curly Braces</a></li>
+<li><a href="#while-loops">while Loops</a></li>
+<li><a href="#for-loops">for Loops</a></li>
+<li><a href="#scoping">Scoping</a></li>
+<li><a href="#boolean-expressions,-boolean-operators,-and-the-if-statement">Boolean Expressions, Boolean Operators, and the if Statement</a></li>
+<li><a href="#functions">Functions</a>
+
+<ul>
+<li><a href="#the-main-function">The main Function</a></li>
+<li><a href="#passing-by-value-and-reference">Passing by Value and Reference</a></li>
+</ul>
+</li>
+<li><a href="#header-files">Header Files</a></li>
+</ul>
+
+
+<h2 id="overview">Overview</h2>
+
+<p>C++ is a high-performance, robust (and complex) language. It originally began (in 1985 ) as C with Classes. It has been an Object Oriented language from the beginning, and its inventor, Bjarne Stroustrup, chose to base the language on the &ldquo;C&rdquo; language because it was a fast, widely used language already.</p>
+
+<p>C++ is complex enough that it is very, very hard to completely master it. We will touch on only a small fraction of the language in this tutorial, but if you want to learn more, there are plenty of tutorials and resources.</p>
+
+<p>Unlike Python, C++ does not come with a built-in library of data structures and functionality, and almost all of those features are provided through libraries.</p>
+
+<h2 id="comments">Comments</h2>
+
+<p>You might be used to the following types of comments in Python:</p>
+
+<p>Single-line comments:</p>
+
+<pre><code class="python"># Python:
+# A hash comments out the rest of the line
+myVar = 5 # everything past the hash is a comment</code></pre>
+
+
+<p>Multi-line comments:</p>
+
+<pre><code class="python"># Python:
+&quot;&quot;&quot; This is a multiline
+comment, and I end it with three quotes
+&quot;&quot;&quot;</code></pre>
+
+
+<p>C++ also has two types of comments:</p>
+
+<p>Single-line comments:</p>
+
+<pre><code class="cpp">// C++:
+// Two forward slashes comment out the rest of the line
+int myVar = 5; // everything past the double-slash is a comment</code></pre>
+
+
+<p>Multi-line comments:</p>
+
+<pre><code class="cpp">// C++:
+/* This is a multiline
+comment, and I end it with an asterisk-slash
+*/</code></pre>
+
+
+<h2 id="include-statements">Include Statements</h2>
+
+<p>In Python, you <code>import</code> modules, and the equivalent in C++ is a <code>#include</code> (pound include). There are two different ways to use this statement:</p>
+
+<p><code>#include &lt;iostream&gt;</code> When using the angle brackets, <code>&lt;</code> and <code>&gt;</code>, this tells the compiler to include libraries that are in pre-defined locations based on the setup for your compiler or IDE</p>
+
+<p><code>#include "all-examples.h"</code> When using double quotes, this tells the compiler to first search in the same directory as the current file. In this case, the .h extension means header file, which we will discuss soon.</p>
+
+<ul>
+<li><code>#include</code> directives literally tell the compiler to read in and paste code from another file at that particular point in your program.</li>
+</ul>
+
+
+<h2 id="typed-variables">Typed Variables</h2>
+
+<p>all variables have a type associated with them, where the type describes the representation of the variable. For example, a variable may be an integer, or a floating point number, or a string.</p>
+
+<p>In Python, variables have types, but the type is not explicitly written out when defining a variable. E.g.,</p>
+
+<pre><code class="python"># Python:
+a = 5 # the Python interpreter knows this is an integer
+a = &quot;aardvark&quot; # now the variable is a string!</code></pre>
+
+
+<p>In C++, all types must be defined when the variable is created, and a variable cannot change its type. For example:</p>
+
+<pre><code class="cpp">// C++:
+int a = 5; // a is an integer
+char b = &apos;x&apos;; // b is a char (&quot;character&quot;)
+float c = 1.42; // c is a floating point number
+double d = 1.4245593330222211176; // d is a double, a more accurate floating point number
+string s = &quot;this is a C++ string&quot;;
+float a = 4.2; // ERROR! You cannot redefine a variable to be another type
+int a = 12; // ERROR! You do not need the type when re-assigning a variable
+a = 12; // this is okay</code></pre>
+
+
+<p>By the way:</p>
+
+<ul>
+<li>In C++, all statements must end with a semicolon ;</li>
+<li>Indentation is not enforced by the compiler, but Qt Creator should indent properly for you.</li>
+</ul>
+
+
+<h2 id="standard-output">Standard Output</h2>
+
+<p>Printing to the screen is the most common output in a program. Being able to output to the screen gives your user feedback, and also can be a great way to debug your programs.</p>
+
+<p>In Python, you have the <code>print</code> function:</p>
+
+<pre><code class="python"># Python:
+num = 42
+theAnswer = &quot;The answer to life, the universe, and everything&quot;
+print(&quot;{} is {}.&quot;.format(theAnswer, num))</code></pre>
+
+
+<p>Output:</p>
+
+<pre><code class="python">The answer to life, the universe, and everything is 42.</code></pre>
+
+
+<p>In C++, we have a function called <code>cout</code> that prints, but we use it in a different way:</p>
+
+<pre><code class="cpp">// C++:
+int num = 42;
+string theAnswer = &quot;The answer to life, the universe, and everything&quot;;
+cout &lt;&lt; theAnswer &lt;&lt; &quot; is &quot; &lt;&lt; num &lt;&lt; &quot;.&quot; &lt;&lt; endl;</code></pre>
+
+
+<p>Output:</p>
+
+<pre><code class="cpp">The answer to life, the universe, and everything is 42.</code></pre>
+
+
+<p>You can think of the double-angle brackets, <code>&lt;&lt;</code> as meaning &ldquo;send to <code>cout</code>&rdquo;.</p>
+
+<p>The <code>endl</code> is necessary to put the cursor on a different line. Here is an example with and without the <code>endl</code>:</p>
+
+<pre><code class="cpp">// C++:
+cout &lt;&lt; &quot;This is some text followed by endl.&quot; &lt;&lt; endl;
+cout &lt;&lt; &quot;This is more text.&quot;;
+cout &lt;&lt; &quot;We want to go to the next line here, too&quot; &lt;&lt; endl;
+cout &lt;&lt; &quot;We made it to the next line.&quot; &lt;&lt; endl;</code></pre>
+
+
+<p>Output:</p>
+
+<pre><code class="cpp">This is some text followed by endl.
+This is more text.We want to go to the next line here, too
+We made it to the next line.</code></pre>
+
+
+<h2 id="blocks:-curly-braces">Blocks: Curly Braces</h2>
+
+<p>In Python, a block is defined as an indentation level, where whitespace is important. C++ does not have any whitespace restrictions, so blocks are denoted with curly braces, <code>{</code> to begin a block, and <code>}</code> to end a block.</p>
+
+<p>Blocks are used primarily for functions (we will see this shortly), and also for loops.</p>
+
+<h2 id="while-loops">while Loops</h2>
+
+<p>Let&rsquo;s first look at the while loop. Here is what you might be used to in Python:</p>
+
+<pre><code class="python"># Python:
+i = 0
+while i &lt; 5:
+  print(i)
+  i += 1</code></pre>
+
+
+<p>Output</p>
+
+<pre><code class="python">0
+1
+2
+3
+4</code></pre>
+
+
+<p>In C++, we also have a <strong>while</strong> loop, in the following form:</p>
+
+<pre><code class="cpp">while (expression) {
+  statement;
+  statement;
+  ... 
+}</code></pre>
+
+
+<p>As long as <strong>expression</strong> is <strong>true</strong>, the loop continues (we will discuss boolean expressions soon).</p>
+
+<p>The parentheses surrounding expression are required.</p>
+
+<p>Example:</p>
+
+<pre><code class="cpp">// C++:
+int i = 0;
+while (i &lt; 5) {
+  cout &lt;&lt; i &lt;&lt; endl;
+  i++;
+}</code></pre>
+
+
+<p>Output:</p>
+
+<pre><code class="cpp">0
+1
+2
+3
+4</code></pre>
+
+
+<p>The <code>i++</code> increments the variable <strong>i</strong> by <strong>1</strong>, and is the reason C++ got its name! (and there is a corresponding decrement operator, <strong>&ndash;</strong>, as in <code>i--</code>).</p>
+
+<h2 id="for-loops">for loops</h2>
+
+<p>If we know ahead of time how many times we want to run a loop, the <strong>for</strong> loop is often a better choice than a <strong>while</strong> loop. In Python, for loops are actually a bit more robust than in C++, and they have a different structure. Here is a typical Python for loop:</p>
+
+<pre><code class="python"># Python:
+for i in range(3):
+  print(i)</code></pre>
+
+
+<p>Output:</p>
+
+<pre><code class="python">0
+1
+2</code></pre>
+
+
+<p>In C++, <strong>for</strong> loops have the following form, which may take a bit of getting used to:</p>
+
+<pre><code class="cpp">for (initializationStatement; testExpression; updateStatement) {
+  statement;
+  statement;
+  ...
+}  </code></pre>
+
+
+<p>The <strong>initializationStatement</strong> happens at the beginning of the loop, and initializes a variable. E.g., <code>int i = 0</code>.</p>
+
+<p>The <strong>testExpression</strong> is evaluated initially, and after each run through the loop, and if it is true, the loop continues for another iteration. E.g., <code>i &lt; 3</code>.</p>
+
+<p>The <strong>updateStatement</strong> happens after each loop, but before testExpression is evaluated. E.g., <code>i++</code>.</p>
+
+<p>Here is the above example, written in C++:</p>
+
+<pre><code class="cpp">// C++
+for (int i = 0; i &lt; 3; i++) {
+  cout &lt;&lt; i &lt;&lt; endl;
+}</code></pre>
+
+
+<p>Output:</p>
+
+<pre><code class="cpp">0
+1
+2</code></pre>
+
+
+<p>Here is the equivalent way to write the above code as a <strong>while</strong> loop.</p>
+
+<pre><code class="cpp">// C++:
+int i = 0;
+while (i &lt; 3) {
+  cout &lt;&lt; i &lt;&lt; endl;
+  i++;
+}</code></pre>
+
+
+<p>There is another type of <strong>for</strong> statement that we will cover when we reach collections (e.g., the <strong>vector</strong> class), so stay tuned!</p>
+
+<h2 id="scoping">Scoping</h2>
+
+<p>Variables in C++ are <em>scoped</em> to the block they belong in. In other words, a variable is not accessible outside of the block where it is defined. This is also true for the initialization statement in a for loop – if you define a variable there, it is not accessible outside the loop.</p>
+
+<p>Example:</p>
+
+<pre><code class="cpp">// C++:
+int main() {
+  int outsideVar = 5;
+  for (int loopVar = 0; loopVar &lt; 3; loopVar++) {
+      int insideVar = 10 * outsideVar;
+      cout &lt;&lt; outsideVar &lt;&lt; &quot;, &quot; &lt;&lt; insideVar &lt;&lt; endl;
+      outsideVar += 2;
+  }
+  cout &lt;&lt; outsideVar &lt;&lt; endl; // okay
+  cout &lt;&lt; insideVar &lt;&lt; endl; // error! insideVar not in scope
+  cout &lt;&lt; loopVar &lt;&lt; endl; // error! loopVar not in scope
+  return 0;
+}</code></pre>
+
+
+<p>Output (with the last two cout statements removed):</p>
+
+<pre><code class="cpp">5, 50 
+7, 70 
+9, 90 
+11</code></pre>
+
+
+<h2 id="boolean-expressions,-boolean-operators,-and-the-if-statement">Boolean Expressions, Boolean Operators, and the if Statement</h2>
+
+<p>As in virtually all other programming languages, C++ has boolean expressions and boolean operators, as shown in the following tables:</p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">Expression  </th>
+<th style="text-align:center;">   Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">a &lt; b   </td>
+<td style="text-align:center;">   a is less than b</td>
+</tr>
+<tr>
+<td style="text-align:center;">a &lt;= b   </td>
+<td style="text-align:center;">  a is less than or equal to b</td>
+</tr>
+<tr>
+<td style="text-align:center;">a > b    </td>
+<td style="text-align:center;">  a is greater than b</td>
+</tr>
+<tr>
+<td style="text-align:center;">a >= b   </td>
+<td style="text-align:center;">  a is greater than or equal to b</td>
+</tr>
+<tr>
+<td style="text-align:center;">a == b  </td>
+<td style="text-align:center;">   a is equal to b</td>
+</tr>
+<tr>
+<td style="text-align:center;">a != b   </td>
+<td style="text-align:center;">  a is not equal to b</td>
+</tr>
+</tbody>
+</table>
+
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">Operator(preferred)  </th>
+<th style="text-align:center;">  Alternative  </th>
+<th style="text-align:center;">  Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">a &amp;&amp; b   </td>
+<td style="text-align:center;">  a and b  </td>
+<td style="text-align:center;">  Both a AND b are true</td>
+</tr>
+<tr>
+<td style="text-align:center;">a || b    </td>
+<td style="text-align:center;">   a or b   </td>
+<td style="text-align:center;">  Either a OR b are true</td>
+</tr>
+<tr>
+<td style="text-align:center;">!a   </td>
+<td style="text-align:center;">  not a    </td>
+<td style="text-align:center;">  If a is true, returns false, and vice-versa</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>The &ldquo;preferred&rdquo; operators from the second table above are the standard C boolean operators.</p>
+
+<p>The C++ <strong>if</strong> statement tests a boolean expression and runs a block of code if the expression is <strong>true</strong>, and, optionally, runs a different block of code if the expression is <strong>false</strong>. The <strong>if</strong> statement has the following format:</p>
+
+<pre><code class="cpp">if (expression) {
+  statements if true
+} else {
+  statements if false
+}</code></pre>
+
+
+<p>The parentheses around <strong>expression</strong> are required.</p>
+
+<p>Additional <strong>if</strong> statements can be used to check for different conditions, as well:</p>
+
+<pre><code class="cpp">if (expression1) {
+  statements if expression1 is true
+} else if (expression2) {
+  statements if expression2 is true
+} else {
+  statements if neither expression1 nor expression2 is true
+}</code></pre>
+
+
+<p>Example code:</p>
+
+<pre><code class="cpp">// C++:
+int firstNum = 1;
+string compareText;
+
+for (int secondNum = 0; secondNum &lt; 3; secondNum++) {
+    if (firstNum &lt; secondNum) {
+        compareText = &quot;less than&quot;;
+    } else if (firstNum &gt; secondNum) {
+        compareText = &quot;greater than&quot;;
+    } else {
+        compareText = &quot;equal to&quot;;
+    }
+    cout &lt;&lt; &quot;firstNum is &quot; &lt;&lt; firstNum &lt;&lt; &quot;, secondNum is &quot; &lt;&lt; secondNum &lt;&lt; endl;
+    cout &lt;&lt; &quot;firstNum is &quot; &lt;&lt; compareText &lt;&lt; &quot; secondNum&quot; &lt;&lt; endl &lt;&lt; endl;
+}</code></pre>
+
+
+<p>Output:</p>
+
+<pre><code class="cpp">firstNum is 1, secondNum is 0
+firstNum is greater than secondNum
+
+firstNum is 1, secondNum is 1
+firstNum is equal to secondNum
+
+firstNum is 1, secondNum is 2
+firstNum is less than secondNum</code></pre>
+
+
+<p>Example code:</p>
+
+<pre><code class="cpp">int x = 5;
+int y = 7;
+
+if (x == 5 &amp;&amp; y == 7) {
+    cout &lt;&lt; &quot;x equals 5 and y equals 7&quot; &lt;&lt; endl;
+}
+
+if (x == 5 || y == 5) { // note: cannot combine as if (x || y == 5)
+    cout &lt;&lt; &quot;x equals 5 or y equals 5&quot; &lt;&lt; endl;
+}
+
+if (x != 5 &amp;&amp; y != 5) {
+    cout &lt;&lt; &quot;x is not equal to 5 and y is not equal to 5&quot; &lt;&lt; endl;
+} else if (x != 5 || y != 5) {
+    cout &lt;&lt; &quot;x is not equal to 5 or y is not equal to 5&quot; &lt;&lt; endl;
+}
+
+if (!(x == 5 &amp;&amp; y == 5)) {
+    cout &lt;&lt; &quot;not (x is equal to 5 and y is equal to 5) (DeMorgan&apos;s Law)&quot; &lt;&lt; endl;
+}</code></pre>
+
+
+<p>Output:</p>
+
+<pre><code class="cpp">x equals 5 and y equals 7
+x equals 5 or y equals 5
+x is not equal to 5 or y is not equal to 5
+not (x is equal to 5 and y is equal to 5) (DeMorgan&apos;s Law)</code></pre>
+
+
+<h2 id="functions">Functions</h2>
+
+<p>Much like in Python, Java, Javascript, etc., C++ has functions that you can call (e.g., from a library), and that you can create yourself.</p>
+
+<p>Functions can also return a single value, however we will see how we can utilize reference parameters to share data between functions.</p>
+
+<p>In C++, functions must be declared before they are used. Functions are declared as follows:</p>
+
+<pre><code class="cpp">returnType functionName(varType parameter1, varType parameter2, ...);</code></pre>
+
+
+<p>A function can be declared and defined (i.e., have the code, as well) at the same time, but again, only if done before use in another function later in the program.</p>
+
+<h3 id="the-main-function">The <strong>main</strong> Function</h3>
+
+<p>The first function that runs in any program is the <strong>main</strong> function, declared as follows:</p>
+
+<pre><code class="cpp">int main() {
+  statement
+  statement
+  ...
+}</code></pre>
+
+
+<p>Before we start declaring other functions besides <strong>main</strong>, let&rsquo;s use one. The C++ <code>&lt;cmath&gt;</code> library has many mathematical functions. E.g., the square root function, <code>sqrt</code>:</p>
+
+<pre><code class="cpp">// C++:
+#include &lt;cmath&gt;
+#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+    double fpNum = 1234; // a floating point number 
+    double result = sqrt(fpNum); // set result to be equal to the return value of the sqrt function
+
+    cout &lt;&lt; &quot;fpNum: &quot; &lt;&lt; fpNum &lt;&lt; endl;
+    cout &lt;&lt; &quot;square root of fpNum: &quot; &lt;&lt; result &lt;&lt; endl;
+    return 0; // the return value for main must be an integer.
+              // In main(), a return value of 0 means &quot;everything worked out&quot;
+}</code></pre>
+
+
+<p>Output:</p>
+
+<pre><code class="cpp">fpNum: 1234
+square root of fpNum: 35.1283</code></pre>
+
+
+<p>Let&rsquo;s write a function of our own, that computes and returns the factorial of a number:</p>
+
+<pre><code class="cpp">int factorial(int number) {
+    int result = 1;
+    for (int n = number; n &gt; 1; n--) {
+        result *= n;
+    }
+    return result; 
+}</code></pre>
+
+
+<p>The function above requires that we pass it an integer, and it guarantees that it will return an integer.</p>
+
+<p>You might ask, What if I don&rsquo;t want to return anything from my function? and C++ answers that with the void keyword, which means, the function does not return a type. E.g.,</p>
+
+<pre><code class="cpp">void printTenTimes(char c) {
+  for (int i = 0; i &lt; 10; i++) {
+      cout &lt;&lt; c;
+  }
+  cout &lt;&lt; endl;
+}</code></pre>
+
+
+<p>This function can be called, but won&rsquo;t return a value:</p>
+
+<pre><code class="cpp">printTenTimes(&apos;c&apos;);</code></pre>
+
+
+
+
+<pre><code class="cpp">cccccccccc</code></pre>
+
+
+<p>If we try to get a return value from a void function, the compiler produces an error:</p>
+
+<pre><code class="cpp">int someResult = printTenTimes(&apos;c&apos;);</code></pre>
+
+
+<p>Compiler output:</p>
+
+<pre><code class="cpp">my-file.cc:32:9: error: cannot initialize a variable of type &apos;int&apos; with an rvalue of
+    type &apos;void&apos;
+  int someResult = printTenTimes(&apos;c&apos;);
+      ^             ~~~~~~~~~~~~~~~~~~
+1 error generated.</code></pre>
+
+
+<p>One thing you may have to get used to is arcane C++ error messages! The above error message means that we tried to give an integer a value with a type of <strong>void</strong>, and the compiler won&rsquo;t let us do that.</p>
+
+<h3 id="passing-by-value-and-reference">Passing by Value and Reference</h3>
+
+<p>Let&rsquo;s jump back to Python for a moment, what is the output of the following program?</p>
+
+<pre><code class="python"># Python:
+def doubleValue(x):
+    x *= 2
+    return x
+
+if __name__ == &quot;__main__&quot;:
+    myValue = 5
+    doubleResult = doubleValue(myValue)
+
+    print(myValue)
+    print(doubleResult)</code></pre>
+
+
+<p>Output:</p>
+
+<pre><code class="python">5
+10</code></pre>
+
+
+<p>The reason for the output is that the parameter <strong>x</strong> was passed to the <strong>doubleValue</strong> function by value, meaning that the variable <strong>x</strong> is a copy of the variable passed in. Changing it inside the function does not change the value in the calling function.</p>
+
+<p>You can modify the contents of objects (such as a list) by passing in the list, but that does not work for regular values.</p>
+
+<p>When passing arguments as parameters to a function in C++ the way we have already seen, we have the same behavior:</p>
+
+<pre><code class="cpp">// C++:
+#include&lt;iostream&gt;
+using namespace std;
+
+int doubleValue(int x) {
+    x *= 2;
+    return x;
+}
+
+int main() {
+    int myValue = 5;
+    int result = doubleValue(myValue);
+
+    cout &lt;&lt; myValue &lt;&lt; endl;
+    cout &lt;&lt; result &lt;&lt; endl;
+}</code></pre>
+
+
+<p>Output:</p>
+
+<pre><code class="cpp">5
+10</code></pre>
+
+
+<p>In this case, the parameter <strong>x</strong> was passed by value.</p>
+
+<p>C++ has a completely different way of passing in arguments as parameters to a function, called pass by reference. To pass a value by reference, the parameter has the ampersand (<strong>&amp;</strong>) symbol before the variable name, e.g.,</p>
+
+<pre><code class="cpp">void doubleValueWithRef(int &amp;x);</code></pre>
+
+
+<p>Now, we have provided the <strong>doubleValueWithRef</strong> function with a reference to the variable <strong>x</strong>, which means that if the function modifies <strong>x</strong>, it is actually modifying the original value – it has a reference to <strong>x</strong>, or it refers to it.</p>
+
+<p>Let&rsquo;s see how this might work, without needing to return a value from <strong>doubleValueWithRef</strong>:</p>
+
+<pre><code class="cpp">#include&lt;iostream&gt;
+using namespace std;
+
+void doubleValueWithRef(int &amp;x) {
+    x *= 2;
+}
+
+int main() {
+    int myValue = 5;
+    // int result = doubleValueWithRef(myValue); // Error! the function does not return a value now.
+    doubleValue(myValue);
+
+    cout &lt;&lt; myValue &lt;&lt; endl;
+}</code></pre>
+
+
+<p>Output:</p>
+
+<pre><code class="cpp">10</code></pre>
+
+
+<p>In this case, <strong>myValue</strong> was changed by the function, and we did not need a return value.</p>
+
+<p>With references, C++ lets you modify data directly, without copying the data. This is powerful, but as Uncle Ben (in Spiderman) says, With great power comes great responsibility. If you pass a value by reference, you need to understand that the function can modify it directly. We will discuss ways of making this a bit safer in later tutorial, but for now know that you need to be somewhat careful and you need to understand it thoroughly.</p>
+
+<p>Passing by reference is most-often used when we want access to the contents of data structures without passing all of the values (which can take time). We will see this when we cover <strong>vectors</strong> in the next tutorial.</p>
+
+<p>One caveat: in order to pass a variable by reference, you need to actually have a variable. The following does not work, for our example above:</p>
+
+<pre><code class="cpp"> doubleValueWithRef(15); // error! cannot pass a literal value by reference</code></pre>
+
+
+<p>Compiler error:</p>
+
+<pre><code class="cpp">../all-examples.cpp:135:5: error: no matching function for call to &apos;doubleValueWithRef&apos;
+  doubleValueWithRef(15);
+  ^~~~~~~~~~~~~~~~~~
+../all-examples.cpp:11:6: note: candidate function not viable: expects an l-value for 1st argument
+void doubleValueWithRef(int &amp;x);
+   ^
+1 error generated.</code></pre>
+
+
+<h2 id="header-files">Header Files</h2>
+
+<p>As C++ has its roots in the C language, it uses C-style <em>header files</em>. A header file generally serves to define functions, classes, and structs (defined later in the course) that will be used by various parts of your program.</p>
+
+<p>C++ programs often have multiple code files, and if two different C++ files (which have the extension <strong>.cpp</strong> or <strong>.cc</strong>) use the same functions, they may be defined in a header so that each of the <strong>.cpp</strong> files knows about the functions.</p>
+
+<p>Header files can also make the compilation steps of a large program faster, which is part of the original reason they were used in C.</p>
+
+<p>Header files should have the <strong>.h</strong> extension (or, less often, <strong>.hpp</strong>).</p>
+
+<p>It may be the case that a header file is included in a cascading set of files – one header may include another header, and then a <strong>.cpp</strong> file might include both headers. As this could cause certain objects to be defined twice, we use a special directive inside header files to limit this:</p>
+
+<ul>
+<li><code>#pragma once</code></li>
+<li>This means that the compiler will only include the file once during compilation.</li>
+<li>Example header file, and corresponding C++ file:</li>
+</ul>
+
+
+<p>Header:</p>
+
+<pre><code class="cpp">// all-examples.h
+#pragma once
+
+int square(int x);
+bool even(int value);</code></pre>
+
+
+<p>C++ file:</p>
+
+<pre><code class="cpp">// all-examples.cpp
+#include &lt;iostream&gt;
+#include &quot;all-examples.h&quot;
+
+// we can call the functions before the appear in this file, because they&apos;ve
+// already been defined in the header file and we&apos;ve #included it.
+int main() {
+    cout &lt;&lt; square(15) &lt;&lt; endl;
+    if (even(42)) {
+        cout &lt;&lt; &quot;even&quot; &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; &quot;odd&quot; &lt;&lt; endl;
+    }
+}
+
+int square(int x) {
+    return x * x;
+}
+
+bool even(int v) {
+    return v % 2 == 0;
+}</code></pre>
+
+
+<p>Output:</p>
+
+<pre><code class="cpp">25
+even</code></pre>
+
+
