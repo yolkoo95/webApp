@@ -4,7 +4,7 @@ body {
 }
 
 #notepage #wrapper {
-    max-height: 100vh;
+    max-height: 98vh;
     overflow: scroll;
 }
 
