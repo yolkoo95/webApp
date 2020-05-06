@@ -8,6 +8,34 @@ body {
     overflow: scroll;
 }
 
-#notepage #wrapper::-webkit-scrollbar{
+#notepage #wrapper::-webkit-scrollbar {
     display: none;
 }
+
+/* back to table of contents / category / home */
+
+.back-to-toc, .back-to-category, .back-to-home {
+    position: relative;
+    bottom: 40px;
+    z-index: 99999;
+}
+
+.back-to-toc i, .back-to-category i, .back-to-home i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background: rgba(255, 110, 78, 0.500);
+    color: #fff;
+    transition: all 0.4s;
+}
+
+.back-to-toc i:hover, .back-to-category i:hover, .back-to-home i:hover {
+    background: #FF604E;
+    color: #fff;
+}
+
+/* back to category */

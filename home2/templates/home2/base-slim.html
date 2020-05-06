@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta content="author" name="Minzhi QU"> 
+    <meta content="mail" name="15399018708@163.com">
+    
+    <link
+      rel="icon"
+      href="{% static 'home2/src/icon/icon_512x512@2x.png' %}"
+      sizes="32x32"
+      type="image/png"
+    />
+    <link
+      rel="icon"
+      href="{% static 'home2/src/icon/icon_512x512@2x.png' %}"
+      sizes="16x16"
+      type="image/png"
+    />
+
+    <!-- Favicons -->
+    <link href="{% static 'home2/src/icon/icon512x512@2x.png' %}" rel="icon">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    
+    <!-- Vendor CSS Files -->
+    <!-- <link href="{% static 'home2/src/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"> -->
+    <link href="{% static 'home2/src/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+    <link href="{% static 'home2/src/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'home2/src/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'home2/src/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+    <link href="{% static 'home2/src/vendor/line-awesome/css/line-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'home2/src/vendor/venobox/venobox.css' %}" rel="stylesheet">
+    <link href="{% static 'home2/src/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'home2/src/vendor/aos/aos.css' %}" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'home2/src/css/bootstrap.min.css' %}">
+    
+    <link href="{% static 'home2/src/css/style.css' %}" rel="stylesheet">
+
+    {% block style %}
+
+    {% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<!-- <body oncontextmenu="return false"> -->
+<body>
+    {% if show_intro %}
+        {% include 'home2/intro.html' %}
+    {% endif %}
+
+    {% block body %}
+
+    {% endblock %}
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'home2/src/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'home2/src/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'home2/src/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'home2/src/vendor/php-email-form/validate.js' %}"></script>
+    <script src="{% static 'home2/src/vendor/jquery-sticky/jquery.sticky.js' %}"></script>
+    <script src="{% static 'home2/src/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'home2/src/vendor/venobox/venobox.min.js' %}"></script>
+    <script src="{% static 'home2/src/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'home2/src/vendor/TweenMax/TweenMax.min.js' %}"></script>
+    <script src="{% static 'home2/src/vendor/aos/aos.js' %}"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script> 
+
+    <script src="{% static 'home2/src/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'home2/src/js/main.js' %}"></script>
+    <script src="{% static 'home2/src/js/formChecker.js' %}"></script>
+    
+    {% block js %}
+
+    {% endblock %}
+</body>
+</html>
