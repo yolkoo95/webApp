@@ -57,7 +57,7 @@
                 titleBackground: '#161617',
                 titleColor: '#d2d2d2',
                 titlePosition : 'top', // 'top' || 'bottom'
-                share: [ 'facebook', 'twitter', 'linkedin', 'pinterest', 'download' ], 
+                share: [ 'facebook', 'twitter', 'download' ], 
                 cb_pre_open: function(){ return true; }, // Callbacks - thanx @garyee
                 cb_post_open: function(){},
                 cb_pre_close: function(){ return true; },
