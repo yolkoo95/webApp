@@ -1,0 +1,438 @@
+{% load static %}
+<h1 id="introduction-to-recursion">Introduction to Recursion</h1>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+<li><a href="#introduction-to-recursion">Introduction to Recursion</a>
+
+<ul>
+<li><a href="#towers-of-hanoi">Towers of Hanoi</a></li>
+<li><a href="#what-is-recursion">What is Recursion</a></li>
+<li><a href="#why-recursion">Why Recursion</a></li>
+<li><a href="#recursion-in-programming">Recursion in Programming</a></li>
+</ul>
+</li>
+<li><a href="#recursion-world">Recursion World</a>
+
+<ul>
+<li><a href="#recursion-in-real-life">Recursion in Real Life</a></li>
+<li><a href="#counting-a-column-of-people">Counting a column of people</a></li>
+<li><a href="#recursive-structure">Recursive Structure</a></li>
+<li><a href="#recursive-functions">Recursive Functions</a></li>
+<li><a href="#the-three-%22musts%22-of-recursion">The Three &ldquo;Musts&rdquo; of Recursion</a>
+
+<ul>
+<li><a href="#the-%22recursive-leap-of-faith%22">The &ldquo;Recursive Leap of Faith&rdquo;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#recursion-practices">Recursion Practices</a>
+
+<ul>
+<li><a href="#the-power(x,-n)-function">The power(x, n) function</a></li>
+<li><a href="#big-o-of-power(x,-n)?">Big O of power(x, n)?</a></li>
+<li><a href="#faster-power-function!">Faster power function!</a></li>
+<li><a href="#mystery-recursion:-trace-this-function">Mystery Recursion: Trace this function</a></li>
+<li><a href="#ispalindrome(string-s)">isPalindrome(string s)</a></li>
+<li><a href="#back-to-the-towers-of-hanoi">Back to the Towers of Hanoi</a></li>
+</ul>
+</li>
+<li><a href="#recursion-recap">Recursion Recap</a></li>
+</ul>
+
+
+<h2 id="introduction-to-recursion">Introduction to Recursion</h2>
+
+<p><img src="{% static 'codehome/src/img/cpp/recursion-recursion.png' %}" alt="recursion-recursion" /></p>
+
+<p>Recursion is everywhere in our world.</p>
+
+<h3 id="towers-of-hanoi">Towers of Hanoi</h3>
+
+<p>Here is the way the game is played,</p>
+
+<p><img src="{% static 'codehome/src/img/cpp/Iterative_algorithm_solving_a_6_disks_Tower_of_Hanoi.gif' %}" alt="Iterative_algorithm_solving_a_6_disks_Tower_of_Hanoi" /></p>
+
+<h3 id="what-is-recursion">What is Recursion</h3>
+
+<p>Recursion is: A problem solving technique in which problems are solved by reducing them to smaller problems of the same form.</p>
+
+<h3 id="why-recursion">Why Recursion</h3>
+
+<ul>
+<li>Great style</li>
+<li>Powerful tool</li>
+<li>Master of control flow</li>
+</ul>
+
+
+<h3 id="recursion-in-programming">Recursion in Programming</h3>
+
+<p>In programming, recursion simply means that a function will call itself:</p>
+
+<pre><code class="cpp">int main() {
+ main();
+ return 0;
+}</code></pre>
+
+
+<p><code>main()</code> isn&rsquo;t supposed to call itself, but if we do write this program, what happens?</p>
+
+<p>We&rsquo;ll get back to programming in a moment!</p>
+
+<h2 id="recursion-world">Recursion World</h2>
+
+<h3 id="recursion-in-real-life">Recursion in Real Life</h3>
+
+<p><img src="{% static 'codehome/src/img/cpp/hard-jigsaw-puzzle.png' %}" alt="hard-jigsaw-puzzle" /></p>
+
+<p>How to solve a jigsaw puzzle recursively (&ldquo;solve the puzzle&rdquo;)</p>
+
+<ul>
+<li>Is the puzzle finished? If so, stop.</li>
+<li>Find a correct puzzle piece and place it.</li>
+<li>Solve the puzzle</li>
+</ul>
+
+
+<h3 id="counting-a-column-of-people">Counting a column of people</h3>
+
+<p>Let&rsquo;s pretend we have a column of people, one behind the other. Let&rsquo;s try counting the people by only allowing them to ask questions of the people directly behind them and respond to questions to the people directly in front of them. In other words, we have the following rules:</p>
+
+<ol>
+<li>A person can see only the people directly in front and behind them. So, they can&rsquo;t just look back and count.</li>
+<li>A person is allowed to ask questions of the person behind them, and respond to the person in front of them.</li>
+</ol>
+
+
+<p>How can we solve this problem recursively?</p>
+
+<p>Answer:</p>
+
+<ol>
+<li><p>The first person looks behind them, and sees if there is a person there. If there is, they ask them how many people are in line, including them, and wait for a response. If there isn&rsquo;t anyone, the person responds &ldquo;1&rdquo;, and we are done counting.</p></li>
+<li><p>If there is a person, that person repeats step 1, and waits for a response.</p></li>
+<li><p>Once a person receives a response (a number), they add 1 for themselves, and they respond to the person that asked them.</p></li>
+</ol>
+
+
+<h5 id="counting-a-column-of-people-recursively-in-c++">Counting a column of people recursively in C++</h5>
+
+<pre><code class="cpp">int numPeopleInLine(Person curr) {
+    if (noOneBehind(curr)) {
+        return 1;
+    } else {
+        Person personBehind = curr.getBehind();
+        return numPeopleInLine(personBehind) + 1; // recursive call!
+    }
+}</code></pre>
+
+
+<p>Notice that eventually, a person will look behind them and see that there isn&rsquo;t anyone there. That person responds &ldquo;1&rdquo;, which gets returned to the second-to-last person, who adds 1 to 1, and responds &ldquo;2&rdquo;. This gets returned to the third-to-last person, who adds 1 to 2, and responds &ldquo;3&rdquo;. This keeps happening all the way to the first person, who adds &ldquo;1&rdquo; and now has a complete count of the number of people in line.</p>
+
+<h3 id="recursive-structure">Recursive Structure</h3>
+
+<p>The structure of a recursive function is typically like the following:</p>
+
+<pre><code class="cpp">returnValue recursiveFunction(parameter) {
+  if (test for simple case) {
+     Compute the solution without recursion
+  } else {
+     Break the problem into a subproblem of the same form, where &quot;parameter&quot; becomes &quot;newParameter&quot;
+     Call recursiveFunction(newParameter)
+     Get the result of the subproblem, update and return
+  }
+}</code></pre>
+
+
+<h3 id="recursive-functions">Recursive Functions</h3>
+
+<p>Every recursive algorithm involves at least two cases:</p>
+
+<ul>
+<li>base case: The simple case; an occurrence that can be answered directly; the case that recursive calls reduce to.</li>
+<li>recursive case: a more complex occurrence of the problem that cannot be directly answered, but can be described in terms of smaller occurrences of the same problem.</li>
+</ul>
+
+
+<pre><code class="cpp">int numPeopleInLine(Person curr) {
+    // base case
+    if (noOneBehind(curr)) {
+        return 1;
+    } else {
+        // recursive case
+        Person personBehind = curr.getBehind();
+        return numPeopleInLine(personBehind) + 1; // recursive call!
+    }
+}</code></pre>
+
+
+<h3 id="the-three--musts--of-recursion">The Three &ldquo;Musts&rdquo; of Recursion</h3>
+
+<ul>
+<li>Your code must have a case for all valid inputs.</li>
+<li>You must have a base case that makes not recursive calls.</li>
+<li>When you make a recursive call it should be to a simpler instance of the same problem, and make forward progress towards the base case.</li>
+</ul>
+
+
+<h4 id="the--recursive-leap-of-faith-">The &ldquo;Recursive Leap of Faith&rdquo;</h4>
+
+<p><img src="{% static 'codehome/src/img/cpp/leap-of-faith.png' %}" alt="leap-of-faith" /></p>
+
+<p>You must trust that your recursion will proceed as you have designed it – this is hard to do when you first start coding recursively!</p>
+
+<h2 id="recursion-practices">Recursion Practices</h2>
+
+<p>The first real recursion problem we will tackle is a function to raise a number to a power. Specifically, we are going to write a recursive function that takes in a number, <strong>x</strong> and an exponent, <strong>n</strong>, and returns the result of <code>x^n</code>.</p>
+
+<ul>
+<li>When computing a power, we have the simplest case of <code>x^0</code> = 1.</li>
+<li>We also have a way to define a number raised to a power as a simpler form of itself: <code>x^n = x * x^(n - 1)</code></li>
+<li>By repeatedly performing the simpler calculation, we will eventually get to a power of 0 (assuming that we have a positive power to begin with), and then we can return our <code>x^0</code> case of 1.</li>
+</ul>
+
+
+<h3 id="the-power(x,-n)-function">The power(x, n) function</h3>
+
+<pre><code class="cpp">int power(int x, int n) {
+    if (n == 0) {
+        return 1;
+    } else {
+        return x * power(x, n - 1);
+    }
+}</code></pre>
+
+
+<p>Each previous call waits for the next call to finish (just like any function):</p>
+
+<pre><code class="cpp">int result = power(5, 3);</code></pre>
+
+
+<ul>
+<li>The first call is to <strong>power(5, 3)</strong>
+
+<ul>
+<li>The second call is to <strong>power(5, 2)</strong>
+
+<ul>
+<li>The third call is to <strong>power(5, 1)</strong>
+
+<ul>
+<li>The fourth call is to <strong>power(5, 0)</strong>, which returns 1.</li>
+</ul>
+</li>
+<li>The third call gets the return value of 1, and returns <strong>5 * 1</strong></li>
+</ul>
+</li>
+<li>The second call gets the return value of 5, and returns <strong>5 * 5 (25)</strong></li>
+</ul>
+</li>
+<li>The first call gets the return value of 25, and returns <strong>5 * 25 (125)</strong></li>
+</ul>
+
+
+<p><strong>result</strong> now holds 125, and this is how recursion works!</p>
+
+<p>You might argue, wait, I could have done that with a loop just as easily, and you would be right. Recursion isn&rsquo;t always the best way to solve a problem, but we will soon see problems that would be very, very hard to do without recursion (we&rsquo;re looking at simple examples now).</p>
+
+<h3 id="big-o-of-power(x,-n)?">Big O of power(x, n)?</h3>
+
+<p>Guess what? We can apply all of that Big O stuff we just learned to recursive functions, too!</p>
+
+<p>Let&rsquo;s try and think about how <strong>power(x, n)</strong> grows as n grows.</p>
+
+<p>Each time we call the function recursively, we are reducing n by 1. Because we need to go from <strong>n</strong> all the way to 0, we must call the recursive function <strong>n</strong> times. Therefore, we have <code>O(n)</code> for our complexity. Neat!</p>
+
+<h3 id="faster-power-function!">Faster power function!</h3>
+
+<p>An interesting fact about taking a power is that, for even powers, <code>x^n = x^(n/2) * x^(n/2)</code></p>
+
+<p>Therefore, if we have an even power, we can calculate <code>x^(n/2)</code> and then just square that when we return…</p>
+
+<p>We have a special case when <strong>n</strong> is odd, but this isn&rsquo;t hard to manage.</p>
+
+<p>Take a look at the following code:</p>
+
+<pre><code class="cpp">int power(int x, int n) {
+  if(n == 0) {
+      // base case
+      return 1;
+  } else {
+      if (n % 2 == 1) {
+          // if n is odd
+          return x * power(x, n - 1);
+      } else {
+          // else, if exp is even
+          int y = power(x, n / 2);
+          return y * y;
+      }
+  }
+}</code></pre>
+
+
+<p>We have still made the problem smaller at each recursive call, but we have made it much smaller, by halving it each time.</p>
+
+<p>What is our complexity? <code>O(log n)</code> – wow!</p>
+
+<h3 id="mystery-recursion:-trace-this-function">Mystery Recursion: Trace this function</h3>
+
+<pre><code class="cpp">int mystery(int n) {
+    if (n &lt; 10) {
+        return n;
+    } else {
+        int a = n / 10;
+        int b = n % 10;
+        return mystery(a + b);
+    }
+}</code></pre>
+
+
+<p>What is the result of <code>mystery(648)</code>?</p>
+
+<p>First call, <code>mystery(648)</code>:</p>
+
+<pre><code class="cpp">int mystery(int n) { // 648
+  if (n &lt; 10) {
+      return n;
+  } else {
+      int a = n / 10; // a = 64
+      int b = n % 10; // b = 8
+      return mystery(a + b); // mystery(72)
+  }
+}</code></pre>
+
+
+<p>Second call,</p>
+
+<pre><code class="cpp">int mystery(int n) { // 72
+  if (n &lt; 10) {
+      return n;
+  } else {
+      int a = n / 10; // a = 7
+      int b = n % 10; // b = 2
+      return mystery(a + b); // mystery(9)
+  }
+}</code></pre>
+
+
+<p>Third call,</p>
+
+<pre><code class="cpp">int mystery(int n) { // 9
+  if (n &lt; 10) {
+      return n; // return 9
+  } else {
+      int a = n / 10;
+      int b = n % 10;
+      return mystery(a + b);
+  }
+}</code></pre>
+
+
+<p>Second and first calls both return the result of the third call (nothing else gets added to the return value), so <strong>9</strong> gets returned all the way to the original calling function.</p>
+
+<h3 id="ispalindrome(string-s)">isPalindrome(string s)</h3>
+
+<p>Write a recursive function isPalindrome accepts a string and returns true if it reads the same forwards as backwards.</p>
+
+<pre><code class="cpp">isPalindrome(&quot;madam&quot;);          // true 
+isPalindrome(&quot;racecar&quot;);        // true 
+isPalindrome(&quot;step on no pets&quot;) // true 
+isPalindrome(&quot;python&quot;)          // false 
+isPalindrome(&quot;byebye&quot;)          // false</code></pre>
+
+
+<p>Remember: The Three &ldquo;Musts&rdquo; of Recursion</p>
+
+<ul>
+<li>Your code must have a case for all valid inputs.</li>
+<li>You must have a base case that makes not recursive calls.</li>
+<li>When you make a recursive call it should be to a simpler instance of the same problem, and make forward progress towards the base case.</li>
+</ul>
+
+
+<p>Answer:</p>
+
+<pre><code class="cpp">// Returns true if the given string reads the same
+// forwards as backwards.
+// Trivially true for empty or 1-letter strings.
+bool isPalindrome(const string&amp; s) {
+    if (s.length() &lt; 2) { // base case
+        return true;
+    } else { // recursive case
+        if (s[0] != s[s.length() - 1]) {
+            return false;
+        }
+        string middle = s.substr(1, s.length() - 2);
+        return isPalindrome(middle);
+    }
+}</code></pre>
+
+
+<h3 id="back-to-the-towers-of-hanoi">Back to the Towers of Hanoi</h3>
+
+<p>We need to find a very simple case that we can solve directly in order for the recursion to work.<br/>
+If the tower has size one, we can just move that single disk from the source to the destination.<br/>
+If the tower has more than one, we have to use the auxiliary spindle.<br/>
+We can break the entire process down into very simple steps – not necessarily easy to think of steps, but simple ones!</p>
+
+<p>But how to find self-similar problem in Tower of Hanoi?</p>
+
+<p>Here is an idea,</p>
+
+<p>Let&rsquo;s start with original state,</p>
+
+<p><img src="{% static 'codehome/src/img/cpp/hanoi-init.png' %}" alt="hanoi-init" /></p>
+
+<p>We assume that there are 3 disks, our aim is to put 3 disks from A(origin) spindle to C(destination) spindle.</p>
+
+<p><img src="{% static 'codehome/src/img/cpp/hanoi-first.png' %}" alt="hanoi-first" /></p>
+
+<p>the first step is to place 2 disks on the top of brown disk into B(auxiliary) spindle. (Here you may have a question, how to accomplish the operation? We will explain it in a moment)</p>
+
+<p><img src="{% static 'codehome/src/img/cpp/hanoi-second.png' %}" alt="hanoi-second" /></p>
+
+<p>the second step is easy, where we put brown disk from A to C. Notice that this is our <strong>base state</strong> - the only one disk on original spindle.</p>
+
+<p><img src="{% static 'codehome/src/img/cpp/hanoi-third.png' %}" alt="hanoi-third" /></p>
+
+<p>the only thing left is to place two disks from B to C. But how to do it? Here is a trick, we can see it from a different perspective, where B is new origin spindle, and A becomes new auxiliary spindle. Then it has been downgrade into a subproblem - place 2 disks from A(origin) spindle to C(destination) spindle, noting that Brown disk on C has no influence on the subproblem.</p>
+
+<p><img src="{% static 'codehome/src/img/cpp/hanoi-downto.png' %}" alt="hanoi-downto" /></p>
+
+<p>Okay, let&rsquo;s make a summary of what we have done by now,</p>
+
+<ol>
+<li>Place the disks above the disk at the bottom of the spindle from original spindle to auxiliary spindle. (We haven&rsquo;t solved!)</li>
+<li>Place the bottom disk from original spindle to destination spindle. (Base Condition)</li>
+<li>Place the disks on auxiliary spindle to destination spindle. (Downgraded Subproblem)</li>
+</ol>
+
+
+<p>Look back to <strong>the first step</strong> what we have not solved now. We will find it easily that it is also a downgraded subproblem which is much similar to <strong>the third step</strong>. We place the disks above the bottom disk from A to B with the help of C, where C could be viewed as auxiliary spindle and B could be treated as destination spindle.</p>
+
+<p>That&rsquo;s magic!</p>
+
+<h2 id="recursion-recap">Recursion Recap</h2>
+
+<p>Features of Recursion:</p>
+
+<ul>
+<li>Break a problem into smaller subproblems of the same form, and call the same function again on that smaller form.</li>
+<li>Super powerful programming tool Not always the perfect choice, but often a good one</li>
+<li>Some beautiful problems are solved recursively</li>
+</ul>
+
+
+<p>Three Musts for Recursion:</p>
+
+<ul>
+<li>Your code must have a case for all valid inputs</li>
+<li>You must have a base case that makes no recursive calls</li>
+<li>When you make a recursive call it should be to a simpler instance and make forward progress towards the base case.</li>
+</ul>
+
+
+<p><EndMarkdown></p>
