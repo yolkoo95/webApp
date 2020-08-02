@@ -1,3 +1,11 @@
+'''
+@Author: your name
+@Date: 2020-04-08 10:38:33
+@LastEditTime: 2020-08-01 16:12:58
+@LastEditors: Please set LastEditors
+@Description: In User Settings Edit
+@FilePath: /webApp/manage.py
+'''
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
 import os

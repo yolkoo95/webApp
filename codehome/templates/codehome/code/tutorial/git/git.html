@@ -1,0 +1,765 @@
+{% load static %}
+<h1 id="git---time-machine">Git - Time Machine</h1>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+<li><a href="#what-is-git">What is Git</a></li>
+<li><a href="#why-is-git">Why is Git</a>
+
+<ul>
+<li><a href="#branching-and-merging">Branching and Merging</a></li>
+<li><a href="#small-and-fast">Small and Fast</a></li>
+<li><a href="#distributed">Distributed</a></li>
+<li><a href="#staging-area">Staging Area</a></li>
+<li><a href="#free-and-open-source">Free and Open Source</a></li>
+</ul>
+</li>
+<li><a href="#tutorial-for-git">Tutorial for Git</a>
+
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#initialization-and-add">Initialization and Add</a></li>
+<li><a href="#time-travel">Time Travel</a>
+
+<ul>
+<li><a href="#go-back-to-last-version">Go Back to Last Version</a></li>
+<li><a href="#management-of-modification">Management of Modification</a></li>
+</ul>
+</li>
+<li><a href="#remote-repository">Remote Repository</a>
+
+<ul>
+<li><a href="#prerequisites:-ssh">Prerequisites: SSH</a></li>
+<li><a href="#github">Github</a></li>
+</ul>
+</li>
+<li><a href="#branch-management">Branch Management</a>
+
+<ul>
+<li><a href="#create-and-merge-branch">Create and Merge Branch</a></li>
+<li><a href="#solve-conflicts">Solve Conflicts</a></li>
+<li><a href="#branch-management">Branch Management</a></li>
+<li><a href="#bug-branch">Bug Branch</a></li>
+<li><a href="#teamwork-with-git">Teamwork with Git</a></li>
+</ul>
+</li>
+<li><a href="#tag-management">Tag Management</a>
+
+<ul>
+<li><a href="#create-tag">Create Tag</a></li>
+<li><a href="#manipulation-of-tag">Manipulation of Tag</a></li>
+</ul>
+</li>
+<li><a href="#git-personal-setting">Git Personal Setting</a>
+
+<ul>
+<li><a href="#.gitignore-file">.gitignore File</a></li>
+<li><a href="#alias-setting">Alias Setting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h2 id="what-is-git">What is Git</h2>
+
+<p>Git can keep track of changes made to code, synchronize code between different people, test changes to code without losing the original, and revert back to old versions of code.</p>
+
+<h2 id="why-is-git">Why is Git</h2>
+
+<h3 id="branching-and-merging">Branching and Merging</h3>
+
+<p>The Git feature that really makes it stand apart from nearly every other SCM out there is its branching model.</p>
+
+<p>Git allows and encourages you to have multiple local branches that can be entirely independent of each other. The creation, merging, and deletion of those lines of development takes seconds.</p>
+
+<p><img src="{% static 'codehome/src/img/tutorial/branches.png' %}" alt="branches" /></p>
+
+<h3 id="small-and-fast">Small and Fast</h3>
+
+<p>Git is fast. With Git, nearly all operations are performed locally, giving it a huge speed advantage on centralized systems that constantly have to communicate with a server somewhere.</p>
+
+<p>Git was built to work on the Linux kernel, meaning that it has had to effectively handle large repositories from day one. Git is written in C, reducing the overhead of runtimes associated with higher-level languages. Speed and performance has been a primary design goal of the Git from the start.</p>
+
+<h3 id="distributed">Distributed</h3>
+
+<p>One of the nicest features of any Distributed SCM, Git included, is that it&rsquo;s distributed. This means that instead of doing a &ldquo;checkout&rdquo; of the current tip of the source code, you do a &ldquo;clone&rdquo; of the entire repository.</p>
+
+<h3 id="staging-area">Staging Area</h3>
+
+<p>Unlike the other systems, Git has something called the &ldquo;staging area&rdquo; or &ldquo;index&rdquo;. This is an intermediate area where commits can be formatted and reviewed before completing the commit.</p>
+
+<p>One thing that sets Git apart from other tools is that it&rsquo;s possible to quickly stage some of your files and commit them without committing all of the other modified files in your working directory or having to list them on the command line during the commit.</p>
+
+<p><img src="{% static 'codehome/src/img/tutorial/index1.png' %}" alt="index1" /></p>
+
+<p>This allows you to stage only portions of a modified file. Gone are the days of making two logically unrelated modifications to a file before you realized that you forgot to commit one of them. Now you can just stage the change you need for the current commit and stage the other change for the next commit. This feature scales up to as many different changes to your file as needed.</p>
+
+<p>Of course, Git also makes it easy to ignore this feature if you don&rsquo;t want that kind of control — just add a &lsquo;-a&rsquo; to your commit command in order to add all changes to all files to the staging area.</p>
+
+<p><img src="{% static 'codehome/src/img/tutorial/index2.png' %}" alt="index1" /></p>
+
+<h3 id="free-and-open-source">Free and Open Source</h3>
+
+<p>Git is released under the GNU General Public License version 2.0, which is an open source license. The Git project chose to use GPLv2 to guarantee your freedom to share and change free software&mdash;to make sure the software is free for all its users.</p>
+
+<h2 id="tutorial-for-git">Tutorial for Git</h2>
+
+<h3 id="overview">Overview</h3>
+
+<p>If you&rsquo;re newer to git, ignore this part and start from <a href="#initialization-and-add">next part</a>, &lsquo;cause this is just a summary of common commands, and you will master them after learning knowledge of git.</p>
+
+<p>Git commands:</p>
+
+<ul>
+<li><code>git clone &lt;url&gt;</code> : take a repository stored on a server (like GitHub) and downloads it</li>
+<li><code>git add &lt;filename(s)&gt;</code> : add files to the staging area to be included in the next commit</li>
+<li><code>git commit -m "message"</code> : take a snapshot of the repository and save it with a message about the changes</li>
+<li><code>git commit -am &lt;filename(s)&gt;</code> &ldquo;message&rdquo; : add files and commit changes all in one</li>
+<li><code>git status</code> : print what is currently going on with the repository</li>
+<li><code>git push</code> : push any local changes (commits) to a remote server<br/>
+git pull : pull any remote changes from a remote server to a local computer</li>
+<li><code>git log</code> : print a history of all the commits that have been made</li>
+<li><code>git reflog</code> : print a list of all the different references to commits<br/>
+git reset &ndash;hard <commit> : reset the repository to a given commit<br/>
+git reset &ndash;hard origin/master : reset the repository to its original state (e.g. the version cloned from GitHub)</li>
+</ul>
+
+
+<p>When combining different versions of code, e.g. using <code>git pull</code>, a merge conflict can occur if the different versions have different data in the same location. Git will try to take care of merging automatically, but if two users edit, for example, the same line, a merge conflict will have to be manually resolved.</p>
+
+<ul>
+<li>To resolve a merge conflict, simply locally remove all lines and code that are not wanted and push the results.</li>
+</ul>
+
+
+<h3 id="initialization-and-add">Initialization and Add</h3>
+
+<p>Before initiate a git workspace, we have to make a directory for it, a blank directory is preferred.</p>
+
+<pre><code class="sh">$ mkdir workspace
+$ cd workspace
+$ pwd
+/Users/unicorn/workspace</code></pre>
+
+
+<p>Then, we can initialize <code>workspace</code> into a git workspace,</p>
+
+<pre><code class="sh">$ git init
+Initialized empty Git repository in /Users/unicorn/workspace/.git/</code></pre>
+
+
+<p>Now let&rsquo;s add a file into git workspace, but first let&rsquo;s create a file and modify it,</p>
+
+<pre><code class="sh">$ touch README.md
+$ echo &quot;Hello git&quot; &gt; README.md</code></pre>
+
+
+<p>Then we add <code>README.md</code> to staging area,</p>
+
+<pre><code class="sh">$ git add README.md</code></pre>
+
+
+<p>If we make sure that we have finished our work, then we can commit our change to git repository as follows,</p>
+
+<pre><code class="sh">$ git commit -m &apos;Modified README.md&apos;</code></pre>
+
+
+<p>BTW, <code>git status</code> allows us to checkout the status of working space and staging area,</p>
+
+<pre><code class="sh">Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+	modified:   README.md
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</code></pre>
+
+
+<p>and <code>git diff</code> could be used to compare file that you have changed with the old version.</p>
+
+<pre><code class="sh">$ git diff README.md
+diff --git a/README.md b/README.md
+index 46d49bf..9247db6 100644
+--- a/README.md
++++ b/README.md
+@@ -1,1 +1,1 @@
++Hello git</code></pre>
+
+
+<h3 id="time-travel">Time Travel</h3>
+
+<h4 id="go-back-to-last-version">Go Back to Last Version</h4>
+
+<p>Let&rsquo;s changed the content of <code>README.md</code> and commit changes we have made,</p>
+
+<pre><code class="sh">$ echo &apos;Git is a distributed version control system.&apos; &gt;&gt; README.md
+$ git add .
+$ git commit -m &apos;Added a new line to README.md&apos;
+[master 1094adb] Added a new line to README.md
+ 1 file changed, 1 insertion(+), 0 deletion(-)</code></pre>
+
+
+<ul>
+<li>Notice that <code>.</code> in <code>git add .</code> means all the files that have been changed.</li>
+</ul>
+
+
+<p>Then we can use <code>git log</code> to refer to the commit we have made,</p>
+
+<pre><code class="sh">$ git log
+commit 1094adb7b9b3807259d8cb349e7df1d4d6477073 (HEAD -&gt; master)
+Author: Unicorn &lt;brysjhhrhl95@163.com&gt;
+Date:   Fri May 18 19:06:15 2018 +0800
+
+    Added a new line to README.md
+
+commit e475afc93c209a690c39c13a46716e8fa000c366
+Author: Unicorn &lt;brysjhhrhl95@163.com&gt;
+Date:   Fri May 18 19:03:36 2018 +0800
+
+    Modified README.md</code></pre>
+
+
+<p>We can see that we have made 2 commits, and <code>HEAD</code> now points to the latest version(commit 1094adb). However, the result of <code>git log</code> is annoying particularly with so many information. We could add parameter <code>--pretty=oneline</code> to the command.</p>
+
+<pre><code class="sh">$ git log --pretty=oneline
+1094adb7b9b3807259d8cb349e7df1d4d6477073 (HEAD -&gt; master) Added a new line to README.md
+e475afc93c209a690c39c13a46716e8fa000c366 add distributed Modified README.md</code></pre>
+
+
+<p>Ha, this time is better. You might wanna ask &lsquo;Why the commit id is such a long string consisting of numbers and characters?&rsquo;, the short answer is avoiding conflicts. Image if everyone uses 1, 2 or 3 as commit id, it will make conflicts. So a random string ensure a kind of uniqueness to the great extent.</p>
+
+<p>Now we are going to go back to the first version of <code>README.md</code>, just type in command <code>git reset --hard commit_id</code>,</p>
+
+<pre><code class="sh">$ git reset --hard e475a
+
+# or for latest version
+$ git reset --hard HEAD^</code></pre>
+
+
+<p>Then let&rsquo;s review the status of our repository,</p>
+
+<pre><code class="sh">$ git log
+commit e475afc93c209a690c39c13a46716e8fa000c366 (HEAD -&gt; master)
+Author: Unicorn &lt;brysjhhrhl95@163.com&gt;
+Date:   Fri May 18 19:03:36 2018 +0800
+
+    Modified README.md</code></pre>
+
+
+<p>Commit with # of <code>1094a</code> disappeared. If we want to go back to <code>commit[id:1094a]</code>, same as what we have done,<code>git reset --hard 1094a</code>.</p>
+
+<p>However, the problem is that people may forget the id of those commits ahead of current commit. Don&rsquo;t worry, using <code>git reflog</code>, we can track the travel path.</p>
+
+<pre><code class="sh">$ git reflog
+e475afc HEAD@{1}: reset: moving to HEAD^
+1094adb (HEAD -&gt; master) HEAD@{2}: commit: Added a new line to README.md
+e475afc HEAD@{2}: commit (initial): Modified README.md</code></pre>
+
+
+<h4 id="management-of-modification">Management of Modification</h4>
+
+<h5 id="undo-modification">Undo Modification</h5>
+
+<p>After finished project, if we want to undo our modification to some files, what should we do? It is easy with command of Git, <code>git checkout -- file</code> , but we need to consider two scenarios.</p>
+
+<h6 id="files-in-working-space">Files in Working Space</h6>
+
+<p>If the file where we want to undo the changes we did is in working space, i.e. the file has not been added to staging area. Then, the result of <code>git checkout -- file</code> will undo all the change you made in the file.</p>
+
+<p>If the file is in staging area, and we make changes again after adding it into staging area. Then, the command <code>git checkout -- file</code> will undo the changes we made <strong>after</strong> adding the file into staging area.</p>
+
+<h6 id="files-in-staging-area">Files in Staging Area</h6>
+
+<p>Then it&rsquo;s natural to ask &lsquo;How to undo the changes of the files in staging area&rsquo;. The answer is <code>git reset HEAD &lt;file&gt;</code>. <code>git reset</code> is able to not only go back to any version in the repository, but undo the changes of file in staging area, and put the file back into working space.</p>
+
+<h5 id="removal-of-files">Removal of Files</h5>
+
+<p>If we use <code>rm &lt;file&gt;</code>, we only remove the file in working space.</p>
+
+<p>If we make sure that the file, README.md for example, is no more useful and wanna remove it from repository, using command <code>git rm &lt;file&gt;</code> to remove the <code>&lt;file&gt;</code> from repository.</p>
+
+<h3 id="remote-repository">Remote Repository</h3>
+
+<h4 id="prerequisites:-ssh">Prerequisites: SSH</h4>
+
+<p>For local repo connects remote repo by ssh encrypted transmission, we&rsquo;d better create ssh key locally.</p>
+
+<p>Checkout if <code>.ssh</code> directory exists in home directory. If not, run command as follows, (if yes, ignore this)</p>
+
+<pre><code class="sh">$ ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code></pre>
+
+
+<p>Then we created <code>.ssh</code> directory in home directory, which includes <code>id_rsa</code> and <code>id_rsa.pub</code>. <code>id_rsa</code> is private key, which is top secret for you, and <code>id-rsa.pub</code> is public key, which we will use later.</p>
+
+<h4 id="github">Github</h4>
+
+<p>GitHub is a website that stores Git repositories on the internet to facilitate the collaboration that Git allows for. A repository is simply a place to keep track of code and all the changes to code.</p>
+
+<p>Create a Github account and login in, then add your public key in SSH Key setting, which is in Setting of Github account.</p>
+
+<h5 id="add-a-new-remote-repo">Add a New Remote Repo</h5>
+
+<p>Login your account and click &lsquo;Create a new repo&rsquo; button in the upper right corner, and type in related information (e.g. repo name).</p>
+
+<p>After creating it, connect local repo to it with command,</p>
+
+<pre><code class="sh">$ git remote add origin git@github.com:yolkoo95/markdown.git</code></pre>
+
+
+<ul>
+<li><code>origin</code> is the name of remote repo of Github by default.</li>
+</ul>
+
+
+<p>Then we can push files of local repo to remote repo,</p>
+
+<pre><code class="sh"># -u is must when first push
+$ git push -u origin master
+Counting objects: 20, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (20/20), 1.64 KiB | 560.00 KiB/s, done.
+Total 20 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas: 100% (5/5), done.
+To github.com:yolkoo95/markdown.git
+ * [new branch]      master -&gt; master
+Branch &apos;master&apos; set up to track remote branch &apos;master&apos; from &apos;origin&apos;.</code></pre>
+
+
+<p>After pushing, we could see the same contents in remote repo.</p>
+
+<ul>
+<li>Warning: if new repo you made have README.md or other files (a conflict will produce), please clone them from remote repo into local repo, and then push local contents to remote repo.</li>
+<li>When push or clone for the first time, a warning would generate, enter <code>yes</code> is okay.</li>
+</ul>
+
+
+<pre><code class="sh">The authenticity of host &apos;github.com (xx.xx.xx.xx)&apos; can&apos;t be established.
+RSA key fingerprint is xx.xx.xx.xx.xx.
+Are you sure you want to continue connecting (yes/no)?</code></pre>
+
+
+<h5 id="clone-from-remote-repo">Clone from Remote Repo</h5>
+
+<p>Clone repo from Github is easy with git, using <code>git clone</code> as follows,</p>
+
+<pre><code class="sh">$ git clone &apos;git@github.com:yolkoo95/webApp.git&apos;</code></pre>
+
+
+<h3 id="branch-management">Branch Management</h3>
+
+<p>Git allows and encourages you to have multiple local branches that can be entirely independent of each other. The creation, merging, and deletion of those lines of development takes seconds.</p>
+
+<h4 id="create-and-merge-branch">Create and Merge Branch</h4>
+
+<p>In the section of <a href="#time-travel">Time Travel</a>, we know that Git treats different versions of project as a time baseline, where we can jump among them. So far, there is only one baseline - i.e. <code>master</code> branch. and <code>HEAD</code> refers to current branch.</p>
+
+<p>At the beginning, <code>master</code> branch is a baseline, Git points to latest commit with <code>master pointer</code>, and points to <code>master</code> with <code>HEAD</code>, whereby it can locate current branch and commit timestamp.</p>
+
+<p><img src="{% static 'codehome/src/img/tutorial/branch1.png' %}" alt="branch1" /></p>
+
+<p>Every time the project is committed, <code>master</code> will move one step forward along <code>master</code> branch. So it becomes longer as the project is committed.</p>
+
+<p>When we create a new branch, <code>dev</code> for example, Git creates a new pointer called &lsquo;dev&rsquo;, pointing to the same timestamp as <code>master</code>, and makes <code>Head</code> point to <code>dev</code>, meaning that we are on <code>dev</code> branch.</p>
+
+<p><img src="{% static 'codehome/src/img/tutorial/branch2.png' %}" alt="branch2" /></p>
+
+<ul>
+<li>this explains why Git is so fast (pointer explains everything)</li>
+</ul>
+
+
+<p>Yet, since now, everything we are going to do will be on <code>dev</code> branch. For example, if we commit a new change, <code>dev pointer</code> will move one step forward but <code>master pointer</code> stays in place.</p>
+
+<p><img src="{% static 'codehome/src/img/tutorial/branch3.png' %}" alt="branch3" /></p>
+
+<p>Suppose that we have finished changes on <code>dev</code> branch, how to merge <code>master</code> with <code>dev</code>? The simplest way is to let <code>master</code> point to where <code>dev</code> points.</p>
+
+<p><img src="{% static 'codehome/src/img/tutorial/branch4.png' %}" alt="branch4" /></p>
+
+<p>After merging, <code>dev</code> branch will be deleted and there only <code>master</code> branch exists.</p>
+
+<p><img src="{% static 'codehome/src/img/tutorial/branch5.png' %}" alt="branch5" /></p>
+
+<p>That&rsquo;s AWESOME!</p>
+
+<p>Let&rsquo;s practice with Git.</p>
+
+<p>Create <code>dev</code> branch,</p>
+
+<pre><code class="sh">$ git checkout -b dev
+Switched to a new branch &apos;dev&apos;</code></pre>
+
+
+<p><code>git checkout</code> with <code>-b</code> parameter means create and switch to a new branch, which is equal to following commands,</p>
+
+<pre><code class="sh">$ git branch dev
+$ git checkout dev
+Switched to branch &apos;dev&apos;</code></pre>
+
+
+<p>Then, checkout current branch,</p>
+
+<pre><code class="sh">$ git branch
+* dev
+  master</code></pre>
+
+
+<ul>
+<li><code>*</code> indicates current branch.</li>
+</ul>
+
+
+<p>Image that we have made some changes and have committed changes. Now let&rsquo;s merge <code>master</code> branch with <code>dev</code> branch,</p>
+
+<pre><code class="sh"># switch to master branch
+$ git checkout master
+Switched to branch &apos;master&apos;
+
+# merge dev branch
+$ git merge dev
+Updating d46f35e..b17d20e
+Fast-forward
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)</code></pre>
+
+
+<ul>
+<li><code>Fast-forward</code> is a kind of merging method, which we will remove merged branch and get rid of the log of that branch.</li>
+</ul>
+
+
+<p>After merging, delete <code>dev</code> branch,</p>
+
+<pre><code class="sh">$ git branch -d dev
+Deleted branch dev (was b17d20e).</code></pre>
+
+
+<h4 id="solve-conflicts">Solve Conflicts</h4>
+
+<p>Image a scenario that someone commit different changes on <code>master</code> branch and <code>dev</code> branch respectively. If then we try to merge two branches, a conflict will emerge.</p>
+
+<p><img src="{% static 'codehome/src/img/tutorial/conflict.png' %}" alt="conflict" /></p>
+
+<pre><code class="sh">$ git merge dev
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+Automatic merge failed; fix conflicts and then commit the result.</code></pre>
+
+
+<p>Then we must solve conflict manually. Find the files that cause conflicts, and modify them.</p>
+
+<pre><code class="sh"># find the files that cause conflicts: README.md
+$ git status
+On branch master
+Your branch is ahead of &apos;origin/master&apos; by 2 commits.
+  (use &quot;git push&quot; to publish your local commits)
+
+You have unmerged paths.
+  (fix conflicts and run &quot;git commit&quot;)
+  (use &quot;git merge --abort&quot; to abort the merge)
+
+Unmerged paths:
+  (use &quot;git add &lt;file&gt;...&quot; to mark resolution)
+
+	both modified:   README.md
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+
+# solve conflicts
+$ vi README.md
+
+Git is a distributed control system.
+&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Hello world
+======
+Hello git
+&gt;&gt;&gt;&gt;&gt;&gt; dev </code></pre>
+
+
+<p>Git marks contents that cause conflict with <code>&lt;&lt;&lt;&lt;&lt;&lt;</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;</code>. Delete what we don&rsquo;t want and save the file. After fixed bugs, commit the changes.</p>
+
+<pre><code class="sh">git commit -m &quot;conflict fixed&quot;</code></pre>
+
+
+<p>Then we are able to merge successfully.</p>
+
+<h4 id="branch-management">Branch Management</h4>
+
+<p>Often when we working in a team, we are working on our own branch. After finishing the project, we will merge our branch to <code>master</code> branch. If use <code>fast forward</code> mode, our branch will be removed, which is not what we expect. So <code>--no-ff</code> is a more common way to merge branch.</p>
+
+<p>With <code>--no-ff</code> parameter, our repository will works like this,</p>
+
+<p><img src="{% static 'codehome/src/img/tutorial/no-ff.png' %}" alt="no-ff" /></p>
+
+<h4 id="bug-branch">Bug Branch</h4>
+
+<p>During programing, bug is everywhere and so we need to fix bugs from time to time. In general, we will create a new bug branch, fix bugs, and finally merge it into main master.</p>
+
+<p>Image a scenario that when developing a project on <code>dev</code> branch, we are assigned a emergent bug-fixed task. However, the current project is on half way. What should we do?</p>
+
+<pre><code class="sh">$ git status
+On branch dev
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+	new file:   hello.py
+
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+	modified:   README.md</code></pre>
+
+
+<p>Git have a fancy feature called <code>stash</code>, which will save current workspace waiting to be used later.</p>
+
+<pre><code class="sh">$ git stash
+Saved working directory and index state WIP on dev: f52c633 add merge</code></pre>
+
+
+<p>Now, we are able to create a new branch and fix bugs safely.</p>
+
+<p>Suppose, the bug to be fixed is on <code>master</code> branch, then we will create <code>bug</code> branch from <code>master</code> branch.</p>
+
+<pre><code class="sh">$ git checkout master
+Switched to branch &apos;master&apos;
+Your branch is ahead of &apos;origin/master&apos; by 6 commits.
+  (use &quot;git push&quot; to publish your local commits)
+
+$ git checkout -b issue-101
+Switched to a new branch &apos;issue-101&apos;</code></pre>
+
+
+<p>After fixing bugs, switch to <code>master</code> branch, merge <code>bug</code> branch, and delete it.</p>
+
+<pre><code class="sh">$ git switch master
+Switched to branch &apos;master&apos;
+Your branch is ahead of &apos;origin/master&apos; by 6 commits.
+  (use &quot;git push&quot; to publish your local commits)
+
+$ git merge --no-ff -m &quot;merged bug fix 101&quot; issue-101
+Merge made by the &apos;recursive&apos; strategy.
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)</code></pre>
+
+
+<p>Now, we can continue our work on <code>dev</code> branch.</p>
+
+<pre><code class="sh">$ git switch dev
+Switched to branch &apos;dev&apos;
+
+$ git status
+On branch dev
+nothing to commit, working tree clean</code></pre>
+
+
+<p>Workspace is clean, get our work back. Using <code>git stash list</code> to list all stash,</p>
+
+<pre><code class="sh">$ git stash list
+stash@{0}: WIP on dev: f52c633 add merge</code></pre>
+
+
+<p>There are two ways to recover our works,</p>
+
+<ul>
+<li><code>git stash apply</code>: the cache in stash will not be deleted.</li>
+<li><code>git stash pop</code>: the cache will be deleted.</li>
+</ul>
+
+
+<p>Using <code>git stash pop</code> for example,</p>
+
+<pre><code class="sh">$ git stash pop
+On branch dev
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+	new file:   hello.py
+
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+	modified:   README.md
+
+Dropped refs/stash@{0} (5d677e2ee266f39ea296182fb2354265b91b3b2a)</code></pre>
+
+
+<p>Fantastic!</p>
+
+<p>One more question, if the same bug exist on <code>dev</code> branch, what should we do?</p>
+
+<p>The answer is that we can apply commit[issue-101] we have made in <code>bug</code> branch to <code>dev</code> branch with <code>cherry-pick</code>.</p>
+
+<pre><code class="sh">$ git branch
+* dev
+  master
+
+$ git cherry-pick 4c805e2
+[master 1d4b803] fix bug 101
+ 1 file changed, 1 insertion(+), 1 deletion(-)</code></pre>
+
+
+<p><code>git cherry-pick</code> allows us to apply the same modification, fix bugs for example, to different branches.</p>
+
+<ul>
+<li>Notice: current commit id is <code>1d4b8</code>, the commit id of bug fix for <code>master</code> branch is <code>4c805</code>. Although the modifications are same, they are two different commits indeed.</li>
+</ul>
+
+
+<h4 id="teamwork-with-git">Teamwork with Git</h4>
+
+<p>When cloning from remote repo, we actually make a link between local repo and remote repo, and the default name of remote (Github) repo is <code>origin</code>.</p>
+
+<p>We can look over the info of remote repo with <code>git remote</code>,</p>
+
+<pre><code class="sh">$ git remote
+origin</code></pre>
+
+
+<p>or <code>git remote -v</code> for more detailed information,</p>
+
+<pre><code class="sh">$ git remote -v
+origin  git@github.com:yolkoo95/webapp.git (fetch)
+origin  git@github.com:yolkoo95/webapp.git (push)</code></pre>
+
+
+<h5 id="push-branch">Push Branch</h5>
+
+<p>If we want to push local branch to remote repo, use <code>git push origin &lt;branch-name&gt;</code></p>
+
+<pre><code class="sh">$ git push origin dev</code></pre>
+
+
+<h5 id="fetch-branch">Fetch Branch</h5>
+
+<p>When working in a team, programmers will push commits to <code>master</code> or <code>dev</code> branch.</p>
+
+<p>By default, when cloning a project from remote repo, we are able to get <code>master</code> branch. However, it must be troublesome if we have to develop on <code>dev</code> branch of the project. So we have to clone remote <code>dev</code> branch as follows,</p>
+
+<pre><code class="sh">$ git checkout -b dev origin/dev</code></pre>
+
+
+<p>Now, we can work on <code>dev</code> branch, and push local <code>dev</code> to remote <code>dev</code> branch.</p>
+
+<p>To sum up, the working mode of multi-person collaboration is usually like this:</p>
+
+<ol>
+<li>Try to push commit by <code>git push origin &lt;branch-name&gt;</code>.</li>
+<li>If failed, it is entirely possible that remote branch is ahead of local branch by <strong>n</strong> commits. We should try to merge remote branch to local one with <code>git pull</code>.</li>
+<li>If there is a conflict when we try to merge remote branch with local one, then <a href="#solve-conflicts">fix conflict</a> and commit changes.</li>
+<li><p>After fixing conflict, try to push commit as step 1.</p></li>
+<li><p>if <code>git pull</code> generates a warning that <code>no tracking information</code>, which means that the link between remote repo and local repo does not exist. Link them with <code>git branch --set-upstream-to &lt;branch-name&gt; origin/&lt;branch-name&gt;</code></p></li>
+</ol>
+
+
+<h3 id="tag-management">Tag Management</h3>
+
+<p>The aim of tag is to help developer index different version of project easily, instead of annoying commit number.</p>
+
+<h4 id="create-tag">Create Tag</h4>
+
+<p>It&rsquo;s easy to create a tag, first switch to a branch that needs to be tagged.</p>
+
+<pre><code class="sh">$ git branch
+* dev
+  master
+
+$ git checkout master
+Switched to branch &apos;master&apos;</code></pre>
+
+
+<p>then use <code>git tag &lt;name&gt;</code> to tag,</p>
+
+<pre><code class="sh">$ git tag v1.0</code></pre>
+
+
+<p>use <code>git tag</code> to list all tags,</p>
+
+<pre><code class="sh">$ git tag
+v1.0</code></pre>
+
+
+<p>By default, tag will applied on latest commit. If we want to tag on other commit, use <code>git tag &lt;name&gt; &lt;commit-id&gt;</code></p>
+
+<p>Also, if we want to add some description on tag, use command <code>git tag -a &lt;name&gt; -m 'Hello Git' &lt;commit-id&gt;</code>, and use <code>git show &lt;tag-name&gt;</code> to query related information.</p>
+
+<pre><code class="sh">$ git show v1.0
+tag v1.0
+Tagger: Unicorn &lt;brysjhhrhl95@163.com&gt;
+Date:   Fri May 18 12:48:43 2018 +0800
+
+version 1.0 released
+
+commit 1094adb7b9b3807259d8cb349e7df1d4d6477073 (tag: v1.0)
+Author: Unicorn &lt;brysjhhrhl95@163.com&gt;
+Date:   Fri May 17 11:44:23 2018 +0800
+
+    Added a newline
+...</code></pre>
+
+
+<h4 id="manipulation-of-tag">Manipulation of Tag</h4>
+
+<ul>
+<li><code>git push origin &lt;tag-name&gt;</code>: push a commit by tag.</li>
+<li><code>git push origin --tags</code>: push all tags that have not been pushed earlier.</li>
+<li><code>git tag -d &lt;tag-name&gt;</code>: delete a local tag.</li>
+<li><code>git push origin :refs/tags/&lt;tag-name&gt;</code>: delete a remote tag.</li>
+</ul>
+
+
+<h3 id="git-personal-setting">Git Personal Setting</h3>
+
+<h4 id=".gitignore-file">.gitignore File</h4>
+
+<p>If we don&rsquo;t want to commit some of files, such as configuration files, we could create a <code>.gitignore</code> file and write all files that we don&rsquo;t want to commit into <code>.gitignore</code> file.</p>
+
+<p><a href="https://github.com/github/gitignore">Github</a> provide different kinds of <code>.gitignore</code> files for developer.</p>
+
+<p>For example, there will be some by-product files when run a python file, like <code>.pyc</code>, <code>.pyo</code>, <code>dist</code> etc.</p>
+
+<pre><code class="sh"># Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build</code></pre>
+
+
+<p>Finish our own <code>.gitignore</code> file and commit it.</p>
+
+<h4 id="alias-setting">Alias Setting</h4>
+
+<p>We can set alias of Git command in a way same as setting linux environment variables.</p>
+
+<p>There are two ways:</p>
+
+<ol>
+<li><p>With command line, <code>git config --global alias.&lt;name&gt; &lt;command-name&gt;</code>, for example <code>git config --global alias.co checkout</code>. BTW, amazingly some people will set alias of <code>log</code> to <code>git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</code></p></li>
+<li><p>Setting alias by modifying config file. In user&rsquo;s home directory, there is a hidden file <code>.gitconfig</code>. Customize your own <code>[alias]</code> section.</p></li>
+</ol>
+
+
+<pre><code class="sh">$ cat .gitconfig
+[alias]
+    co = checkout
+    ci = commit
+    br = branch
+    st = status
+[user]
+    name = Your Name
+    email = your@email.com</code></pre>
+
+
+<p>Hope Git will make your life efficient []~(￣▽￣)~*</p>
+
+<p>A good Git reference: <a href="{% static 'codehome/src/pdf/git-cheatsheet.pdf' %}">GIT CHEAT SHEET</a></p>
+
+<p><EndMarkdown></p>

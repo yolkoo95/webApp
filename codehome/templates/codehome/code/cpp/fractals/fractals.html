@@ -1,0 +1,310 @@
+{% load static %}
+<h1 id="fractals">Fractals</h1>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+<li><a href="#review-about-recursion">Review about Recursion</a></li>
+<li><a href="#more-example-in-google">More Example in Google</a>
+
+<ul>
+<li><a href="#anatomy-of-a-mathematical-expression">Anatomy of a mathematical expression</a></li>
+</ul>
+</li>
+<li><a href="#fractals">Fractals</a>
+
+<ul>
+<li><a href="#the-cantor-fractal">The Cantor Fractal</a></li>
+<li><a href="#snowflake-fractal">Snowflake Fractal</a></li>
+</ul>
+</li>
+</ul>
+
+
+<h2 id="review-about-recursion">Review about Recursion</h2>
+
+<p>The <strong>base case</strong> represents the simplest possible instance of the problem you are solving.</p>
+
+<ul>
+<li>Example: How many people are behind you, including you? Answer? 1, it&rsquo;s just me!</li>
+<li>Example: What is x<sup>n</sup>? Answer: x<sup>0</sup> = 1</li>
+<li>Solve the Towers of Hanoi Answer: 1 ring is easy!</li>
+</ul>
+
+
+<p>The <strong>recursive case</strong> represents how you can break down the problem into smaller instances of the same problem.</p>
+
+<ul>
+<li>Example: How many people are behind you, including you? Answer? 1 + the number behind me.</li>
+<li>Example: What is x<sup>n</sup>? Answer: x * x<sup>n-1</sup>.</li>
+<li>Solve the Towers of Hanoi Answer: N-1 disks to aux, 1 disk to target, N-1 disks to target.</li>
+</ul>
+
+
+<h2 id="more-example-in-google">More Example in Google</h2>
+
+<p><img src="{% static 'codehome/src/img/cpp/google-math2.png' %}" alt="google-math2" /></p>
+
+<p>Google can do arithmetic: <code>((1*17)+(2*(3+(4*9)))) = 95</code></p>
+
+<p>But, how? Implement a function which evaluates an expression string:</p>
+
+<ul>
+<li><code>((1+3)*(2*(4+1)))</code></li>
+<li><code>(7+6)</code></li>
+<li><code>(((4*(1+2))+6)*7)</code></li>
+</ul>
+
+
+<p>note: only needs to implement + and *</p>
+
+<h3 id="anatomy-of-a-mathematical-expression">Anatomy of a mathematical expression</h3>
+
+<p>An expression is always one of these three things:</p>
+
+<ul>
+<li>a number</li>
+<li>(an expression + an expression)</li>
+<li>(an expression * an expression)</li>
+</ul>
+
+
+<p>For example: <code>((1*3)+(4*2))</code></p>
+
+<ul>
+<li>There is an expression on the left, <code>(1*3)</code>
+
+<ul>
+<li>This expression is made up of a number * a number (and a number is also an expression)</li>
+</ul>
+</li>
+<li>There is a joining operator, <code>+</code></li>
+<li>There is an expression on the right, <code>2*4</code>
+
+<ul>
+<li>This expression is made up of a number * a number (and a number is also an expression)</li>
+</ul>
+</li>
+</ul>
+
+
+<p>The two smaller expressions with the <code>+</code> joining operator make up an expression, as well.</p>
+
+<p>How do we evaluate <code>((1*17)+(2*(3+(4*9))))</code>?</p>
+
+<p><img src="{% static 'codehome/src/img/cpp/full-calculation-tree.png' %}" alt="full-calculation-tree" /></p>
+
+<p>First, we break each expression up into its component parts, and when we get to an expression with just numbers, we calculate those results. We have the + separating the two main expressions, <code>(1*17)</code> and <code>(2*(3+(4*9)))</code>.</p>
+
+<p>Next, we start looking at the sub-expressions. The <code>(1*17)</code> has two numbers, so can evaluate the product, to get 17. The <code>(2*(3+(4*9)))</code> has a number, 2 and another expression, <code>3+(4*9)</code>. So, we have to evaluate the non-number first.</p>
+
+<ul>
+<li>We look at <code>(3+(4*9))</code> and see that it has a number, <code>3</code> and an expression, <code>4*9</code>, so we have to look at the expression first.
+
+<ul>
+<li><code>4*9</code> has just numbers, so we can calculate the product, to get 36. Now we can back up, because we have a number for the previous expression.</li>
+</ul>
+</li>
+<li>We can calculate <code>(3+36)</code> to get 39, and we can move up.</li>
+</ul>
+
+
+<p>We can calculate <code>(2*39)</code> to get 78, and we can move up.</p>
+
+<p>Finally, we can calculate 17+78 to get 95.</p>
+
+<p>Is it recursive? Yes!</p>
+
+<p>Take a look at <code>((1*3)+(4+2))</code></p>
+
+<ul>
+<li>The big instance of this problem is the whole problem, and the smaller instances are the numbers, <code>1</code>, <code>3</code>, <code>4</code>, and <code>2</code>.</li>
+</ul>
+
+
+<p>So, we can write a recursive function:</p>
+
+<ul>
+<li><code>int evaluate(string exp); // "((1*3)+(4+2)) returns 9</code></li>
+<li>We can use the library functions:
+
+<ul>
+<li><code>stringIsInteger(exp)</code></li>
+<li><code>stringToInteger(exp)</code></li>
+</ul>
+</li>
+<li>And we can use a couple of helper functions:
+
+<ul>
+<li><code>char op = getOperator(exp); // returns '+' or '*'</code></li>
+<li><code>string left = getLeftExp(exp); // returns "(1*3)"</code></li>
+<li><code>string right = getRightExp(exp); // returns "(4+2)"</code></li>
+</ul>
+</li>
+</ul>
+
+
+<h5 id="solution-in-pseudocode">Solution in PseudoCode</h5>
+
+<p>int evaluate(expression):</p>
+
+<ul>
+<li>if expression is a number, return expression</li>
+<li>Otherwise, break up expression by its operator:
+
+<ul>
+<li>leftResult = evaluate(leftExpression)</li>
+<li>rightResult = evaluate(rightExpression)</li>
+<li>return leftResult operator rightResult</li>
+</ul>
+</li>
+</ul>
+
+
+<p>The solution:</p>
+
+<pre><code class="cpp">int evaluate(string exp) {
+    // base case
+    if (stringIsInteger(exp)) {
+        return stringToInteger(exp);
+    } else {
+        char op = getOperator(exp);
+        string left = getLeftExp(exp);
+        string right = getRightExp(exp);
+
+        // recursive case #1
+        int leftResult = evaluate(left);
+
+        // recursive case #2 (!)
+        int rightResult = evaluate(right);
+
+        if (op == &apos;+&apos;) {
+            return leftResult + rightResult;
+        } else {
+            return leftResult * rightResult;
+        }
+    }
+}</code></pre>
+
+
+<p>Helper function:</p>
+
+<pre><code class="cpp">int getOppIndex(string exp){
+    int parens = 0; 
+    // ignore first left paren
+    for (int i = 1; i &lt; exp.length(); i++) {
+        char c = exp[i];
+        if (c == &apos;(&apos;) {
+            parens++;
+        } else if (c == &apos;)&apos;) {
+            parens--;
+        }
+        if (parens == 0 &amp;&amp; (c == &apos;+&apos; || c == &apos;*&apos;)) {
+            return i;
+        }
+    }
+    return -1;
+}</code></pre>
+
+
+<h2 id="fractals">Fractals</h2>
+
+<p>A <em>fractal</em> is a recurring graphical pattern. Smaller instances of the same shape or pattern occur within the pattern itself.</p>
+
+<p><img src="{% static 'codehome/src/img/cpp/fractal-examples.png' %}" alt="fractal-examples" /></p>
+
+<h5 id="fractal-examples-in-nature">Fractal Examples in Nature</h5>
+
+<p><img src="{% static 'codehome/src/img/cpp/fractal-examples-in-nature.png' %}" alt="fractal-examples-in-nature" /></p>
+
+<p>Many natural phenomena generate fractal patterns:</p>
+
+<ul>
+<li>earthquake fault lines</li>
+<li>animal color patterns</li>
+<li>clouds</li>
+<li>mountain ranges</li>
+<li>snowflakes</li>
+<li>crystals</li>
+<li>coastlines</li>
+<li>DNA</li>
+</ul>
+
+
+<h3 id="the-cantor-fractal">The Cantor Fractal</h3>
+
+<p>We can create many fractals programmatically, and because fractals are self-similar, we can do so recursively!</p>
+
+<p>The first fractal we will code is called the &ldquo;Cantor&rdquo; fractal, named after the late-19th century German mathematician Georg Cantor.</p>
+
+<p><img src="{% static 'codehome/src/img/cpp/arm-cantor.png' %}" alt="arm-cantor" /></p>
+
+<ul>
+<li>The Cantor fractal is a set of lines (indeed, a &ldquo;Cantor Set&rdquo; of lines) where there is one main line, and below that there are two other lines, each 1/3rd of the width of the original line, one on the left, and one on the right (with a 1/3 separation of white space between them)</li>
+<li>Below each of the other lines is an identical situation: two 1/3rd lines.</li>
+<li>This repeats until the lines are no longer visible.</li>
+</ul>
+
+
+<p><img src="{% static 'codehome/src/img/cpp/cantor-fractal1.png' %}" alt="cantor-fractal1" /></p>
+
+<p>In text, a 4-level Cantor fractal would look like this:</p>
+
+<pre><code class="cpp">---------------------------
+---------         ---------
+---   ---         ---   ---
+- -   - -         - -   - -</code></pre>
+
+
+<p>Parts of a cantor set image … are Cantor set images!</p>
+
+<p><img src="{% static 'codehome/src/img/cpp/cantor-fractal2.png' %}" alt="cantor-fractal2" /></p>
+
+<ul>
+<li>The Cantor fractal above has six levels.</li>
+<li>Every individual line segment is its own 1-level Cantor fractal</li>
+</ul>
+
+
+<h5 id="how-to-draw-a-level-n-cantor-fractal">How to draw a level n Cantor fractal</h5>
+
+<p><img src="{% static 'codehome/src/img/cpp/level-n-cantor.png' %}" alt="level-n-cantor" /></p>
+
+<ol>
+<li>Draw a line from start to finish.</li>
+<li>Underneath, on the left third, draw a Cantor of size <strong>n - 1</strong>.</li>
+<li>Underneath, on the right third, draw a Cantor of size <strong>n - 1</strong>.</li>
+</ol>
+
+
+<p>Then we can use auxiliary tools for drawing lines in the process of accomplishing cantor fractal with C++.</p>
+
+<h3 id="snowflake-fractal">Snowflake Fractal</h3>
+
+<p><img src="{% static 'codehome/src/img/cpp/snowflake-fractal.png' %}" alt="snowflake-fractal" /></p>
+
+<p>Let&rsquo;s break this down to a smaller part,</p>
+
+<p><img src="{% static 'codehome/src/img/cpp/partial-snowflake-fractal.png' %}" alt="partial-snowflake-fractal" /></p>
+
+<p>Depth 1 Snowflake: A line,</p>
+
+<p><img src="{% static 'codehome/src/img/cpp/level-1-snowflake.png' %}" alt="level-1-snowflake" /></p>
+
+<p>Depth 2 Snowflake: The line has a triangle break,</p>
+
+<p><img src="{% static 'codehome/src/img/cpp/level-2-snowflake.png' %}" alt="level-2-snowflake" /></p>
+
+<p>Depth 3 Snowflake: In progress,</p>
+
+<p><img src="{% static 'codehome/src/img/cpp/level-3-snowflake1.png' %}" alt="level-3-snowflake1" /></p>
+
+<p>Depth 3 Snowflake: In progress,</p>
+
+<p><img src="{% static 'codehome/src/img/cpp/level-3-snowflake2.png' %}" alt="level-3-snowflake2" /></p>
+
+<p>Depth 3 Snowflake: Finished,</p>
+
+<p><img src="{% static 'codehome/src/img/cpp/level-3-snowflake3.png' %}" alt="level-3-snowflake3" /></p>
+
+<p><EndMarkdown></p>

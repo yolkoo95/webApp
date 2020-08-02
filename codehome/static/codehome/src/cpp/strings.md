@@ -100,9 +100,9 @@ Output:
 
 ### ASCII
 
-![caesar](/Users/Quminzhi/Documents/python/webApp/codehome/static/codehome/src/img/cpp/julius-caesar.png)
+![caesar](codehome/src/img/cpp/julius-caesar.png)
 
-![ascii](/Users/Quminzhi/Documents/python/webApp/codehome/static/codehome/src/img/cpp/ascii-table.png)
+![ascii](codehome/src/img/cpp/ascii-table.png)
 
 Characters have a numerical representation, as shown in the **ASCII** table above.
 

@@ -5,13 +5,23 @@
     padding-top: 1em
 }
 
-#wrapper div, #wrapper span, #wrapper object, #wrapper iframe, #wrapper h1, #wrapper h2, #wrapper h3, #wrapper h4, #wrapper h5, #wrapper h6, #wrapper p, #wrapper pre, #wrapper a, #wrapper abbr, #wrapper acronym, #wrapper address, #wrapper code, #wrapper del, #wrapper dfn, #wrapper em, #wrapper img, #wrapper q, #wrapper dl, #wrapper dt, #wrapper dd, #wrapper ol, #wrapper ul, #wrapper li, #wrapper fieldset, #wrapper form, #wrapper label, #wrapper legend, #wrapper table, #wrapper caption, #wrapper tbody, #wrapper tfoot, #wrapper thead, #wrapper tr, #wrapper th, #wrapper td {
+#wrapper div, #wrapper span, #wrapper object, #wrapper iframe, #wrapper h1, #wrapper h2, #wrapper h3, #wrapper h4, #wrapper h5, #wrapper h6, #wrapper p, #wrapper pre, #wrapper a, #wrapper abbr, #wrapper acronym, #wrapper address, #wrapper code, #wrapper del, #wrapper dfn, #wrapper em, #wrapper img, #wrapper q, #wrapper dl, #wrapper dt, #wrapper dd, #wrapper ol, #wrapper ul, #wrapper li, #wrapper fieldset, #wrapper form, #wrapper label, #wrapper legend, #wrapper table, #wrapper caption, #wrapper tbody, #wrapper tfoot, #wrapper thead {
     margin: 0;
     padding: 0;
     border: 0;
     font-weight: inherit;
     font-style: inherit;
     font-family: inherit;
+    vertical-align: baseline
+}
+
+#wrapper tr, #wrapper th, #wrapper td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
     vertical-align: baseline
 }
 
@@ -313,6 +323,10 @@ blockquote> :last-child {
     line-height: 1;
     position: relative;
     vertical-align: super
+}
+
+#wrapper sup {
+    top: -.1em;
 }
 
 #wrapper sub {

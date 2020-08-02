@@ -72,6 +72,11 @@ a:hover {
     font-family: 'Nunito';
 }
 
+.codeContent pre {
+    font-size: 95%;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+}
+
 /* set scrollbar */
 
 .codeContent::-webkit-scrollbar{
@@ -81,11 +86,5 @@ a:hover {
 @media (max-width: 960px) {
     #editorSearch {
         display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .codeContent pre {
-        font-size: 10px;
     }
 }
