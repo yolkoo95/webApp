@@ -96,13 +96,19 @@
 
 #wrapper h2 {
     font-size: 2rem;
-    margin-bottom: 0.75rem
+    margin-bottom: 0.75rem;
+    padding-top: 1rem;
+}
+
+#table-of-contents {
+    padding-top: 0.5rem !important;
 }
 
 #wrapper h3 {
     font-size: 1.5rem;
     line-height: 1;
-    margin-bottom: 1rem
+    margin-bottom: 1rem;
+    padding-top: 1rem;
 }
 
 #wrapper h4 {
@@ -127,7 +133,11 @@
 #wrapper ul, #wrapper ol {
     color: #444;
     margin: 1em 2em;
-    padding-left: 1em
+    padding-left: .2em;
+}
+
+#table #wrapper ul, #table #wrapper ol {
+    margin: 0em 1em
 }
 
 #wrapper ul {
@@ -135,7 +145,8 @@
 }
 
 #wrapper ul ul {
-    list-style-type: circle
+    list-style-type: circle;
+    padding-left: .2em;
 }
 
 #wrapper ol {
@@ -152,6 +163,10 @@
 
 #wrapper li>ul {
     margin: 0em 2em
+}
+
+#table #wrapper li>ul {
+    margin: 0em 1em
 }
 
 #wrapper dl {

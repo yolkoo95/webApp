@@ -13,6 +13,7 @@ def notepage(request, category, topic):
         'category': category,
         'topic': topic,
         'contentURL': 'codehome/code/' + category + '/' + topic + '/' + topic + '.html',
+        'tableURL': 'codehome/code/' + category + '/' + topic + '/' + topic + '-table.html',
     }
 
     return render(request, 'codehome/notepage.html', context)
