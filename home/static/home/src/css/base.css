@@ -1,8 +1,0 @@
-@font-face {
-    font-family: 'nunito';
-    src: url('../fonts/Nunito/Nunito-Regular.ttf'), url('../fonts/Nunito/Nunito-Italic.ttf'), url('../fonts/Nunito/Nunito-Bold.ttf')
-};
-
-body {
-    font-family: 'nunito', Helvetica, sans-serif;
-};
