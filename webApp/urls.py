@@ -1,3 +1,11 @@
+'''
+Author: Minzhi QU
+Date: 2020-08-02 21:36:33
+LastEditTime: 2020-08-03 15:20:06
+LastEditors: your name
+Description: 
+FilePath: /webApp/webApp/urls.py
+'''
 """webApp URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,7 +26,6 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home0/', include('home.urls')),
     path('', include('home2.urls')),
     path('appstore/', include('appstore.urls')),
     path('code/', include('codehome.urls')),

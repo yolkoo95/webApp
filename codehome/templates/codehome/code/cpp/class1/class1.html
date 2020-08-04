@@ -1,0 +1,987 @@
+{% load static %}
+
+<h1 id="cstandardclass">C++ Standard Class</h1>
+
+<h2 id="tableofcontents">Table of Contents</h2>
+
+<ul>
+<li><a href="#review">Review</a>
+
+<ul>
+<li><a href="#quiz">Quiz</a></li>
+<li><a href="#solving-the-quadratic-equation">Solving the Quadratic Equation</a></li>
+</ul></li>
+<li><a href="#vector">Vector</a>
+
+<ul>
+<li><a href="#intuition-on-vector">Intuition on Vector</a></li>
+<li><a href="#creating-a-vector">Creating a Vector</a></li>
+<li><a href="#adding-elements-to-a-vector">Adding Elements to A Vector</a></li>
+<li><a href="#the-for-each-loop">the for each Loop</a></li>
+<li><a href="#vector-functions">Vector Functions</a></li>
+</ul></li>
+<li><a href="#the-grid-container">The Grid Container</a>
+
+<ul>
+<li><a href="#intuition-on-grid">Intuition on Grid</a></li>
+<li><a href="#grid-example-code">Grid Example Code</a></li>
+<li><a href="#grid-functions">Grid Functions</a></li>
+<li><a href="#grid-example-traversing-a-grid">Grid Example Traversing a Grid</a></li>
+<li><a href="#common-pitfalls-when-working-with-collections-in-cpp">Common Pitfalls When Working with Collections in Cpp</a></li>
+</ul></li>
+<li><a href="#stacks">Stacks</a>
+
+<ul>
+<li><a href="#intuition-on-stack">Intuition on Stack</a></li>
+<li><a href="#stacks-tradeoffs">Stacks Tradeoffs</a></li>
+<li><a href="#reversing-the-words-in-a-sentence">Reversing the words in a sentence</a></li>
+</ul></li>
+<li><a href="#queues">Queues</a>
+
+<ul>
+<li><a href="#intuition-on-queue">Intuition on Queue</a></li>
+<li><a href="#member-functions">Member Functions</a></li>
+<li><a href="#queue-examples">Queue Examples</a></li>
+<li><a href="#queue-idiom">Queue Idiom</a></li>
+<li><a href="#more-advanced-stack-example-postfix">More Advanced Stack Example Postfix</a></li>
+</ul></li>
+<li><a href="#sets">Sets</a>
+
+<ul>
+<li><a href="#intuition-on-set">Intuition on Set</a></li>
+<li><a href="#sets-simple-example">Sets Simple Example</a></li>
+<li><a href="#looping-over-a-set">Looping over a Set</a></li>
+<li><a href="#types-of-sets">Types of Sets</a></li>
+<li><a href="#set-operands">Set Operands</a></li>
+</ul></li>
+<li><a href="#maps">Maps</a>
+
+<ul>
+<li><a href="#intuition-on-maps">Intuition on Maps</a></li>
+<li><a href="#using-maps">Using Maps</a></li>
+<li><a href="#map-functions">Map Functions</a></li>
+<li><a href="#map-example">Map Example</a></li>
+<li><a href="#types-of-maps">Types of Maps</a></li>
+<li><a href="#map-example-tallying-votes">Map Example Tallying Votes</a></li>
+</ul></li>
+</ul>
+
+<p><TableEndMark></p>
+
+<h2 id="review">Review</h2>
+
+<h3 id="quiz">Quiz</h3>
+
+<p>In the last tutorial, we introduced the idea of a C++ reference. What is the output of this code?</p>
+<pre><code class="cpp">void mystery(int&amp; b, int c, int&amp; a) { 
+    a++;
+    b--;
+    c += a; 
+}
+
+int main() { 
+    int a = 5; 
+    int b = 2;
+    int c = 8;
+    mystery(c, a, b);
+    cout &lt;&lt; a &lt;&lt; &quot; &quot; &lt;&lt; b &lt;&lt; &quot; &quot; &lt;&lt; c &lt;&lt; endl;
+    return 0;
+}</code></pre>
+
+<p>Poll:</p>
+<pre><code class="cpp">A. 5 2 8
+B. 5 3 7
+C. 6 1 8 
+D. 61 13 
+E. other</code></pre>
+
+<p>Poll answer:</p>
+<pre><code class="cpp">B. 5 3 7</code></pre>
+
+<h3 id="solvingthequadraticequation">Solving the Quadratic Equation</h3>
+
+<p>Let&#8217;s write a function for solving the quadratic equation.</p>
+
+<p>A quadratic equation for variable x is one of the form:</p>
+
+<p>ax<sup>2</sup> + bx + c = 0</p>
+
+<ul>
+<li>The two roots of a quadratic equation can be found using the quadratic formula as follows, <img src="{% static 'codehome/src/img/cpp/quadratic-formula.png' %}" alt="quadratic-formula" /></li>
+<li>Example: The roots of <strong>x<sup>2</sup> - 3x - 4 = 0</strong> are <strong>x=4</strong> and <strong>x=&#8211;1</strong></li>
+<li>How would we write a function named quadratic to solve quadratic equations?
+
+<ul>
+<li>What parameters should it accept?</li>
+<li>Which parameters should be passed by value, and which by reference?</li>
+<li>What, if anything, should it return?</li>
+</ul></li>
+</ul>
+<pre><code class="cpp">/*
+ * Solves a quadratic equation ax^2 + bx + c = 0,
+ * storing the results in output parameters root1 and root2. 
+ * Assumes that the given equation has two real roots.
+ */
+void quadratic(double a, double b, double c,
+               double&amp; root1, double&amp; root2) {
+    double d = sqrt(b * b - 4 * a * c);
+    root1 = (-b + d) / (2 * a);
+    root2 = (-b - d) / (2 * a);
+}</code></pre>
+
+<p>However, what other choices could we have made?</p>
+
+<h2 id="vector">Vector</h2>
+
+<h3 id="intuitiononvector">Intuition on Vector</h3>
+
+<p>What is a <strong>Vector</strong>?</p>
+
+<ul>
+<li>It is like a <strong>list</strong> in Python, or an <strong>ArrayList</strong> in Java.</li>
+<li>It is a list of elements that can grow and shrink.</li>
+<li>Each element has a place (or index) in the list.</li>
+</ul>
+
+<p>Important Details</p>
+
+<ul>
+<li>The constructor creates an empty list (more on constructors soon)</li>
+<li>The Stanford <strong>Vector</strong> class performs bounds checks, meaning that if you try to access an element that is outside the bounds of a <strong>Vector</strong>, the program crashes.</li>
+<li>A <strong>Vector</strong> Knows its size.</li>
+<li>To use <strong>Vectors</strong>, you <code>#include &quot;vector.h&quot;</code>.</li>
+</ul>
+
+<p>Under the hood, a vector is an array, which means that in the computer&#8217;s memory, one value follows the next.</p>
+
+<h3 id="creatingavector">Creating a Vector</h3>
+
+<p>You must specify the type of your vector (e.g., <strong>int</strong>, <strong>string</strong>, etc.)</p>
+
+<p>When a vector is created it is initially empty.</p>
+
+<p>To create a vector called <strong>vec</strong> that can hold integers (<strong>ints</strong>), we write the following:</p>
+<pre><code class="cpp">Vector&lt;int&gt; vec; </code></pre>
+
+<p>This calls the default constructor, which just means that it initializes and creates (constructs) an empty vector for us.</p>
+
+<h3 id="addingelementstoavector">Adding Elements to A Vector</h3>
+
+<p>Here is an example where we create a vector called <strong>magic</strong> and add the numbers <strong>4</strong>, <strong>8</strong>, <strong>15</strong>, and <strong>16</strong> to the vector, and then print out the element at index <strong>2</strong>:</p>
+<pre><code class="cpp">Vector&lt;int&gt; magic;
+magic.add(4);
+magic.add(8);
+magic.add(15);
+magic.add(16);
+cout &lt;&lt; magic[2] &lt;&lt; endl;</code></pre>
+
+<p>Output:</p>
+<pre><code class="cpp">15</code></pre>
+
+<p>Notice that the index ordering starts from <strong>zero</strong>!</p>
+
+<p>In the computer&#8217;s memory, our vector is represented by one number after another, as follows:</p>
+<pre><code class="cpp">magic:
+index:	0 	1 	2 	3 
+value:	4	8	15	16</code></pre>
+
+<p>Vectors have useful functions, like <code>size()</code></p>
+
+<p>The following loops through the values in the vector and prints them:</p>
+<pre><code class="cpp">for(int i = 0; i &lt; magic.size(); i++) {
+ cout &lt;&lt; magic[i] &lt;&lt; endl;
+}</code></pre>
+
+<p>Output:</p>
+<pre><code class="cpp">4
+8
+15
+16</code></pre>
+
+<h3 id="theforeachloop">the for each Loop</h3>
+
+<p>The following is a loop that automatically gets the next value in a collection,</p>
+<pre><code class="cpp">for(int value : magic) {
+ cout &lt;&lt; value &lt;&lt; endl;
+}</code></pre>
+
+<p>Output:</p>
+<pre><code class="cpp">4
+8
+15
+16</code></pre>
+
+<h3 id="vectorfunctions">Vector Functions</h3>
+
+<p>The following functions are part of the vector collection, and can be useful:</p>
+
+<ul>
+<li><code>vec.size()</code>: Returns the number of elements in the vector.</li>
+<li><code>isEmpty()</code>: Returns <code>true</code> if the vector is empty, <code>false</code> otherwise.</li>
+<li><code>vec[i]</code>: Selects the ith element of the vector.</li>
+<li><code>vec.add(value)</code>: Adds a new element to the end of the vector.</li>
+<li><code>vec.insert(index, value)</code>: Inserts the value before the specified index, and moves the values after it up by one index.</li>
+<li><code>vec.remove(index)</code>: Removes the element at the specified index, and moves the rest of the elements down by one index.</li>
+<li><code>vec.clear()</code>: Removes all elements from the vector.</li>
+</ul>
+
+<p>For the exhaustive list, check out the <a href="https://web.stanford.edu/dept/cs_edu/cppdoc/Vector-class.html">Stanford Vector class</a></p>
+
+<h2 id="thegridcontainer">The Grid Container</h2>
+
+<figure>
+<img src="{% static 'codehome/src/img/cpp/matrix.png' %}" alt="matrix" />
+<figcaption>matrix</figcaption>
+</figure>
+
+<p>The <strong>Grid</strong> is a Stanford library class for 2-dimensional arrays, like a matrix in math:</p>
+<pre><code class="cpp">a0	b0	c0
+a1	b1	c1
+a2	b2	c2</code></pre>
+
+<h3 id="intuitionongrid">Intuition on Grid</h3>
+
+<p>What is it?</p>
+
+<ul>
+<li>Advanced 2D array.</li>
+<li>Think spread sheets, game boards</li>
+</ul>
+
+<p>Important Details</p>
+
+<ul>
+<li>Default constructor makes a grid of size 0</li>
+<li>Doesn’t support “ragged right”.</li>
+<li>Bounds checks</li>
+<li>Knows its size.</li>
+</ul>
+
+<p>We could use a combination of Vectors to simulate a 2D matrix, but a Grid is easier!</p>
+
+<h3 id="gridexamplecode">Grid Example Code</h3>
+<pre><code class="cpp">Grid&lt;int&gt; matrix(2,2); 
+matrix[0][0] = 42;
+matrix[0][1] = 6;
+matrix[1][0] = matrix[0][1];
+cout &lt;&lt; matrix.numRows() &lt;&lt; endl;
+cout &lt;&lt; matrix[0][1] &lt;&lt; endl;
+cout &lt;&lt; matrix[1][1] &lt;&lt; endl;
+cout &lt;&lt; matrix[2][3] &lt;&lt; endl;</code></pre>
+
+<p>Let&#8217;s draw what happens on each line.</p>
+<pre><code class="cpp">Grid&lt;int&gt; matrix(2,2); // Create a 2x2 grid, with 0 as the default entries
+
+	0	1
+0	0	0
+1	0	0</code></pre>
+<pre><code class="cpp">matrix[0][0] = 42; // put 42 at row 0, column 0
+
+    0	1
+0	42	0
+1	0	0</code></pre>
+<pre><code class="cpp">matrix[0][1] = 6; // put 6 at row 0, column 1
+
+    0	1
+0	42	6
+1	0	0</code></pre>
+<pre><code class="cpp">matrix[1][0] = matrix[0][1]; // put the value from r0,c1 at r1,c0
+
+	0	1
+0	42	6
+1	6	0</code></pre>
+<pre><code class="cpp">cout &lt;&lt; matrix.numRows() &lt;&lt; endl;
+cout &lt;&lt; matrix[0][1] &lt;&lt; endl;
+cout &lt;&lt; matrix[1][1] &lt;&lt; endl;</code></pre>
+
+<p>Prints the number of rows, then the value at r0,c1, then the value at r1,c1:</p>
+<pre><code class="cpp">2
+6
+0</code></pre>
+<pre><code class="cpp">cout &lt;&lt; matrix[2][3] &lt;&lt; endl; // attempts to print out the value at r2,c3
+
+***
+*** STANFORD C++ LIBRARY 
+*** An ErrorException occurred during program execution: 
+*** Grid::operator [][]: (2, 3) is outside of valid range [(0, 0)..(1, 1)]
+***
+libc++abi.dylib: terminate_handler unexpectedly threw an exception
+15:25:55: The program has unexpectedly finished.
+15:25:55: The process was ended forcefully.</code></pre>
+
+<p>Grids do bounds checking! If you want to bounds check without crashing, you should call the <code>grid.inBounds(row, col)</code> function, which returns <code>true</code> if the row and column are in bounds for the grid.</p>
+
+<h3 id="gridfunctions">Grid Functions</h3>
+
+<p>The following functions are part of the grid collection, and can be useful:</p>
+
+<ul>
+<li><code>grid.numRows()</code>: Returns the number of rows in the grid.</li>
+<li><code>grid.numCols()</code>: Returns the number of columns in the grid.</li>
+<li><code>grid[i][j]</code>: selects the element in the ith row and jth column.</li>
+<li><code>grid.resize(rows, cols)</code>: Changes the dimensions of the grid and re-initializes all entries to their default values.</li>
+<li><code>grid.inBounds(row, col)</code>: Returns <code>true</code> if the specified row, column position is in the grid, <code>false</code> otherwise.</li>
+</ul>
+
+<p>For the exhaustive list, check out the <a href="https://web.stanford.edu/dept/cs_edu/cppdoc/Grid-class.html">Stanford Grid class</a></p>
+
+<h3 id="gridexampletraversingagrid">Grid Example Traversing a Grid</h3>
+<pre><code class="cpp">void printGrid(Grid&lt;char&gt; &amp;grid) {
+    for(int r = 0; r &lt; grid.numRows(); r++) {
+        for(int c = 0; c &lt; grid.numCols(); c++) {
+            cout &lt;&lt; grid[r][c];
+        }
+        cout &lt;&lt; endl;
+    }
+}</code></pre>
+
+<p>If we pass in the following grid, what will print?</p>
+<pre><code class="cpp">    0	1
+0	a	b
+1	c	d
+2	e	f</code></pre>
+
+<p>Output:</p>
+<pre><code class="cpp">ab
+cd
+ef</code></pre>
+
+<h3 id="commonpitfallswhenworkingwithcollectionsincpp">Common Pitfalls When Working with Collections in Cpp</h3>
+
+<ul>
+<li><code>Vector numbers;</code>
+
+<ul>
+<li>Needs a type! Should be: <code>Vector&lt;int&gt; numbers;</code></li>
+</ul></li>
+<li><code>void myFunction(Grid&lt;bool&gt; gridParam);</code>
+
+<ul>
+<li>Two issues:
+
+<ul>
+<li>If you want the original <code>gridParam</code> to be changed in the calling function, you&#8217;re out of luck.</li>
+<li>Inefficient because you have to make a copy of <code>gridParam</code>.</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h2 id="stacks">Stacks</h2>
+
+<p>We are about to discuss two new containers in which to store our data: the <strong>stack</strong> and <strong>queue</strong> containers. These are also known as <em>abstract data types</em>, meaning that we are defining the interface for a container, and how it is actually implemented under the hood is not of our concern (at this point!)</p>
+
+<p>An <em>abstract data type</em> is defined by its behavior from the point of view of the user of the data, and by the operations it can accomplish with the data.</p>
+
+<p>The stack and queue containers have similar interfaces, but they are used for very different problems, as we shall see.</p>
+
+<h3 id="intuitiononstack">Intuition on Stack</h3>
+
+<p>A stack is an abstract data type with the following behaviors / functions:</p>
+
+<ul>
+<li><code>push(value)</code> (or <code>add(value)</code>) - place an entity onto the top of the stack</li>
+<li><code>pop()</code> (or <code>remove()</code>) - remove an entity from the top of the stack and return it</li>
+<li><code>top()</code> (or <code>peek()</code>) - look at the entity at the top of the stack, but don’t remove it</li>
+<li><code>isEmpty()</code> - a boolean value, <code>true</code> if the stack is empty, <code>false</code> if it has at least one element. (note: a runtime error occurs if a pop() or top() operation is attempted on an empty stack.)</li>
+</ul>
+
+<p>Why do we call it a stack? Because we model it using a stack of things:</p>
+
+<figure>
+<img src="{% static 'codehome/src/img/cpp/stack.png' %}" alt="stack" />
+<figcaption>stack</figcaption>
+</figure>
+
+<p>The <strong>push</strong>, <strong>pop</strong>, and <strong>top</strong> operations are the only operations allowed by the stack ADT, and as such, only the top element is accessible. Therefore, a stack is a Last-In-First-Out (LIFO) structure: the last item in is the first one out of a stack.</p>
+
+<p>Despite the stack’s limitations (and indeed, because of them), the stack is a very frequently used ADT. In fact, most computer architectures implement a stack at the very core of their instruction sets – both push and pop are assembly code instructions.</p>
+
+<p>Stack operations are so useful that there is a stack built in to every program running on your PC — the stack is a memory block that gets used to store the state of memory when a function is called, and to restore it when a function returns.</p>
+
+<p>Why are stacks used when functions are called?</p>
+
+<ul>
+<li>Let&#8217;s say we had a program like this:<br/>
+ <img src="{% static 'codehome/src/img/cpp/function-calls.png' %}" alt="function-calls" /></li>
+<li><code>main</code> calls <code>function1</code>, which calls <code>function2</code>, which calls <code>function3</code>.</li>
+<li>First, <code>function3</code> returns, then <code>function2</code> returns, then <code>function1</code> returns, then <code>main</code> returns.</li>
+<li>This is a LIFO pattern!<br/>
+ <img src="{% static 'codehome/src/img/cpp/function-stack.png' %}" alt="function-stack" /></li>
+</ul>
+
+<h3 id="stackstradeoffs">Stacks Tradeoffs</h3>
+
+<p>What are some downsides to using a stack?</p>
+
+<ul>
+<li>No random access. You get the top, or nothing.</li>
+<li>No walking through the stack at all — you can only reach an - element by popping all the elements higher up off first</li>
+<li>No searching through a stack.</li>
+</ul>
+
+<p>What are some benefits to using a stack?</p>
+
+<ul>
+<li>Useful for lots of problems – many real-world problems can be solved with a Last-In-First-Out model (we&#8217;ll see one in a minute)</li>
+<li>Very easy to build one from an array such that access is guaranteed to be fast.</li>
+<li>Where would you have the top of the stack if you built one using a Vector? Why would that be fast?</li>
+</ul>
+
+<h3 id="reversingthewordsinasentence">Reversing the words in a sentence</h3>
+
+<p>Let&#8217;s build a program from scratch that reverses the words in a sentence.</p>
+
+<p>Goal: reverse the words in a sentence that has no punctuation other than letters and spaces.</p>
+
+<ol>
+<li>Use a stack</li>
+<li>Read characters in a string and place them in a new word.</li>
+<li>When we get to a space, push that word onto the stack, and reset the word to be empty.</li>
+<li>Repeat until we have put all the words into the stack.</li>
+<li>Pop the words from the stack one at a time and print them out.</li>
+</ol>
+<pre><code class="cpp">#include &lt;iostream&gt;
+#include &quot;console.h&quot;
+#include &quot;stack.h&quot;
+
+using namespace std;
+const char SPACE = &apos; &apos;;
+
+int main() {
+    string sentence = &quot;hope is what defines humanity&quot;;
+    string word;
+    Stack&lt;string&gt; wordStack;
+
+    cout &lt;&lt; &quot;Original sentence: &quot; &lt;&lt; sentence &lt;&lt; endl;
+
+    for (char c : sentence) {
+       if (c == SPACE) {
+           wordStack.push(word);
+           word = &quot;&quot;; // reset
+       } else {
+           word += c;
+       }
+    }
+    if (word != &quot;&quot;) {
+        wordStack.push(word);
+    }
+
+    cout &lt;&lt; &quot;     New sentence: &quot;;
+    while (!wordStack.isEmpty()) {
+        word = wordStack.pop();
+        cout &lt;&lt; word &lt;&lt; SPACE;
+    }
+    cout &lt;&lt; endl;
+
+    return 0;
+}</code></pre>
+
+<p>Output:</p>
+<pre><code class="cpp">Original sentence: hope is what defines humanity
+     New sentence: humanity defines what is hope</code></pre>
+
+<h2 id="queues">Queues</h2>
+
+<h3 id="intuitiononqueue">Intuition on Queue</h3>
+
+<p>The next ADT we are going to talk about is a queue. A queue is similar to a stack, except that (much like a real queue/line), it follows a &#8220;First-In-First-Out&#8221; (FIFO) model:</p>
+
+<figure>
+<img src="{% static 'codehome/src/img/cpp/function-stack.png' %}" alt="queue" />
+<figcaption>queue</figcaption>
+</figure>
+
+<ul>
+<li>The first person in line is the first person served.</li>
+<li>The last person in line is the last person served.</li>
+<li>Insertion into a queue <code>enqueue()</code> is done at the back of the queue, and removal from a queue <code>dequeue()</code> is done at the front of the queue.</li>
+</ul>
+
+<h3 id="memberfunctions">Member Functions</h3>
+
+<p>Like the stack, the queue Abstract Data Type can be implemented in many ways (we will talk about some later!). A queue must implement at least the following functions:</p>
+
+<ul>
+<li><code>enqueue(value)</code> (or <code>add(value)</code>) - place an entity onto the back of the queue</li>
+<li><code>dequeue()</code> (or <code>remove()</code>) - remove an entity from the front of the queue and return it</li>
+<li><code>front()</code> (or <code>peek()</code>) - look at the entity at the front of the queue, but don’t remove it</li>
+<li><code>isEmpty()</code> - a boolean value, <code>true</code> if the queue is empty, <code>false</code> if it has at least one element. (note: a runtime error occurs if a <code>dequeue()</code> or <code>front()</code> operation is attempted on an empty queue).</li>
+</ul>
+
+<p>Please look at the Stanford Library Queue reference for other functions (e.g., there is a <code>back()</code> function that is analogous to <code>front()</code> for the back of the queue – but no removing the value!)</p>
+
+<p>Examples:</p>
+<pre><code class="cpp">Queue&lt;int&gt; q;                // {}, empty queue
+q.enqueue(42);               // {42}
+q.enqueue(-3);               // {42, -3}
+q.enqueue(17);               // {42, -3, 17}
+cout &lt;&lt; q.dequeue() &lt;&lt; endl; // 42 (q is {-3, 17})
+cout &lt;&lt; q.front() &lt;&lt; endl;   // -3 (q is {-3, 17})
+cout &lt;&lt; q.dequeue() &lt;&lt; endl; // -3 (q is {17})</code></pre>
+
+<h3 id="queueexamples">Queue Examples</h3>
+
+<p>Both the Stanford Stack and Queue classes have a size() function that returns the number of elements in the object.</p>
+
+<p>What is the output of the following code?</p>
+<pre><code class="cpp"> Queue&lt;int&gt; queue;
+ // produce: {1, 2, 3, 4, 5, 6}
+ for (int i = 1; i &lt;= 6; i++) {
+     queue.enqueue(i);
+ }
+ for (int i = 0; i &lt; queue.size(); i++) {
+     cout &lt;&lt; queue.dequeue() &lt;&lt; &quot; &quot;;
+ }
+ cout &lt;&lt; queue.toString() &lt;&lt; &quot;  size &quot; &lt;&lt; queue.size() &lt;&lt; endl;</code></pre>
+
+<p>Answer:</p>
+<pre><code class="cpp">1 2 3 {4,5,6} size 3</code></pre>
+
+<p>Reason: watch out! <code>queue.size()</code> changes while the loop runs! You have to be careful when looping and also checking the size of your container.</p>
+
+<h3 id="queueidiom">Queue Idiom</h3>
+
+<p>If you are going to empty a stack or queue, a very good programming idiom is the following:</p>
+<pre><code class="cpp">Queue&lt;int&gt; queueIdiom1;
+// produce: {1, 2, 3, 4, 5, 6}
+for (int i = 1; i &lt;= 6; i++) {
+  queueIdiom1.enqueue(i);
+}
+while (!queueIdiom1.isEmpty()) {
+  cout &lt;&lt; queueIdiom1.dequeue() &lt;&lt; &quot; &quot;;
+}
+cout &lt;&lt; queueIdiom1.toString()
+   &lt;&lt; &quot;  size &quot; &lt;&lt; queueIdiom1.size() &lt;&lt; endl;</code></pre>
+
+<p>Output:</p>
+<pre><code class="cpp">1 2 3 4 5 6 { } size 0</code></pre>
+
+<p>If you are going to go through a stack or queue once for the original values, a very good programming idiom is the following, which calculates the size of the queue only once:</p>
+<pre><code class="cpp">Queue&lt;int&gt; queueIdiom2;
+  for (int i = 0; i &lt; 6; i++) {
+      queueIdiom2.enqueue(i + 1);
+  }
+   
+  //  do NOT put queue.size() in for loop, to avoid calling repeatedly 
+  int origQSize = queueIdiom2.size();
+  for (int i=0; i &lt; origQSize; i++) {
+     int value = queueIdiom2.dequeue();
+     cout &lt;&lt; value &lt;&lt; &quot; &quot;;
+     // re-enqueue even values
+     if (value % 2 == 0) {
+        queueIdiom2.enqueue(value);
+     }
+  }
+  cout &lt;&lt; endl;
+  cout &lt;&lt; queueIdiom2 &lt;&lt; endl;</code></pre>
+
+<p>Output:</p>
+<pre><code class="cpp">1 2 3 4 5 6
+{2, 4, 6}</code></pre>
+
+<p>There will still be three values left in the queue <code>(2, 4, 6)</code>, but we only looped through the queue for the original values.</p>
+
+<h3 id="moreadvancedstackexamplepostfix">More Advanced Stack Example Postfix</h3>
+
+<p>When you were first learning algebraic expressions, your teacher probably gave you a problem like this, and said, &#8220;What is the result?&#8221;</p>
+
+<p><code>5 * 4 - 8 / 2 + 9</code></p>
+
+<p>The class got all sorts of different answers, because no one knew the order of operations yet (the correct answer is 25, by the way). Parenthesis become necessary as well (e.g., <code>10 / (8-3)</code>).</p>
+
+<p>This is a somewhat annoying problem — it would be nice if there were a better way to do arithmetic so we didn&#8217;t have to worry about order of operations and parenthesis.</p>
+
+<p>As it turns out, there is a &#8220;better&#8221; way! We can use a system of arithmetic called &#8220;postfix&#8221; notation — the expression above would become the following:</p>
+
+<p><code>5 4 * 8 2 / - 9 +</code> Wat?</p>
+
+<p>Postfix notation* works like this: Operands (the numbers) come first, followed by an operator (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, etc.). When an operator is read in, it uses the previous operands to perform the calculation, depending on how many are needed (most of the time it is two).</p>
+
+<p>So, to multiply 5 and 4 in postfix, the postfix is <code>5 4 *</code> To divide 8 by 2, it is <code>8 2 /</code></p>
+
+<p>There is a simple and clever method using a stack to perform arithmetic on a postfix expression:</p>
+
+<ol>
+<li>Read the input and push numbers onto a stack until you reach an operator.</li>
+<li>When you see an operator, apply the operator to the two numbers that are popped from the stack.</li>
+<li>Push the resulting value back onto the stack.</li>
+<li>When the input is complete, the value left on the stack is the result.</li>
+</ol>
+
+<blockquote>
+<p>*Postfix notation is also called &#8220;Reverse Polish Notation&#8221; (RPN) because in the 1920s a Polish logician named Jan Łukasiewicz invented &#8220;prefix&#8221; notation, and postfix is the opposite of postfix, and therefore so-called &#8220;Reverse Polish Notation&#8221;</p>
+</blockquote>
+<pre><code class="cpp">// Postfix arithmetic, implementing +, -, *, /
+
+#include &lt;iostream&gt;
+#include &quot;console.h&quot;
+#include &quot;simpio.h&quot;
+#include &quot;stack.h&quot;
+
+using namespace std;
+
+const string OPERATORS = &quot;+-*x/&quot;;
+const string SEPARATOR = &quot; &quot;;
+
+// function prototypes
+double parsePostfix(string expression);
+string getNextToken(string &amp;expression);
+void performCalculation(Stack&lt;double&gt; &amp;s, char op);
+
+// Postfix arithmetic, implementing +, -, *, /
+
+#include &lt;iostream&gt;
+#include &quot;console.h&quot;
+#include &quot;simpio.h&quot;
+#include &quot;stack.h&quot;
+
+using namespace std;
+
+const string OPERATORS = &quot;+-*x/&quot;;
+const string SEPARATOR = &quot; &quot;;
+
+// function prototypes
+double parsePostfix(string expression);
+string getNextToken(string &amp;expression);
+void performCalculation(Stack&lt;double&gt; &amp;s, char op);
+
+int main() {
+    string expression;
+    double answer;
+    do {
+        expression = getLine(&quot;Please enter a postfix expression (blank to quit): &quot;);
+        answer = parsePostfix(expression);
+        cout &lt;&lt; &quot;The answer is: &quot; &lt;&lt; answer &lt;&lt; endl &lt;&lt; endl;
+    } while (expression != &quot;&quot;);
+    return 0;
+}
+
+int main() {
+    string expression;
+    double answer;
+    do {
+        expression = getLine(&quot;Please enter a postfix expression (blank to quit): &quot;);
+        if (expression == &quot;&quot;) {
+            break;
+        }
+        answer = parsePostfix(expression);
+        cout &lt;&lt; &quot;The answer is: &quot; &lt;&lt; answer &lt;&lt; endl &lt;&lt; endl;
+    } while (true);
+    return 0;
+}
+
+string getNextToken(string &amp;expression) {
+    // pull out the substring up to the first space
+    // and return the token, removing it from the expression
+
+    string token;
+    int sepLoc = expression.find(SEPARATOR);
+    if (sepLoc != (int) string::npos) {
+        token = expression.substr(0,sepLoc);
+        expression = expression.substr(sepLoc+1,expression.size()-sepLoc);
+        return token;
+    }
+    else {
+        token = expression;
+        expression = &quot;&quot;;
+        return token;
+    }
+}
+
+double parsePostfix(string expression) {
+    Stack&lt;double&gt; s;
+    string nextToken;
+    
+    while (expression != &quot;&quot;) {
+        // gets the next token and removes it from expression
+        nextToken = getNextToken(expression);
+        if (OPERATORS.find(nextToken) == string::npos) {
+            // we have a number
+            double operand = stringToDouble(nextToken);
+            s.push(operand);
+        }
+        else {
+            // we have an operator
+            char op = stringToChar(nextToken);
+            performCalculation(s,op);
+        }
+    }
+    return s.pop();
+}
+
+void performCalculation(Stack&lt;double&gt; &amp;s, char op) {
+    double result;
+    double operand2 = s.pop(); // LIFO!
+    double operand1 = s.pop();
+    switch(op) {
+        case &apos;+&apos;: result = operand1 + operand2;
+            break;
+        case &apos;-&apos;: result = operand1 - operand2;
+            break;
+            // allow &quot;*&quot; or &quot;x&quot; for times
+        case &apos;*&apos;:
+        case &apos;x&apos;: result = operand1 * operand2;
+            break;
+        case &apos;/&apos;: result = operand1 / operand2;
+            break;
+    }
+    s.push(result);
+}</code></pre>
+
+<p>Example run:</p>
+<pre><code class="cpp">Please enter a postfix expression (blank to quit): 5 4 * 8 2 / - 9 +
+The answer is: 25
+
+Please enter a postfix expression (blank to quit): 1 2 3 4 + + +
+The answer is: 10
+ 
+Please enter a postfix expression (blank to quit): 1 2 3 4 - - -
+The answer is: -2
+ 
+Please enter a postfix expression (blank to quit): 1 2 + 3 * 6 + 2 3 + /
+The answer is: 3 
+
+Please enter a postfix expression (blank to quit): 2 3 4 + * 6 - 
+The answer is: 8 </code></pre>
+
+<p><strong>World&#8217;s First Programmable Desktop Computer</strong></p>
+
+<p>The HP 9100A Desktop Calculator: the world’s first programmable scientific desktop computer — really, the first desktop computer. (Wired, Dec. 2000)</p>
+
+<figure>
+<img src="{% static 'codehome/src/img/cpp/hp-9100A.png' %}" alt="hp-9100A" />
+<figcaption>hp&#8211;9100A</figcaption>
+</figure>
+
+<ul>
+<li>RPN (postfix)</li>
+<li>Special algorithm for trigonometric and logarithmic functions</li>
+<li>Cost $5000 in 1968 ($37,000 today)</li>
+</ul>
+
+<h2 id="sets">Sets</h2>
+
+<figure>
+<img src="{% static 'codehome/src/img/cpp/sets-maps.png' %}" alt="sets-maps" />
+<figcaption>sets-maps</figcaption>
+</figure>
+
+<p>Today we are going to discuss two new collections: sets and maps.</p>
+
+<p>A <em>set</em> is a collection of elements with no duplicates:</p>
+
+<p>A <em>map</em> is a collection of key/value pairs, and the key is used to find the value. In python, we call this collection a <strong>dict</strong>.</p>
+
+<h3 id="intuitiononset">Intuition on Set</h3>
+
+<p>A set is a collection of elements with no duplicates. Sets have (at least) the following operations (and they are fast):</p>
+
+<ul>
+<li><code>add(value)</code>: adds a value to a set, and ignores if the set already contains the value</li>
+<li><code>contains(value)</code>: returns <code>true</code> if the set contains the value, <code>false</code> otherwise.</li>
+<li><code>remove(value)</code>: removes the value from the set. Does nothing if the value is not in the set.</li>
+<li><code>size()</code>: returns the number of elements in the set</li>
+<li><code>isEmpty()</code>: returns <code>true</code> if the set is empty, <code>false</code> otherwise.</li>
+<li>Sets have other useful functions, and you should check the <a href="https://web.stanford.edu/dept/cs_edu/cppdoc/Set-class.html">documentation</a> to see them.</li>
+</ul>
+
+<p>Sets do NOT have <strong>indexes</strong>!</p>
+
+<figure>
+<img src="{% static 'codehome/src/img/cpp/set2.png' %}" alt="set2" />
+<figcaption>set2</figcaption>
+</figure>
+
+<h3 id="setssimpleexample">Sets Simple Example</h3>
+<pre><code class="cpp">Set&lt;string&gt; friends;
+friends.add(&quot;nick&quot;);
+friends.add(&quot;chris&quot;);
+friends.add(&quot;julie&quot;);
+cout &lt;&lt; boolalpha &lt;&lt; friends.contains(&quot;voldemort&quot;) &lt;&lt; 
+     &lt;&lt; noboolalpha &lt;&lt; endl;
+for(string person : friends) {
+    cout &lt;&lt; person &lt;&lt; endl;
+}</code></pre>
+
+<p>Output:</p>
+<pre><code class="cpp">false
+chris
+julie
+nick</code></pre>
+
+<p>Notice – the output from the for loop is alphabetical! Sets keep their values sorted.</p>
+
+<h3 id="loopingoveraset">Looping over a Set</h3>
+<pre><code class="cpp">for(type currElem : set) {
+    // process elements one at a time
+}</code></pre>
+
+<p>You can&#8217;t use an index-based <strong>for</strong> loop, because Sets do not have indexes!</p>
+<pre><code class="cpp">for(int i=0; i &lt; set.size(); i++) {
+  // does not work, no index!
+  cout &lt;&lt; set[i];
+}</code></pre>
+
+<h3 id="typesofsets">Types of Sets</h3>
+
+<p>There are actually two types of sets in the Stanford library:</p>
+
+<ul>
+<li>Set
+
+<ul>
+<li>Iteration over the elements is in sorted order</li>
+<li>Really fast access times! <code>O(log n)</code> per retrieval – we will learn about this in the next tutorial!</li>
+<li>Sets are implemented using a &#8220;binary search tree&#8221;</li>
+</ul></li>
+<li>HashSet
+
+<ul>
+<li>Iteration over the elements is not in a useful order (it is jumbled)</li>
+<li>Really, ridiculously fast!</li>
+<li><code>O(1)</code> per retrieval (again, we will learn what this means in the next tutorial!)</li>
+</ul></li>
+</ul>
+
+<h3 id="setoperands">Set Operands</h3>
+
+<p>Sets can be compared, combined, etc.</p>
+
+<ul>
+<li><code>s1 == s2</code><br/>
+ <code>true</code> if the sets contain exactly the same elements</li>
+<li><code>s1 != s2</code><br/>
+ <code>true</code> if the sets don&#8217;t contain the exact same elements</li>
+<li><code>s1 + s2</code><br/>
+ returns the union of s1 and s2 (i.e., all elements in both)</li>
+<li><code>s1 * s2</code><br/>
+ returns the intersection of s1 and s2 (i.e., only the elements in both sets)</li>
+<li><code>s1 - s2</code><br/>
+ returns the difference of s1 and s2 (the elements in s1 but not in s2)</li>
+</ul>
+
+<h2 id="maps">Maps</h2>
+
+<h3 id="intuitiononmaps">Intuition on Maps</h3>
+
+<p>A map is a collection of pairs <em>(k, v)</em>, sometimes called <strong>key/value</strong> pairs, where v can be found quickly if you know k.<br/>
+Other terms you may hear for a map are <strong>dictionary</strong> or <strong>associative array</strong>.<br/>
+A map is a generalization of an array, where the &#8220;indexes&#8221; don&#8217;t need to be integers:</p>
+
+<figure>
+<img src="{% static 'codehome/src/img/cpp/set2.png' %}" alt="key-value-pairs" />
+<figcaption>key-value-pairs</figcaption>
+</figure>
+
+<h3 id="usingmaps">Using Maps</h3>
+
+<p>A map allows you to get from one half of a pair to the other.</p>
+
+<p>E.g., to store an association from &#8220;Jenny&#8221; to &#8220;867&#8211;5309&#8221;:</p>
+<pre><code class="cpp">//  key         value
+m[&quot;Jenny&quot;] = &quot;867-5309&quot;; // or:
+m.put(&quot;Jenny&quot;, &quot;867-5309&quot;);</code></pre>
+
+<p>To get Jenny&#8217;s number:</p>
+<pre><code class="cpp">string ph = m[&quot;Jenny&quot;] // or
+string ph = m.get(&quot;Jenny&quot;)
+cout &lt;&lt; ph &lt;&lt; endl;</code></pre>
+
+<p>Output:</p>
+<pre><code class="cpp">867-5309</code></pre>
+
+<h5 id="mapsareeverywhere">Maps are Everywhere</h5>
+
+<p>Wikipedia: the key is the title, the value is the article:</p>
+
+<figure>
+<img src="{% static 'codehome/src/img/cpp/wikipedia-articles.png' %}" alt="wikipedia-articles" />
+<figcaption>wikipedia-articles</figcaption>
+</figure>
+
+<h5 id="creatingmaps">Creating Maps</h5>
+
+<p>A Stanford <strong>Map</strong> requires two parameters: one for keys, one for values:</p>
+<pre><code class="cpp">// maps from string keys to integer values
+Map&lt;string, int&gt; votes;
+
+// maps from double keys to Vector&lt;int&gt; values
+Map&lt;string, Vector&lt;string&gt;&gt; friendMap; </code></pre>
+
+<h3 id="mapfunctions">Map Functions</h3>
+
+<p>The following functions are part of the <strong>Map</strong> class:</p>
+
+<ul>
+<li><code>m.clear()</code> : removes all key/value pairs from the map</li>
+<li><code>m.containsKey(key)</code> : returns <code>true</code> if the map contains a value for the given key</li>
+<li><code>m[key]</code></li>
+<li><code>m.get(key)</code> : returns the value mapped to the given key; if <strong>key</strong> is not in the map, adds it with the default value (e.g., 0 or &quot;&quot;)</li>
+<li><code>m.isEmpty()</code> : returns true if the map contains no key/value pairs (size 0)</li>
+<li><code>m.keys()</code> : returns a Vector copy of all keys in the map</li>
+<li><code>m[key] = value</code></li>
+<li><code>m.put(key, value)</code> : adds a mapping from the given key to the given value; if the key already exists, <strong>replaces</strong> its value with the given one</li>
+<li><code>m.remove(key)</code> : removes any existing mapping for the given key (ignored if the key doesn&#8217;t exist in the map)</li>
+<li><code>m.size()</code> : returns the number of key/value pairs in the map</li>
+<li><code>m.toString()</code> : returns a string such as &#8220;<code>{a:90, d:60, c:70}</code>&#8221;</li>
+<li><code>m.values()</code> : returns a <strong>Vector</strong> copy of all the values in the map</li>
+</ul>
+
+<h3 id="mapexample">Map Example</h3>
+<pre><code class="cpp">Map&lt;string, string&gt; wiki;
+
+// adds name / text pair to dataset
+wiki.put(&quot;Neopalpa donaldtrumpi&quot;, articleHTML);
+
+// returns corresponding articleHTML
+cout &lt;&lt; wiki.get(&quot;Yosemite National Park&quot;);
+
+// removes the article
+wiki.remove(&quot;Britain in the E.U.&quot;);</code></pre>
+
+<h3 id="typesofmaps">Types of Maps</h3>
+
+<p>There are actually two types of maps in the Stanford library:</p>
+
+<ul>
+<li>Map
+
+<ul>
+<li>Iteration over the elements is in sorted order</li>
+<li>Really fast access times! <code>O(log n)</code> per retrieval – we will learn about this next tutorial!</li>
+<li>Maps are implemented using a &#8220;binary search tree&#8221;</li>
+</ul></li>
+<li>HashMap
+
+<ul>
+<li>Iteration over the elements is not in a useful order (it is jumbled)</li>
+<li>Really, ridiculously fast!</li>
+<li><code>O(1)</code> per retrieval (again, we will learn what this means next time!)</li>
+</ul></li>
+</ul>
+
+<h3 id="mapexampletallyingvotes">Map Example Tallying Votes</h3>
+<pre><code class="cpp">// tally votes:
+// (M)ilk, (S)tokes, (R)ogers
+string allVotes = &quot;MMMRMSSMSSMMMMMRRMMMMRRRMMM&quot;;
+
+Map&lt;char, int&gt; voteTally;
+for (char v : allVotes) {
+    voteTally[v]++;
+}
+
+// loop over the map
+for (char initial : voteTally) {
+    int numVotes = voteTally[initial];
+    cout &lt;&lt; initial &lt;&lt; &quot;: &quot; &lt;&lt; numVotes &lt;&lt; &quot; votes&quot; &lt;&lt; endl;
+}</code></pre>
+
+<p>Why does <code>voteTally[v]++;</code> work? It turns out that when you access a Map&#8217;s value, you get back a reference! Therefore, updating it here allows it to update inside the map. Cool!</p>
+
+<p>It is equivalent to the following:</p>
+<pre><code class="cpp">int&amp; currentTotal = voteTally[v];
+currentTotal++; // update inside the map</code></pre>
+
+<p>Notice how we looped over the map – we only get the keys, and have to manually ask for each value from the key.</p>
+
+<p><EndMarkdown></p>
