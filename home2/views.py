@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .lib.intro import intro
+from .cachefile.intro import intro
 
 # Create your views here.
 
