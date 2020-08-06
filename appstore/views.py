@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .lib.checker import regular_expression_checker
-from .lib.generator import generator
+from .cachefile.checker import regular_expression_checker
+from .cachefile.generator import generator
 
 # Create your views here.
 
